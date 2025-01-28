@@ -15,7 +15,12 @@ Add a group photo here!
 ![group_photo](https://github.com/user-attachments/assets/4cc80d67-6f17-4c88-a464-6f2fe2500443)
 
 
-![image](https://github.com/user-attachments/assets/f5c92cdd-c2eb-4215-9e45-106cd9106518)
+Xinjie Gao, id24861@bristol.ac.uk, Gracie-Gao，Software Test Engineer
+Zibin Liu, ys24930@bristol.ac.uk, ZibinLiu， Project Manager
+Xiaobo Ma, oa24686@bristol.ac.uk, XiaoboMa1， Software Test Engineer
+Kailin Fang, kfnora398@gmail.com, catlin518，UI Designer
+Yanhao He, ei24967@bristol.ac.uk, YanHe225，Developer
+Gongyu Xue, in24247@bristol.ac.uk, xgy56，Developer
 
 
 ## Project Report
