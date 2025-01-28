@@ -14,17 +14,14 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 Add a group photo here!
 ![group_photo](https://github.com/user-attachments/assets/4cc80d67-6f17-4c88-a464-6f2fe2500443)
 
-
-Xinjie Gao, id24861@bristol.ac.uk, Gracie-Gao，Software Test Engineer
-Zibin Liu, ys24930@bristol.ac.uk, ZibinLiu， Project Manager
-Xiaobo Ma, oa24686@bristol.ac.uk, XiaoboMa1， Software Test Engineer
-Kailin Fang, kfnora398@gmail.com, catlin518，UI Designer
-Yanhao He, ei24967@bristol.ac.uk, YanHe225，Developer
-Gongyu Xue, in24247@bristol.ac.uk, xgy56，Developer
-
-
-
-
+| Name         | Email                    | Username    | Role                  |
+|-------------|--------------------------|------------|-----------------------|
+| Xinjie Gao  | [id24861@bristol.ac.uk](mailto:id24861@bristol.ac.uk)  | Gracie-Gao | Software Test Engineer |
+| Zibin Liu   | [ys24930@bristol.ac.uk](mailto:ys24930@bristol.ac.uk)  | ZibinLiu   | Project Manager       |
+| Xiaobo Ma   | [oa24686@bristol.ac.uk](mailto:oa24686@bristol.ac.uk)  | XiaoboMa1  | Software Test Engineer |
+| Kailin Fang | [kfnora398@gmail.com](mailto:kfnora398@gmail.com)      | catlin518  | UI Designer           |
+| Yanhao He   | [ei24967@bristol.ac.uk](mailto:ei24967@bristol.ac.uk)  | YanHe225   | Developer             |
+| Gongyu Xue  | [in24247@bristol.ac.uk](mailto:in24247@bristol.ac.uk)  | xgy56      | Developer             |
 
 ## Project Report
 
