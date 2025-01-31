@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plane Game - English Version</title>
+</head>
+<body>
+  <!-- 游戏总容器 -->
+  <div id="game" style="width: 600px; height: 600px; margin: 50px auto; background-color: #eee; position: relative;">
+    
+    <!-- 第1步：游戏开始界面 -->
+    <div id="gameStart" style="width:100%; height:100%; position:absolute; top:0; left:0; background:#ccc;">
+      <button style="display:block; margin: 250px auto; width:100px; height:50px;">
+        Start Game
+      </button>
+    </div>
+    
+    <!-- 第2步：选择模式（单人 / 双人） -->
+    <div id="selectMode" style="display:none; width:100%; height:100%; position:absolute; top:0; left:0; background:#aaa;">
+      <div style="text-align:center; margin-top:250px;">
+        <button id="singleBtn" style="width:100px; height:50px; margin-right:20px;">Single</button>
+        <button id="doubleBtn" style="width:100px; height:50px;">Two Players</button>
+      </div>
+    </div>
+
+    <!-- 第3步：输入玩家姓名（单人或双人模式下的第1位玩家） -->
+    <div id="enterName" style="display:none; width:100%; height:100%; position:absolute; top:0; left:0; background:#bbb;">
+      <div style="text-align:center; margin-top:250px;">
+        <p id="nameHint" style="font-size:18px;">Please enter your name</p>
+        <input type="text" id="nameInput" style="width:200px; height:30px;" />
+        <p style="color:red;" id="errMsg1"></p>
+      </div>
+    </div>
+
+    <!-- 第4步：输入第二位玩家姓名（仅双人模式才会出现） -->
+    <div id="enterName2" style="display:none; width:100%; height:100%; position:absolute; top:0; left:0; background:#bbb;">
+      <div style="text-align:center; margin-top:250px;">
+        <p style="font-size:18px;">Please enter the second player's name</p>
+        <input type="text" id="nameInput2" style="width:200px; height:30px;" />
+        <p style="color:red;" id="errMsg2"></p>
+      </div>
+    </div>
+
+    <!-- 第5步：正式进入游戏界面（gameEnter） -->
+    <div id="gameEnter" style="width:100%; height:100%; position:absolute; top:0; left:0; display:none;">
+      <!-- 第一架飞机(红色)，用鼠标移动 -->
+      <div id="myPlane"
+           style="width: 50px; height: 60px; background:red; position:absolute; left:275px; top:520px;">
+      </div>
+
+      <!-- 第二架飞机(蓝色)，用WASD移动（默认隐藏，只有双人模式才显示） -->
+      <div id="myPlane2"
+           style="width: 50px; height: 60px; background:blue; position:absolute; left:275px; top:400px; display:none;">
+      </div>
+
+      <!-- 暂停提示框（默认隐藏，暂停时显示在屏幕中央） -->
+      <div id="pauseTip"
+           style="position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+                  background:rgba(0,0,0,0.6); color:#fff; padding:20px; text-align:center;
+                  border-radius:8px; display:none;">
+        Press SPACE to Resume
+      </div>
+
+      <!-- 子弹容器（如需后续扩展） -->
+      <div id="bullets" style="position:absolute; top:0; left:0;"></div>
+      <!-- 敌机容器（如需后续扩展） -->
+      <div id="enemys" style="position:absolute; top:0; left:0;"></div>
+
+      <!-- 玩家信息显示 -->
+      <div id="playerInfo"
+           style="position:absolute; top:5px; left:5px; color:blue; font-size:14px;">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 引入脚本 -->
+  <script src="plane.js"></script>
+</body>
+</html>
