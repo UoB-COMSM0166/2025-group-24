@@ -1,4 +1,28 @@
+// 检查是否在浏览器环境中运行
+if (typeof window !== 'undefined') {
+  // 简写函数：获取ID对应的DOM
+  function $(idName) {
+    return document.getElementById(idName);
+  }
+
+  // 获取元素计算后样式（兼容写法）
+  function getStyle(ele, attr) {
+    var res = null;
+    if (ele.currentStyle) {
+      res = ele.currentStyle[attr];
+    } else {
+      res = window.getComputedStyle(ele, null)[attr];
+    }
+    return parseFloat(res);
+  }
+
+  // 页面加载后执行
+  window.onload = function() {
+    // 这里是原本的初始化代码
+  };
+}
 // 简写函数：获取ID对应的DOM
+
 function $(idName) {
   return document.getElementById(idName);
 }
@@ -230,3 +254,10 @@ window.onload = function() {
     myPlane.style.top  = last_myPlane_top + "px";
   }
 };
+// 导出函数以供测试使用
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    $,
+    getStyle,
+  };
+}
