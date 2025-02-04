@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#game{
+    width: 320px;
+    height: 568px;
+    margin: auto;
+}
+/*step1:gameStart setting*/
+#gameStart{
+    width: 100%;
+    height: 100%;
+    background: url(imgs/background/rainy.png);
+    position: relative;
+    /* display: none; */
+}
+#startButton{
+    width: 192px;
+    height: 65px;
+    display: block;
+    background: url(imgs/ui/PNG/Extra/Default/button_rectangle.png);
+    text-align: center;
+    line-height: 65px;
+    font-size: 20px;
+    font-weight: bolder;
+    position: absolute;
+    left: 63px;
+    bottom:170px;
+    cursor: pointer;
+}
+#startButton:hover{
+    color: aliceblue;
+}
+#rankButton{
+    width: 192px;
+    height: 65px;
+    display: block;
+    background: url(imgs/ui/PNG/Extra/Default/button_rectangle.png);
+    text-align: center;
+    line-height: 65px;
+    font-size: 20px;
+    font-weight: bolder;
+    position: absolute;
+    left: 63px;
+    bottom:95px;
+    cursor: pointer;
+}
+#rankButton:hover{
+    color: aliceblue;
+}
+
+/* step2:gameEnter setting */
+#gameEnter {
+    width: 100%;
+    height: 100%;
+    background: url(imgs/background/rainy.png);
+    position: relative;
+    display: none;
+}
+
+/* setting myPlane */
+#myPlane{
+    width: 66px;
+    height:80px;
+    background-size: contain;
+    position: absolute;
+    left:130px;
+    bottom:0;
+}
+.p{
+    width: 66px;
+    height: 80px;
+    position: absolute;
+}
+
+/* setting bullets */
+#bullets,#enemies{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.b{
+    width: 10px;
+    height: 14px;
+    position: absolute;
+}
