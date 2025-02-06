@@ -34,6 +34,20 @@ Add a group photo here!
 
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
+---
+### 1. List of Stakeholders
+- **Players:**  
+  Expect a smooth gaming experience with challenging level designs and diverse weapon upgrade systems, enhancing the game's fun and sense of achievement.
+- **Development Team:**  
+  Aim to maintain clean and structured code, making it easy to maintain and expand with new features such as additional levels and multiplayer modes.
+- **Product Manager:**  
+  Hope the game is easy to learn, suitable for players of different age groups, with engaging gameplay that keeps players active for a long time.
+- **Testers:**  
+  Ensure the game runs stably, with no critical bugs, and smoothly supports both single-player and multiplayer modes to optimize the user experience.
+
+---
+
+### 2. User Stories & Acceptance Criteria
 
 | **User Story** | **Acceptance Criteria** |
 |----------------|--------------------------|
