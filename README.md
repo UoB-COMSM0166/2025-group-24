@@ -33,7 +33,22 @@ Add a group photo here!
 ### Requirements 
 
 - 15% ~750 words
-- Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop? 
+- Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
+
+- | **User Story** | **Acceptance Criteria** |
+|----------------|--------------------------|
+| **Epic 1: Core Gameplay** | |
+| As a player, I want to control the airplane’s movement so that I can dodge enemy bullets and attack flexibly. | Given the airplane is in motion, when the player presses directional keys, then the airplane should respond smoothly without lag. |
+| As a player, I want my airplane to gain points after shooting down an enemy airplane so that I can track my progress. | Given my airplane is in the game, when I successfully shoot down an enemy airplane, then I should gain points reflected in the score counter. |
+| As a player, I want the airplane to lose health when hit by enemy bullets or crashes into enemy planes so that increasing the game’s challenge. | Given the airplane has health points, when it is hit by bullets or crashes, then its health should decrease accordingly. |
+| As a player, I want to unlock the next level after defeating a wave of enemy planes so that experiencing higher difficulty challenges. | Given the current wave is cleared, when the completion condition is met, then the next level should automatically unlock. |
+| As a player, I want to play with friends on the same device for co-op mode so that increasing fun. | Given I am on the game’s main menu, when I select the co-op mode option, then the game should allow two players to join on the same device. |
+| **Epic 2: Game Interface & UX Optimization** | |
+| As a player, I want to pause the game anytime so that I can take breaks without losing my progress. | Given the game is running, when the player presses pause, then the game should freeze. |
+| As a player, I want to view historical high scores after the game ends so that I can motivate myself to improve. | Given the game has ended, when the player accesses the scoreboard, then the historical high scores should be displayed. |
+| As a player, I want to switch between different game backgrounds so that I can enhance visual experience and freshness. | Given the settings menu is open, when the player selects a background, then the game should update the background. |
+| As a game designer, I want to adjust the difficulty curve of each level so that the game remains challenging yet fair for all players. | Given the game’s progression system, when a player advances through levels, then the difficulty should increase gradually. |
+
 
 ### Design
 
