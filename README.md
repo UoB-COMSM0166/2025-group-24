@@ -36,8 +36,11 @@ Add a group photo here!
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
 ---
 ### 1. List of Stakeholders
+
 - **Players:**  
   Expect a smooth gaming experience with challenging level designs and diverse weapon upgrade systems, enhancing the game's fun and sense of achievement.
+
+  
 - **Development Team:**  
   Aim to maintain clean and structured code, making it easy to maintain and expand with new features such as additional levels and multiplayer modes.
 - **Product Manager:**  
