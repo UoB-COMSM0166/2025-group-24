@@ -39,8 +39,6 @@ Add a group photo here!
 
 - **Players:**  
   Expect a smooth gaming experience with challenging level designs and diverse weapon upgrade systems, enhancing the game's fun and sense of achievement.
-
-  
 - **Development Team:**  
   Aim to maintain clean and structured code, making it easy to maintain and expand with new features such as additional levels and multiplayer modes.
 - **Product Manager:**  
