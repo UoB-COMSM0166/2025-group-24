@@ -10,3 +10,5 @@ node_modules/
 
 # 忽略所有以 "week" 开头的文件夹
 week*/
+
+.DS_Store
