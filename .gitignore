@@ -1,1 +1,12 @@
-node_modules/ 
+# 忽略 node_modules 目录
+node_modules/
+
+# 忽略所有 PNG 和 GIF 图片
+*.png
+*.gif
+
+# 忽略所有 .idea 目录（JetBrains IDE 相关文件）
+.idea/
+
+# 忽略所有以 "week" 开头的文件夹
+week*/
