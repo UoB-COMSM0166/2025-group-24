@@ -1,0 +1,128 @@
+/*用 #（ID 选择器）：
+	•	某个元素唯一，且不会重复
+例子：#game、#scoreBoard、#playerHP。*/
+
+/* 用 .（类选择器）：
+	•	多个元素需要相同的样式（不同的敌人，不同的子弹，但需要子弹和敌人的图片是一样的）
+例子：.enemy（所有敌机）、.bullet（所有子弹）、.btn（所有按钮）。*/
+
+
+/*img 是行内元素，但有特殊行为
+
+    默认是行内元素（可与文本并排，不占满一行）。
+    可以像块级元素一样设置宽高（不像普通行内元素）。
+    可用 display: block; 让它变成块级元素（独占一整行）。
+    可用 vertical-align: middle; 让它与文本对齐。
+*/
+
+
+/*第一步；消除网页内部填充，和边界。使用margin和padding
+/* 通用初始化 */
+/*消除浏览器内部填充，
+	•	margin: 0; → 去掉外边距（元素和其他元素之间不会留空隙）。
+	•	padding: 0; → 去掉内边距（元素的内容会紧贴边框，不会有额外的空白区域）。
+    在 HTML 里，body、h1、p 等标签默认会带有 margin 和 padding。*/
+* {
+    margin: 0;
+    padding: 0;/*没有内边距，即内容和边框之间的距离*/
+  }
+  
+
+/*第二步：游戏背景在这里面改，宽和高要符合照片像素*/
+#game{
+    width:320px;
+    height:568px;
+    margin:auto;/*主要用于让块级元素（水平方向）居中。*/
+    overflow:hidden;/*超出范围的直接隐藏*/
+}
+  /* 游戏开始界面 
+  这里面gamestart是继承父元素game的所以，写100%是表明百分百继承
+  */
+  #gameStart {
+    width: 100%;
+    height: 100%;
+    background: url("image/rainy.png");/*这块写要引入图片的路径*/
+    position: relative;/*写这个的原因是为了后面的gameStart span做准备，表示以gameStart为基准进行排列*/
+    /*display: none;/*默认情况下，display就是block的。没必要写block。若想默认隐藏开始界面，可取消注释 */
+  }
+  
+  /* “开始游戏”按钮（使用 span），这里的意思是作用于所有的gameStart的span按钮 */
+  #gameStart span {
+    width: 160px;
+    height: 40px;
+    display: block;/*这里因为在html里面使用的是span，是行类结构，在这里应该转化成块类结构。
+    还有怕自己忘了<p是一个块级元素，浏览器会自动换行，主要用于文本的修改，并且会默认有上下边框*/
+    background: rgba(196, 201, 202);/*这里是在给span设置颜色和透明度，red green blue 还有透明度，这块是在网页上提取我们所需要背景的颜色*/
+    border: 4px solid #666;/*这里是在设定设定实线边框*/
+    box-sizing: border-box;/*content-box（默认值）。
+    box-sizing: border-box; 让 width 和 height 包含 padding 和 border，不会额外增加大小。*/
+    text-align: center;/*文本居中*/
+    line-height: 32px;/*40-4*2=32，刚好填满*/
+    font-size: 24px;
+    font-weight: bolder;
+    position: absolute;/*这里是一个绝对定位，原理是根据父元素定位，如果没有父元素，就会根据整个body定位*/
+    left: 80px;/*（320-160）/2*/
+    bottom: 200px;
+    cursor: pointer;/*让鼠标悬停在元素上时变成 小手图标，表示可点击。*/
+  }
+  
+  /* 鼠标悬停时，按钮文字变色，hover悬停 */
+  #gameStart span:hover {
+    color: #fff;
+  }
+  
+  /* 游戏进行界面 */
+  #gameEnter {
+    width: 100%;
+    height: 100%;
+    background: url("image/rainy.png");
+    position: relative;
+    display: none;  /*初始隐藏，等待JS切换显示 */
+  }
+  
+  /* 我方飞机 */
+  #myPlane {
+    width: 76px;
+    height: 50px;
+    position: absolute;
+    left: 122px;/*这里用了（320-76）/2，但好像还有其他方法可以居中，gpt一下*/
+    bottom: 0;/*沉底*/
+    cursor: pointer;/*小手*/
+  }
+  
+  /* 子弹容器、敌机容器：全屏绝对定位 */
+  #bullets, #enemys {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  /* 子弹的通用样式（可自行修改宽高、背景图片等） */
+  .b {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+
+    /* background: url("image/bullet1.png"); // 若需要在CSS中指定子弹图片 */
+  }
+  
+
+.e{
+    position:absolute;
+}
+
+
+#score{
+  width: 100%;/*gameEnter是父元素，继承100%*/
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  font-weight: bolder;
+  padding: 0 20px;
+}
+#score p {
+  text-align: right;/*text-align: right; → 让 p 标签内的文本右对齐*/
+  width:80%;
+}
