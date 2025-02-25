@@ -76,7 +76,12 @@ Thirdly, we realize that a multi-stakeholder perspective is crucial for product 
 ### Design
 
 - 15% ~750 words 
-- System architecture. Class diagrams, behavioural diagrams. 
+- System architecture. Class diagrams, behavioural diagrams.
+## Class Diagram
+![Class Diagram](images/class.png)
+
+## Sequence Diagram
+![Sequence Diagram](images/sequence.png)
 
 ### Implementation
 
