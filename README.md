@@ -21,16 +21,15 @@ Add a group photo here!
 | Xiaobo Ma   | [oa24686@bristol.ac.uk](mailto:oa24686@bristol.ac.uk)  | XiaoboMa1  | Software Test Engineer |
 | Kailin Fang | [jd24317@bristol.ac.uk](mailto:kfnora398@gmail.com)      | catlin518  | UI Designer           |
 | Yanhao He   | [ei24967@bristol.ac.uk](mailto:ei24967@bristol.ac.uk)  | YanHe225   | Developer             |
-| Gongyu Xue  | [in24247@bristol.ac.uk](mailto:in24247@bristol.ac.uk)  | xgy56      | Developer             |
 
 ## Project Report
 
-### 1. Introduction
+## 1. Introduction
 
 - 5% ~250 words 
 - Describe your game, what is based on, what makes it novel? 
 
-### 2. Requirements 
+## 2. Requirements 
 
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
@@ -73,23 +72,23 @@ Secondly, we recognize that the clarity of acceptance criteria is crucial. While
 
 Thirdly, we realize that a multi-stakeholder perspective is crucial for product development. Through stakeholder analysis, we realized that we need to not only consider the gaming experience of players, but also pay attention to the technical implementation difficulty of the development team and the expectations of product managers for market positioning, to ensure that the game can meet the needs of different stakeholders.
 
-### 3. Design
+## 3. Design
 
 - 15% ~750 words 
 - System architecture. Class diagrams, behavioural diagrams.
-## Class Diagram
+Class Diagram
 ![Class Diagram](images/class.png)
 
-## Sequence Diagram
+Sequence Diagram
 ![Sequence Diagram](images/sequence.png)
 
-### 4. Implementation
+## 4. Implementation
 
 - 15% ~750 words
 
 - Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game. 
 
-### 5. Evaluation
+## 5. Evaluation
 
 - 15% ~750 words
 
@@ -99,23 +98,23 @@ Thirdly, we realize that a multi-stakeholder perspective is crucial for product 
 
 - Description of how code was tested. 
 
-### 6. Process 
+## 6. Process 
 
 - 15% ~750 words
 
 - Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together. 
 
-### 7. Conclusion
+## 7. Conclusion
 
 - 10% ~500 words
 
 - Reflect on project as a whole. Lessons learned. Reflect on challenges. Future work. 
 
-### Contribution Statement
+## Contribution Statement
 
 - Provide a table of everyone's contribution, which may be used to weight individual grades. We expect that the contribution will be split evenly across team-members in most cases. Let us know as soon as possible if there are any issues with teamwork as soon as they are apparent. 
 
-### Additional Marks
+## Additional Marks
 
 You can delete this section in your own repo, it's just here for information. in addition to the marks above, we will be marking you on the following two points:
 
