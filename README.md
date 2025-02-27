@@ -25,17 +25,17 @@ Add a group photo here!
 
 ## Project Report
 
-### Introduction
+### 1. Introduction
 
 - 5% ~250 words 
 - Describe your game, what is based on, what makes it novel? 
 
-### Requirements 
+### 2. Requirements 
 
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
 
-### 1. List of Stakeholders
+### 2.1 List of Stakeholders
 
 - **Players:**  
   Expect a smooth gaming experience with challenging level designs and diverse weapon upgrade systems, enhancing the game's fun and sense of achievement.
@@ -47,7 +47,7 @@ Add a group photo here!
   Ensure the game runs stably, with no critical bugs, and smoothly supports both single-player and multiplayer modes to optimize the user experience.
 
 
-### 2. User Stories & Acceptance Criteria
+### 2.2 User Stories & Acceptance Criteria
 
 | **User Story** | **Acceptance Criteria** |
 |----------------|--------------------------|
@@ -63,7 +63,7 @@ Add a group photo here!
 | As a player, I want to switch between different game backgrounds so that I can enhance visual experience and freshness. | Given the settings menu is open, when the player selects a background, then the game should update the background. |
 | As a game designer, I want to adjust the difficulty curve of each level so that the game remains challenging yet fair for all players. | Given the game’s progression system, when a player advances through levels, then the difficulty should increase gradually. |
 
-### 3. Reflection
+### 2.3 Reflection
 
 In the process of developing the airplane battle mini game, our team learned a lot about requirements analysis from Epics and User Stories. Here are our key takeaways:
 
@@ -73,7 +73,7 @@ Secondly, we recognize that the clarity of acceptance criteria is crucial. While
 
 Thirdly, we realize that a multi-stakeholder perspective is crucial for product development. Through stakeholder analysis, we realized that we need to not only consider the gaming experience of players, but also pay attention to the technical implementation difficulty of the development team and the expectations of product managers for market positioning, to ensure that the game can meet the needs of different stakeholders.
 
-### Design
+### 3. Design
 
 - 15% ~750 words 
 - System architecture. Class diagrams, behavioural diagrams.
@@ -83,13 +83,13 @@ Thirdly, we realize that a multi-stakeholder perspective is crucial for product 
 ## Sequence Diagram
 ![Sequence Diagram](images/sequence.png)
 
-### Implementation
+### 4. Implementation
 
 - 15% ~750 words
 
 - Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game. 
 
-### Evaluation
+### 5. Evaluation
 
 - 15% ~750 words
 
@@ -99,13 +99,13 @@ Thirdly, we realize that a multi-stakeholder perspective is crucial for product 
 
 - Description of how code was tested. 
 
-### Process 
+### 6. Process 
 
 - 15% ~750 words
 
 - Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together. 
 
-### Conclusion
+### 7. Conclusion
 
 - 10% ~500 words
 
