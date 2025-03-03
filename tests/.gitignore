@@ -12,3 +12,6 @@ node_modules/
 week*/
 
 .DS_Store
+notes.txt
+useful-material/
+cypress/
