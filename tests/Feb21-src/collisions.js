@@ -51,7 +51,7 @@ function checkCollisionWithBullets(e){
     // 碰撞检测
     if(collide(bL, bT, bW, bH, eL, eT, eW, eH, bulletScale, enemyScale)){
       // 1. 停止子弹
-      clearInterval(b.timer);
+      myClearInterval(b.timer);
       if(b.parentNode) b.parentNode.removeChild(b);
       bullets.splice(i,1);
 
@@ -71,10 +71,10 @@ function checkCollisionWithBullets(e){
  * 击毁敌机（播放爆炸动画 -> 移除）
  */
 function killEnemy(e){
-  clearInterval(e.timer);
+  myClearInterval(e.timer);
   e.src = "image/bz.gif"; // 爆炸动画
 
-  setTimeout(function(){
+  mySetTimeout(function(){
     if(e.parentNode){
       enemysP.removeChild(e);
       var idx = enemys.indexOf(e);

@@ -35,6 +35,16 @@ npx cypress run
 批量运行 F:\course\engineering\2025-group-24\tests\cypress\e2e\Feb21\ 目录下的所有测试并生成报告:  npx cypress run --spec 'cypress/e2e/Feb21/**/*.cy.js'
 
 将执行指定的测试文件，并在测试完成后自动生成 HTML 格式的测试报告。通常会生成在项目的默认reports目录中。要查看报告，可以在浏览器中访问 `http://localhost:8080` 查看生成的测试报告。
+---
 
+确认 Cypress 的默认集成测试文件夹是否为 cypress/e2e/。如果您更改了默认配置，请确保在 cypress.config.js 中正确设置了 e2e 选项的 specPattern。​
 
+const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
+  e2e: {
+    specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
+    // 其他配置选项
+  },
+})
 

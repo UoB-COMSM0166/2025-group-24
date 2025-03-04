@@ -20,10 +20,10 @@ function checkRound() {
   
   /** 进入下一关时，重置并再次 showGameEnter() */
   function resetGameForNextRound(){
-    clearInterval(movementTimer);
-    clearInterval(enemyTimer);
-    clearInterval(enemyFireTimer);
-    clearInterval(bgTimer);
+    myClearInterval(movementTimer);
+    myClearInterval(enemyTimer);
+    myClearInterval(enemyFireTimer);
+    myClearInterval(bgTimer);
     movementTimer = null;
     enemyTimer = null;
     enemyFireTimer = null;
@@ -33,21 +33,21 @@ function checkRound() {
   
     // 清空玩家子弹
     bullets.forEach(b => {
-      clearInterval(b.timer);
+      myClearInterval(b.timer);
       if(b.parentNode) b.parentNode.removeChild(b);
     });
     bullets = [];
   
     // 清空敌机
     enemys.forEach(e => {
-      clearInterval(e.timer);
+      myClearInterval(e.timer);
       if(e.parentNode) e.parentNode.removeChild(e);
     });
     enemys = [];
   
     // 清空敌机子弹
     enemyBullets.forEach(b => {
-      clearInterval(b.timer);
+      myClearInterval(b.timer);
       if(b.parentNode) b.parentNode.removeChild(b);
     });
     enemyBullets = [];

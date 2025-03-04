@@ -42,7 +42,7 @@ function showGameEnter() {
     roundPopup.innerText = "FINAL ROUND";
   }
   roundPopup.style.display = "block";
-  setTimeout(() => {
+  mySetTimeout(() => {
     roundPopup.style.display = "none";
   }, 2000);
 

@@ -8,7 +8,7 @@ function startMovement() {
     if (movementTimer) return;
   
     // 每30毫秒更新一次飞机位置
-    movementTimer = setInterval(function () {
+    movementTimer = mySetInterval(function () {
       // 游戏暂停或结束时不更新飞机位置
       if (!gameStatus) return;
   

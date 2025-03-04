@@ -9,7 +9,7 @@ function bgMove() {
   if(bgTimer) return;
 
   // 每 30 ms 更新一次背景位置
-  bgTimer = setInterval(function(){
+  bgTimer = mySetInterval(function(){
     // 若游戏状态为暂停 / 结束，则不更新背景
     if(!gameStatus) return;
 

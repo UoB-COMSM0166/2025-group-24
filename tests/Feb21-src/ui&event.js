@@ -121,8 +121,8 @@ window.onload = function(){
         // 调用 part2.js 的函数
         pauseAllBullets();
         pauseAllEnemies();
-        clearInterval(bgTimer);
-        clearInterval(enemyFireTimer);
+        myClearInterval(bgTimer);
+        myClearInterval(enemyFireTimer);
         bgTimer=null;
         enemyFireTimer=null;
       } else {

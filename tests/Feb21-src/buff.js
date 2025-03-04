@@ -23,7 +23,7 @@ function dropTreasure(enemy) {
 /** 让宝藏向下移动，并检测是否被玩家拾取 */
 function moveTreasure(treasure) {
   var speed = 3;
-  treasure.timer = setInterval(() => {
+  treasure.timer = mySetInterval(() => {
     if (!gameStatus) return;
     let topVal = getStyle(treasure, "top");
     topVal += speed;
@@ -38,7 +38,7 @@ function moveTreasure(treasure) {
 
 /** 移除宝藏（清理定时器 + DOM） */
 function removeTreasure(treasure) {
-  clearInterval(treasure.timer);
+  myClearInterval(treasure.timer);
   if (treasure.parentNode) treasure.parentNode.removeChild(treasure);
 }
 
@@ -94,7 +94,7 @@ function activateShield(playerId) {
     if (plane1ShieldActive) return;
     plane1ShieldActive = true;
     plane1Shield.style.display = "block";
-    setTimeout(() => {
+    mySetTimeout(() => {
       plane1ShieldActive = false;
       plane1Shield.style.display = "none";
     }, SHIELD_DURATION);
@@ -102,7 +102,7 @@ function activateShield(playerId) {
     if (plane2ShieldActive) return;
     plane2ShieldActive = true;
     plane2Shield.style.display = "block";
-    setTimeout(() => {
+    mySetTimeout(() => {
       plane2ShieldActive = false;
       plane2Shield.style.display = "none";
     }, SHIELD_DURATION);
@@ -113,29 +113,29 @@ function activateShield(playerId) {
 function boostPlayerSpeed(playerId) {
   if (playerId === 1) {
     player1SpeedFactor = 1.5;
-    setTimeout(() => { player1SpeedFactor = 1.0; }, 5000);
+    mySetTimeout(() => { player1SpeedFactor = 1.0; }, 5000);
   } else {
     player2SpeedFactor = 1.5;
-    setTimeout(() => { player2SpeedFactor = 1.0; }, 5000);
+    mySetTimeout(() => { player2SpeedFactor = 1.0; }, 5000);
   }
 }
 
 /** 提升玩家子弹速度，5秒后恢复 */
 function boostBulletSpeed() {
   bulletSpeedFactor = 1.5;
-  setTimeout(() => { bulletSpeedFactor = 1.0; }, 5000);
+  mySetTimeout(() => { bulletSpeedFactor = 1.0; }, 5000);
 }
 
 /** 敌机伤害加成 */
 function increaseEnemyDamage() {
   enemyDamageFactor = 1.5;
-  setTimeout(() => { enemyDamageFactor = 1.0; }, 5000);
+  mySetTimeout(() => { enemyDamageFactor = 1.0; }, 5000);
 }
 
 /** 敌机整体加速 */
 function boostEnemySpeed() {
   enemySpeedFactor = 1.5;
-  setTimeout(() => { enemySpeedFactor = 1.0; }, 5000);
+  mySetTimeout(() => { enemySpeedFactor = 1.0; }, 5000);
 }
 
 /** 在游戏中生成数块黑色方块，模拟迷雾效果 */
@@ -156,7 +156,7 @@ function showFog() {
     fog.style.top  = top  + "px";
     fogContainer.appendChild(fog);
   }
-  setTimeout(() => { fogContainer.innerHTML = ""; }, 5000);
+  mySetTimeout(() => { fogContainer.innerHTML = ""; }, 5000);
 }
 
 /** 显示 Buff 提示文本 */
@@ -168,7 +168,7 @@ function showBuff(buffName, duration) {
   buffContainer.appendChild(buffItem);
   buffContainer.style.display = "block";
 
-  setTimeout(() => {
+  mySetTimeout(() => {
     buffItem.remove();
     if (buffContainer.children.length === 0) {
       buffContainer.style.display = "none";

@@ -5,9 +5,9 @@ describe('批次四：Buff 效果与背景滚动 测试 (最终方案)', () => {
     // 使用 onBeforeLoad 仅用于设置全局变量，不调用任何 cy 命令
     cy.visit('/Feb21-src/finaltest.html', {
       onBeforeLoad(win) {
-        // 确保定时器调用使用全局 window.setTimeout / setInterval
-        win.setTimeout = win.window.setTimeout;
-        win.setInterval = win.window.setInterval;
+        // 确保定时器调用使用全局 window.mySetTimeout / mySetInterval
+        win.mySetTimeout = win.window.mySetTimeout;
+        win.mySetInterval = win.window.mySetInterval;
         // 设置 gameStatus 为 true，确保相关逻辑执行
         win.gameStatus = true;
       }

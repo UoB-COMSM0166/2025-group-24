@@ -121,9 +121,9 @@ window.onload = function() {
         document.onmousemove = null;
 
         //在暂停期间清除创建子弹和敌机的定时器
-        clearInterval(a);
-        clearInterval(b);
-        clearInterval(c);
+        myClearInterval(a);
+        myClearInterval(b);
+        myClearInterval(c);
 
         //在暂停期间，清除定时器值
         a = null;
@@ -174,7 +174,7 @@ window.onload = function() {
   function shot() {
     if(a) return;//防止暂停的时候，继续创造新的子弹定时器
     // 每 200 毫秒创建一颗子弹
-    a = setInterval(function() {
+    a = mySetInterval(function() {
       createBullet();
     }, 200);
   }
@@ -214,11 +214,11 @@ window.onload = function() {
   //匀速运动，每次改变子弹的top值
   function move(ele, attr) {
     var speed = -10; // 向上飞
-    ele.timer = setInterval(function() {
+    ele.timer = mySetInterval(function() {
       var moveVal = getStyle(ele, attr);
       //子弹的top值是负的子弹高度时，删除子弹，清除定时器
       if (moveVal <= -bulletH) {
-        clearInterval(ele.timer);
+        myClearInterval(ele.timer);
 
         ele.parentNode.removeChild(ele);
         //1.	ele.parentNode：获取 ele 元素的父节点（它所在的父容器）。
@@ -239,13 +239,13 @@ window.onload = function() {
 
 
   function appearEnemy(){//这个函数的目的是定时生成敌机
-    b = setInterval(function(){
+    b = mySetInterval(function(){
       //创建敌人
         createEnemy();
         //删除死亡敌人
         delEnemy();
     },500)//制造敌机，每隔1000毫秒就制造即（1秒）
-    //setInterval（）函数式代码自带的，可以定时重复代码行为
+    //mySetInterval（）函数式代码自带的，可以定时重复代码行为
 }
 
 
@@ -356,10 +356,10 @@ if (ele.t == 1) {
 } else if (ele.t == 3) {
     speed = 1.5;
 } 
-  ele.timer = setInterval(function() {
+  ele.timer = mySetInterval(function() {
       var moveVal = getStyle(ele, attr);
       if (moveVal >= gameH) {
-          clearInterval(ele.timer);
+          myClearInterval(ele.timer);
           enemysP.removeChild(ele);
           enemys.splice(0,1);//把超出屏幕外的飞机删除，这里这个写法就是默认删除数组里面第一个
       } else {
@@ -381,7 +381,7 @@ if (ele.t == 1) {
 //每创建一个飞机或者子弹都会被放入数组中，一旦暂停，就根据数组中的飞机或子弹取删除对应的飞机或子弹的运动定时器
 function clear(childs){
   for(var i = 0; i<childs.length; i++){
-    clearInterval(childs[i].timer);
+    myClearInterval(childs[i].timer);
 
 }
 }
@@ -399,7 +399,7 @@ function reStart(childs, type){
 
 //开始游戏之后的背景图的运动
 function bgMove() {
-  c = setInterval(function() {  //s 每 10 毫秒执行一次
+  c = mySetInterval(function() {  //s 每 10 毫秒执行一次
       backgroundPY += 3;  // 让背景 Y 方向的偏移量增加（向下滚动）
       if (backgroundPY >= gameH) { 
           backgroundPY = 0;  // 当滚动到游戏界面底部时，重置到顶部
@@ -429,7 +429,7 @@ function danger(enemy) {
       if (condition) {
         // 子弹和敌机的碰撞：删除子弹
         // 1、先清除碰撞子弹的定时器
-        clearInterval(bullets[i].timer);
+        myClearInterval(bullets[i].timer);
         
         // 2、从dom父元素中删除元素
         bulletsP.removeChild(bullets[i]);
@@ -449,14 +449,14 @@ function danger(enemy) {
         enemy.hp -=100;
         if (enemy.hp == 0) {
           // 删除敌机的定时器，防止它继续移动
-          clearInterval(enemy.timer);
+          myClearInterval(enemy.timer);
           
           //替换爆炸图片
           enemy.src = "image/bz.gif";
 
           //这块是因为gif图一直循环，没法解决，找gpt修改的，但感觉和后面视频里面的代码功能重复了
         //这块是个问题，gif不能一直循环
-          setTimeout(function()
+          mySetTimeout(function()
          {
             if (enemy.parentNode) {  // 避免已经被删除时报错
                 enemysP.removeChild(enemy);
@@ -520,9 +520,9 @@ function gameOver(){
       {
         //己方飞机与敌机碰撞
         //清除定时器：创建子弹的定时器，创建飞机的定时器，游戏背景图的定时器
-        clearInterval(a);
-        clearInterval(b);
-        clearInterval(c);
+        myClearInterval(a);
+        myClearInterval(b);
+        myClearInterval(c);
         a = null;
         b = null;
         c = null;
@@ -553,7 +553,7 @@ function remove(childs)
 {
   for(var i = childs.length - 1;i>=0;i--)//遍历 childs 数组，从 最后一个元素（索引 length-1）开始向前遍历，防止删除时索引错乱
   {
-    clearInterval(childs[i].timer);
+    myClearInterval(childs[i].timer);
     childs[i].parentNode.removeChild(childs[i]);//作用：从 父元素 中删除当前 childs[i]，彻底从页面移除
   }
 }

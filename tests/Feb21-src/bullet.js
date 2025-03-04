@@ -29,12 +29,12 @@ function createBulletForPlane(ele, x, y, w, h) {
  */
 function moveBullet(b) {
   var baseSpeed = -15; // 基础速度，负值表示向上
-  b.timer = setInterval(() => {
+  b.timer = mySetInterval(() => {
     if (!gameStatus) return;
     var topVal = getStyle(b, "top");
     // 子弹超出屏幕时，移除
     if (topVal <= -bulletH) {
-      clearInterval(b.timer);
+      myClearInterval(b.timer);
       if (b.parentNode) b.parentNode.removeChild(b);
       let idx = bullets.indexOf(b);
       if (idx !== -1) bullets.splice(idx, 1);
@@ -51,7 +51,7 @@ function moveBullet(b) {
  */
 function pauseAllBullets() {
   for (let i = 0; i < bullets.length; i++) {
-    clearInterval(bullets[i].timer);
+    myClearInterval(bullets[i].timer);
     bullets[i].timer = null;
   }
 }

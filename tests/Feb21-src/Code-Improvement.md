@@ -81,16 +81,16 @@ function dropTreasure(enemy) {
 ---
 ## 3. **bgMove.js - 背景滚动优化**
 **问题**：  
-用的是 `setInterval` 来让背景滚动：
+用的是 `mySetInterval` 来让背景滚动：
 ```js
-bgTimer = setInterval(function(){
+bgTimer = mySetInterval(function(){
   if(!gameStatus) return;
   bgPosY += 2;
   if(bgPosY >= gameH) bgPosY = 0;
   game.style.backgroundPositionY = bgPosY + "px";
 }, 30);
 ```
-`setInterval` 的问题是，它不会管你的帧率，可能导致背景滚动不流畅，尤其是在游戏暂停的时候，有时候会出现“卡顿”现象。
+`mySetInterval` 的问题是，它不会管你的帧率，可能导致背景滚动不流畅，尤其是在游戏暂停的时候，有时候会出现“卡顿”现象。
 
 **改进**：
 我们用 `requestAnimationFrame`，这样动画会按照浏览器的刷新率来执行，滚动会更平滑，暂停的时候也能自动停下来。
@@ -131,7 +131,7 @@ const SHIELD_OFFSET = 50; // 护盾偏移量
 
 function startMovement() {
   if (movementTimer) return;
-  movementTimer = setInterval(function () {
+  movementTimer = mySetInterval(function () {
     if (!gameStatus) return;
     var step1 = 10 * player1SpeedFactor;
     var step2 = 10 * player2SpeedFactor;

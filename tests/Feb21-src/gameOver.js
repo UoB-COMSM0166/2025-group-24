@@ -1,9 +1,9 @@
 /** 游戏结束（清理所有游戏元素） */
 function doGameOver(){
-    clearInterval(movementTimer); movementTimer=null;
-    clearInterval(enemyTimer);    enemyTimer=null;
-    clearInterval(enemyFireTimer);enemyFireTimer=null;
-    clearInterval(bgTimer);       bgTimer=null;
+    myClearInterval(movementTimer); movementTimer=null;
+    myClearInterval(enemyTimer);    enemyTimer=null;
+    myClearInterval(enemyFireTimer);enemyFireTimer=null;
+    myClearInterval(bgTimer);       bgTimer=null;
     gameStatus = false;
   
     plane1Hp = 5;

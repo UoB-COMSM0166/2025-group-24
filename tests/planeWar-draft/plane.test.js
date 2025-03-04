@@ -26,7 +26,7 @@ describe('plane.js 测试', () => {
           </div>
         `;
         console.log("beforeEach可以正确测试");
-        // 使用 Jest 的 Fake Timers 来控制 setInterval/setTimeout
+        // 使用 Jest 的 Fake Timers 来控制 mySetInterval/mySetTimeout
         jest.useFakeTimers();
 
         // 重新加载 plane.js 确保测试是干净的

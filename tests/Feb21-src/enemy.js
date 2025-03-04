@@ -18,7 +18,7 @@ var enemySpeedFactor = 1.0;
  */
 function startEnemySpawn() {
   if (enemyTimer) return; // 若已在生成中，则不重复
-  enemyTimer = setInterval(() => {
+  enemyTimer = mySetInterval(() => {
     createEnemy();
   }, 1800);
 }
@@ -65,13 +65,13 @@ function moveEnemy(e) {
   else if (e.t === 2) baseSpeed = 3; // 中型机中速
   else baseSpeed = 1.5;              // 大型机最慢
 
-  e.timer = setInterval(() => {
+  e.timer = mySetInterval(() => {
     if (!gameStatus) return; // 暂停或结束时，不更新敌机
 
     var topVal = getStyle(e, "top");
     // 若超出屏幕底部，移除
     if (topVal >= gameH) {
-      clearInterval(e.timer);
+      myClearInterval(e.timer);
       if (e.parentNode) e.parentNode.removeChild(e);
       var idx = enemys.indexOf(e);
       if (idx !== -1) enemys.splice(idx, 1);
@@ -92,10 +92,10 @@ function moveEnemy(e) {
  * 暂停所有敌机的移动，并停止新的敌机生成
  */
 function pauseAllEnemies() {
-  clearInterval(enemyTimer);
+  myClearInterval(enemyTimer);
   enemyTimer = null;
   for (let i = 0; i < enemys.length; i++) {
-    clearInterval(enemys[i].timer);
+    myClearInterval(enemys[i].timer);
     enemys[i].timer = null;
   }
 }
@@ -123,7 +123,7 @@ var enemyFireTimer = null;
  */
 function startEnemyFire() {
   if (enemyFireTimer) return;
-  enemyFireTimer = setInterval(() => {
+  enemyFireTimer = mySetInterval(() => {
     if (!gameStatus) return;
     for (var i = 0; i < enemys.length; i++) {
       createEnemyBullet(enemys[i]);
@@ -164,7 +164,7 @@ function createEnemyBullet(enemy) {
 function moveEnemyBullet(b) {
   var speed = 10; // 敌机子弹速度
 
-  b.timer = setInterval(() => {
+  b.timer = mySetInterval(() => {
     if (!gameStatus) return;
     var topVal = getStyle(b, "top");
     if (topVal >= gameH) {
@@ -180,7 +180,7 @@ function moveEnemyBullet(b) {
  /* 移除敌机子弹 DOM 及其定时器*/
 
 function removeEnemyBullet(b) {
-  clearInterval(b.timer);
+  myClearInterval(b.timer);
   if (b.parentNode) b.parentNode.removeChild(b);
   var idx = enemyBullets.indexOf(b);
   if (idx !== -1) enemyBullets.splice(idx, 1);

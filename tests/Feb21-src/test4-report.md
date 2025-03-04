@@ -53,8 +53,8 @@ describe('批次四：Buff 效果与背景滚动 测试 (最终方案)', () => {
     cy.visit('/Feb21-src/finaltest.html', {
       onBeforeLoad(win) {
         // 设置定时器使用全局引用
-        win.setTimeout = win.window.setTimeout;
-        win.setInterval = win.window.setInterval;
+        win.mySetTimeout = win.window.mySetTimeout;
+        win.mySetInterval = win.window.mySetInterval;
         // 确保 gameStatus 为 true，保证相关逻辑执行
         win.gameStatus = true;
       }
@@ -223,7 +223,7 @@ describe('批次四：Buff 效果与背景滚动 测试 (最终方案)', () => {
 ### 目前问题可能出在以下几个方面：
 
 1. **定时器的控制问题**  
-   我们尝试通过 cy.visit 的 onBeforeLoad 钩子在页面加载前设置好全局变量和定时器引用（确保使用 window.setTimeout 和 window.setInterval），然后在 .then(win => { cy.clock(win); }) 中安装 Cypress 的时钟。但是由于页面加载时部分定时器可能已提前启动，导致 cy.tick() 时未能按预期快进这些定时器。
+   我们尝试通过 cy.visit 的 onBeforeLoad 钩子在页面加载前设置好全局变量和定时器引用（确保使用 window.mySetTimeout 和 window.mySetInterval），然后在 .then(win => { cy.clock(win); }) 中安装 Cypress 的时钟。但是由于页面加载时部分定时器可能已提前启动，导致 cy.tick() 时未能按预期快进这些定时器。
 
 2. **DOM 样式和 getStyle 方法**  
    测试依赖 getStyle 返回固定的宽高值，因此我在 final_test.html 中内联设置了 #game、#myPlane 等关键元素的样式，同时在测试中覆盖了 getStyle。但实际情况可能仍受到 CSS 加载、浏览器渲染或其它因素影响，导致某些时机下样式仍未更新。
