@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plane Game with Enemy Bullets</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game">
+    <!-- 首页 -->
+    <div id="homePage">
+      <h2>Welcome to Plane Game</h2>
+      <img src="image/bar1.png" id="bar1">
+      <img src="image/button3.png" id="bar2">
+      <button id="startBtn">Start</button>
+      <button id="rankBtn">Rank</button>
+    </div>
+ 
+<!-- 排行榜页面 -->
+<div id="rankPanel1" class="rankPanel">
+  <h1 id="Leaderboard">Leaderboard</h1>
+  <h1 id="Module1">Single Player Leaderboard</h1>
+  <button id="rankSingle" class="rankChange">Single</button>
+  <button id="rankDouble"class="rankChange">Double</button>
+  <ul id="scoreList">
+    <!-- JavaScript 代码动态填充排行榜 -->
+  </ul>
+  <button id="backBtn1">Back</button> <!-- 修改 ID 为 backBtn1 -->
+</div>
+
+<div id="rankPanel2" class="rankPanel">
+  <h1 id="Leaderboard">Leaderboard</h1>
+  <h1 id="Module2">Double Player </h1>
+  <button id="rankSingle">Single</button>
+  <button id="rankDouble">Double</button>
+  <ul id="scoreList">
+    <!-- JavaScript 代码动态填充排行榜 -->
+  </ul>
+  <button id="backBtn2">Back</button> <!-- 修改 ID 为 backBtn2 -->
+</div>
+
+    <!-- 选择模式 -->
+    <div id="selectMode">
+      <button id="singleBtn">Single Player</button>
+      <button id="doubleBtn">Two Players</button>
+      <img src="image/button3.png" id="ModeBtn1">
+      <img src="image/button3.png" id="ModeBtn2">
+    </div>
+
+    <!-- 输入第1位玩家名字: 用 form autocomplete="off" 禁止自动填充 -->
+    <form id="enterName" autocomplete="off" onsubmit="return false;" style="display:none;">
+      <p id="nameHint">User Name</p>
+      <input type="text" id="nameInput" autocomplete="off" />
+      <p id="errMsg1" style="color:red"></p>
+    </form>
+    
+    <!-- 单人游戏简介1,选择页面 -->
+    <div id="singleIntro">
+      <p id="leftHand">Left-hand Mode</p>
+      <p id="rightHand">Right-hand Mode</p>
+      <p id="shoot1">Shoot</p>
+      <p id="shoot2">Shoot</p>
+      <p id="blankText">Press Space to Resume</p>
+
+      <span id="leftEnter">Choose</span>
+      <span id="rightEnter">Choose</span>
+
+      <img src="image/keyboard/w.png" id="w">
+      <img src="image/keyboard/a.png" id="a">
+      <img src="image/keyboard/s.png" id="s">
+      <img src="image/keyboard/d.png" id="d">
+      <img src="image/keyboard/f.png" id="f">
+      <img src="image/keyboard/return1.png" id="return1">
+      <img src="image/keyboard/return2.png" id="return2">
+      <img src="image/keyboard/up.png" id="up">
+      <img src="image/keyboard/down.png" id="down">
+      <img src="image/keyboard/left.png" id="left">
+      <img src="image/keyboard/right.png" id="right">
+      <img src="image/keyboard/blank1.png" id="blank1">
+      <img src="image/keyboard/blank2.png" id="blank2">
+      <img src="image/keyboard/blank3.png" id="blank3">
+    </div>
+
+    <!-- 单人/双人游戏简介2，解释页面(特效) -->
+     <div id="Intro2">
+      <h1>Random items</h1>
+      <h2 id="posItem">Positive items</h2>
+      <p id="posText1" class="itemClass"><strong>Speed Boost</strong><br>user plane speed +10%</p>
+      <p id="posText2" class="itemClass">Shield<br>Grants a temporary shield</p>
+      <p id="posText3" class="itemClass">Bullet Speed Boost<br>user bullet speed +10%</p>
+      <h2 id="negItem">Negative items</h2>
+      <p id="negText1" class="itemClass">Enemy Speed Boost<br>+enemy movement speed</p>
+      <p id="negText2" class="itemClass">Enemy Power-Up<br>+enemy attack damage</p>
+      <p id="negText3" > Fog<br>Partially blocks your screen, reducing visibility</p>
+      <img src="image/market/Icon (3).png" id="introSpeed" class="intro2Img">
+      <img src="image/Icon (2).png" id="introShield" class="intro2Img">
+      <img src="image/market/Icon (16).png" id="introDamage" class="intro2Img">
+      <img src="image/cloud2.png" id="introCloud">
+      <img src="image/tr.png" id="introTr">
+      <img src="image/button1.png" id="nextBtnBg">
+      <button id="nextBtn">Next Page</button>
+     </div>
+
+    <!-- 单人/双人游戏简介3，解释页面(游戏通关) -->
+     <div id="Intro3">
+      <h2>Level Score Requirements</h2>
+      <p id="level1">Level 1: 1000 points</p>
+      <p id="level2">Level 2: 2000 points</p>
+      <p id="level3">Level 3: 3000 points</p>
+      <p id="level4">Level 4: 4000 points</p>
+      <button id="finalStartBtn">Start</button>
+     </div>
+
+    <!-- 输入第2位玩家名字（双人模式） -->
+    <form id="enterName2" autocomplete="off" onsubmit="return false;" style="display:none;">
+      <p id="nameHint2">Player 2</p>
+      <input type="text" id="nameInput2" autocomplete="off"/>
+      <p id="errMsg2" style="color:red"></p>
+    </form>
+
+    <!-- 双人模式简介1页面 -->
+    <div id="doubleIntro">
+      <p id="leftHand">  Player 1</p>
+      <p id="rightHand">  Player 2</p>
+      <p id="shoot1">Shoot</p>
+      <p id="shoot2">Shoot</p>
+      <p id="doubleEnter">Start</p>
+      <p id="blankText">Press Space to Resume</p>
+      <img src="image/keyboard/w.png" id="w">
+      <img src="image/keyboard/a.png" id="a">
+      <img src="image/keyboard/s.png" id="s">
+      <img src="image/keyboard/d.png" id="d">
+      <img src="image/keyboard/f.png" id="f">
+      <img src="image/keyboard/return1.png" id="return1">
+      <img src="image/keyboard/return2.png" id="return2">
+      <img src="image/keyboard/up.png" id="up">
+      <img src="image/keyboard/down.png" id="down">
+      <img src="image/keyboard/left.png" id="left">
+      <img src="image/keyboard/right.png" id="right">
+      <img src="image/keyboard/blank1.png" id="blank1">
+      <img src="image/keyboard/blank2.png" id="blank2">
+      <img src="image/keyboard/blank3.png" id="blank3">
+    </div>
+
+
+
+    
+    <!-- 游戏界面 -->
+    <div id="gameEnter">
+      <p id="playerInfo"></p>
+      <p id="scoreBoard">Score: <span id="scoreVal">0</span></p>
+    </div>
+
+      <!--显示HP-->
+    <div id="hearts-container"></div>
+    
+    <!-- 提示弹窗 -->
+    <div id="roundPopup">ROUND ONE</div>
+
+    <!-- 两架玩家飞机 -->
+    <div id="myPlane"></div>
+    <div id="myPlane2"></div>
+
+    <!-- 子弹容器 -->
+    <div id="bullets"></div>
+    <!-- 敌机容器 -->
+    <div id="enemys"></div>
+    <!-- 敌机子弹容器 -->
+    <div id="enemyBullets"></div>
+
+    <!-- 暂停提示 -->
+    <div id="pauseTip">
+      <img src="image/replay.png" id="pauseimg" alt="Press SPACE to Resume">
+    </div>
+
+    <!-- 护盾 -->
+    <div id="plane1Shield" class="shield" style="display:none;"></div>
+    <div id="plane2Shield" class="shield" style="display:none;"></div>
+
+    <!-- buff提示 -->
+    <div id="buffContainer"></div>
+
+    <!-- 迷雾 -->
+    <div id="fogContainer"></div>
+
+    <!-- 宝藏 -->
+    <div id="treasureContainer"></div>      
+  </div>
+
+
+
+
+
+
+
+
+  <!-- 这里是 marketPage -->
+  <div id="marketPage">
+    <h2>Upgrade your plane</h2>
+    <img src="image/market/Window.png" id="BG">
+    <img src="image/market/Blank.png" id="space1">
+    <img src="image/market/Blank.png" id="space2">
+    <img src="image/market/Blank.png" id="space3">
+    <span id="hpPlus">
+      <img src="image/market/Plus.png" alt="">
+    </span><!-- 往图片里插超链接 -->
+
+    <span id="speedPlus">
+      <img src="image/market/Plus.png" alt="">
+    </span>
+
+    <span id="damagePlus">
+      <img src="image/market/Plus.png" alt="">
+    </span>
+
+    <img src="image/market/Icon (1).png" id="hpImg" class="marketImg"> 
+    <img src="image/market/Icon (3).png" id="speedImg" class="marketImg">
+    <img src="image/market/Icon (16).png" id="damageImg" class="marketImg">
+    <p id="hpTitle" class="marketTitle">HEALTH</p>
+    <p id="speedTitle" class="marketTitle">SPEED</p>
+    <p id="damageTitle" class="marketTitle">DAMAGE</p>
+    <p id="hpText" class="marketText">+2 ❤️</p>
+    <p id="speedText" class="marketText">+10%</p>
+    <p id="damageText" class="marketText">+5% Damage</p>
+  </div>
+
+
+  
+  <!-- 引入主逻辑脚本 -->
+  <!-- 先加载全局变量和工具函数 -->
+  <script src="globalVar.js"></script>
+  <script src="domTool.js"></script>
+  <script src="dom.js"></script>
+
+  <!-- 再加载核心逻辑 -->
+  <script src="gameEnter.js"></script>
+  <script src="roundFlow.js"></script>
+  <script src="gameOver.js"></script>
+  <script src="planeMove.js"></script>
+  <script src="bgMove.js"></script>
+  <script src="bullet.js"></script>
+  <script src="enemy.js"></script>
+  <script src="collisions.js"></script>
+  <script src="buff.js"></script>
+  <script src="rank.js"></script>
+
+  <!-- 最后加载事件监听器 -->
+  <script src="event.js"></script>
+</body>
+</html>
