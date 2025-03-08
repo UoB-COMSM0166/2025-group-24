@@ -23,8 +23,6 @@ window.myPlane2     = $("myPlane2");
 window.bulletsP     = $("bullets");
 window.enemysP      = $("enemys");
 window.enemyBulletsP= $("enemyBullets");
-//陨石容器
-window.meteorites =$("meteorites");
 
 // 界面上的一些文本和提示区
 window.playerInfo   = $("playerInfo");
@@ -44,8 +42,6 @@ window.errMsg2      = $("errMsg2");
 // Buff 提示与迷雾容器
 window.buffContainer= $("buffContainer");
 window.fogContainer = $("fogContainer");
-
-
 
 // 计算游戏区域的实际宽高
 window.gameW = getStyle(game, "width");

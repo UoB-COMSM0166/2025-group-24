@@ -1,0 +1,14 @@
+.idea/
+tests/node_modules/
+
+# 忽略所有 PNG 和 GIF 图片
+tests/*.png
+tests/*.gif
+
+# 忽略所有 .idea 目录（JetBrains IDE 相关文件）
+.idea/
+
+
+.DS_Store
+tests/notes.txt
+tests/useful-material/

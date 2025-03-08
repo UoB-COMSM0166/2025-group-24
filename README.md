@@ -21,21 +21,20 @@ Add a group photo here!
 | Xiaobo Ma   | [oa24686@bristol.ac.uk](mailto:oa24686@bristol.ac.uk)  | XiaoboMa1  | Software Test Engineer |
 | Kailin Fang | [jd24317@bristol.ac.uk](mailto:kfnora398@gmail.com)      | catlin518  | UI Designer           |
 | Yanhao He   | [ei24967@bristol.ac.uk](mailto:ei24967@bristol.ac.uk)  | YanHe225   | Developer             |
-| Gongyu Xue  | [in24247@bristol.ac.uk](mailto:in24247@bristol.ac.uk)  | xgy56      | Developer             |
 
 ## Project Report
 
-### Introduction
+## 1. Introduction
 
 - 5% ~250 words 
 - Describe your game, what is based on, what makes it novel? 
 
-### Requirements 
+## 2. Requirements 
 
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
 
-### 1. List of Stakeholders
+### 2.1 List of Stakeholders
 
 - **Players:**  
   Expect a smooth gaming experience with challenging level designs and diverse weapon upgrade systems, enhancing the game's fun and sense of achievement.
@@ -47,7 +46,7 @@ Add a group photo here!
   Ensure the game runs stably, with no critical bugs, and smoothly supports both single-player and multiplayer modes to optimize the user experience.
 
 
-### 2. User Stories & Acceptance Criteria
+### 2.2 User Stories & Acceptance Criteria
 
 | **User Story** | **Acceptance Criteria** |
 |----------------|--------------------------|
@@ -63,7 +62,7 @@ Add a group photo here!
 | As a player, I want to switch between different game backgrounds so that I can enhance visual experience and freshness. | Given the settings menu is open, when the player selects a background, then the game should update the background. |
 | As a game designer, I want to adjust the difficulty curve of each level so that the game remains challenging yet fair for all players. | Given the game’s progression system, when a player advances through levels, then the difficulty should increase gradually. |
 
-### 3. Reflection
+### 2.3 Reflection
 
 In the process of developing the airplane battle mini game, our team learned a lot about requirements analysis from Epics and User Stories. Here are our key takeaways:
 
@@ -73,18 +72,23 @@ Secondly, we recognize that the clarity of acceptance criteria is crucial. While
 
 Thirdly, we realize that a multi-stakeholder perspective is crucial for product development. Through stakeholder analysis, we realized that we need to not only consider the gaming experience of players, but also pay attention to the technical implementation difficulty of the development team and the expectations of product managers for market positioning, to ensure that the game can meet the needs of different stakeholders.
 
-### Design
+## 3. Design
 
 - 15% ~750 words 
-- System architecture. Class diagrams, behavioural diagrams. 
+- System architecture. Class diagrams, behavioural diagrams.
+- Class Diagram
+![Class Diagram](images/class.png)
 
-### Implementation
+- Sequence Diagram
+![Sequence Diagram](images/sequence.png)
+
+## 4. Implementation
 
 - 15% ~750 words
 
 - Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game. 
 
-### Evaluation
+## 5. Evaluation
 
 - 15% ~750 words
 
@@ -92,25 +96,66 @@ Thirdly, we realize that a multi-stakeholder perspective is crucial for product 
 
 - One quantitative evaluation (of your choice) 
 
-- Description of how code was tested. 
+- Description of how code was tested.
 
-### Process 
+### **5.1 Qualitative Analysis**  
+
+To evaluate the usability and player experience of the game, we conducted **Think Aloud** and **Heuristic Evaluation**. These two methods helped us identify key issues in the game, including controls, difficulty balance, and user interaction experience. Below are the detailed evaluation results and optimization plans.  
+
+### **5.1.1 Think Aloud**  
+We recruited 6 students as testers and asked them to complete two tasks:  
+- **Task 1:** Pass the first two levels in single-player mode.  
+- **Task 2:** Collect 5 items.  
+
+During the test, we asked players to express their ideas loudly to record their operating habits and difficulties in the game. Through observation and analysis, we summarized the following main issues:  
+- **Lack of a game tutorial:** The game does not provide any operation instructions, causing players to be unclear about how to control the aircraft when first entering the game. Some players had to try different keys to figure out the controls, which negatively impacted their experience.  
+- **Low item spawn rate:** Testers could not collect 5 items after passing the first two levels, failing to meet our initial goal of using items as an innovation to attract players.  
+- **High game difficulty:** Three players failed to pass the second level, indicating that the initial difficulty was set too high.  
+- **Control scheme does not suit all players:** The current control scheme uses WASD for movement and F for shooting, but some players are accustomed to using their right hand for movement and left hand for shooting, making the controls feel unnatural and affecting the gameplay experience.  
+- **Enemy planes are too small:** The small size of enemy planes makes them difficult to hit, which also contributed to the low level completion rate.  
+- **Unclear item effects:** After picking up an item, players do not immediately understand its effects, resulting in players not being able to make full use of props.  
+- **Bug - Bullets disappear after pausing:** When players pause and resume the game, enemy bullets disappear.  
+
+To address these issues, we propose the following optimizations:  
+- Add a **game tutorial** to introduce basic controls (movement, shooting) at the beginning.  
+- **Increase item spawn rate** to ensure players can collect enough items within a reasonable time.  
+- **Lower the score requirement** for early levels, allowing players to gradually adapt to the difficulty.  
+- **Add an option to switch control schemes** in single-player mode:  
+  - **Left-hand mode:** WASD for movement, F key for shooting.  
+  - **Right-hand mode:** Arrow keys for movement, Enter key for shooting.  
+- **Increase enemy plane size** and adjust their sizes based on health to improve hit accuracy.  
+- **Display item effects** upon pickup (e.g., "+5% speed boost").  
+- **Fix the pause logic** to ensure all dynamic objects (bullets, enemies) resume correctly after pausing.  
+
+### **5.1.2 Heuristic Evaluation**  
+Based on the issues discovered in the Think Aloud evaluation, we further conducted Heuristic Evaluation, inviting three students to participate. This method follows Nielsen's 10 Heuristic Principles** to analyze the game’s usability from a professional perspective.  
+In addition to the problems identified in Think Aloud, testers provided further key suggestions. The heuristic evaluation scoring table is as follows:
+
+| **Interface**  | **Issue Description**        | **Violated Heuristic Principle** | **Frequency (0-4)** | **Impact (0-4)** | **Persistence (0-4)** | **Severity (F+I+P)/3** |
+|--------------|--------------------------|------------------------------|----------------|----------------|----------------|----------------|
+| **Game Interface** | Background movement is not smooth, affecting immersion | H8: Aesthetic and Minimalist Design | 4 | 2 | 1 | 2.33 |
+| **Game Interface** | Fixed aircraft size, no visible health indicator | H4: Consistency and Standards | 4 | 3 | 4 | 3.67 |
+
+Testers pointed out that the static background affects the **immersion** of the game and suggested implementing **background scrolling** to enhance dynamic visuals and realism. Additionally, the fixed aircraft size makes it difficult for players to assess their health status. It was recommended to **adjust aircraft size dynamically** or add a **UI health bar** above the aircraft to provide a clearer indication of remaining health.
+
+
+## 6. Process 
 
 - 15% ~750 words
 
 - Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together. 
 
-### Conclusion
+## 7. Conclusion
 
 - 10% ~500 words
 
 - Reflect on project as a whole. Lessons learned. Reflect on challenges. Future work. 
 
-### Contribution Statement
+## Contribution Statement
 
 - Provide a table of everyone's contribution, which may be used to weight individual grades. We expect that the contribution will be split evenly across team-members in most cases. Let us know as soon as possible if there are any issues with teamwork as soon as they are apparent. 
 
-### Additional Marks
+## Additional Marks
 
 You can delete this section in your own repo, it's just here for information. in addition to the marks above, we will be marking you on the following two points:
 

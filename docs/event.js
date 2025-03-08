@@ -46,24 +46,20 @@ document.querySelectorAll("#rankDouble").forEach(button => {
 function addClearButton(panelId, isDouble) {
   const clearButton = document.createElement("button");
   clearButton.textContent = "Clear Leaderboard";
-  clearButton.style.marginTop = "20px";
-  clearButton.style.padding = "10px 20px";
-  clearButton.style.backgroundColor = "#ff4d4d";
-  clearButton.style.color = "white";
-  clearButton.style.border = "none";
-  clearButton.style.borderRadius = "5px";
-  clearButton.style.cursor = "pointer";
-  clearButton.style.fontFamily = "MyCustomFont, sans-serif";
-  clearButton.style.fontSize = "20px";
+  // 添加 CSS 类名，使用外部样式
+  clearButton.className = "clear-leaderboard-button";
 
   clearButton.onclick = function () {
     clearLeaderboard(isDouble); // 清空对应模式的排行榜
   };
 
-  // 将清空按钮添加到排行榜面板
-  const rankPanel = document.getElementById(panelId);
-  rankPanel.appendChild(clearButton);
+  // 将按钮添加到指定的面板中（例如 panelId 指定的 DOM 元素）
+  const panel = document.getElementById(panelId);
+  if (panel) {
+    panel.appendChild(clearButton);
+  }
 }
+
 
 // 在排行榜页面加载时添加清空按钮
 function setupLeaderboardPanels() {
@@ -235,7 +231,7 @@ document.getElementById("backBtn2").addEventListener("click", function() {
         case 'a': p1Left=true; break;
         case 'd': p1Right=true;break;
         case 'f':
-          // createBulletForPlane 来自 part2.js
+
           createBulletForPlane(myPlane, plane1X, plane1Y, myPlaneW, myPlaneH);
           break;
       }
@@ -248,8 +244,7 @@ document.getElementById("backBtn2").addEventListener("click", function() {
           case 'ArrowDown': p1Down=true; break;
           case 'ArrowLeft': p1Left=true; break;
           case 'ArrowRight':p1Right=true;break;
-          case 'Enter':
-            // 同样调用 part2.js 提供的函数
+          case 'l':
             createBulletForPlane(myPlane, plane1X, plane1Y, myPlaneW, myPlaneH);
             break;
         }
@@ -260,14 +255,22 @@ document.getElementById("backBtn2").addEventListener("click", function() {
 
    // ========== 暂停和继续 ==========
   document.onkeyup=function(e){
+    if(singleIntro.style.display === "block"
+      ||doubleIntro.style.display === "block"
+      ||Intro2.style.display === "block"
+      ||Intro3.style.display === "block"
+      ||marketPage1.style.display === "block")
+      return;
+      
+    
     // 按下空格暂停/继续
     if(e.keyCode===32){
       if(gameStatus){
         gameStatus=false;
         pauseTip.style.display="block";
-        // 调用 part2.js 的函数
         pauseAllBullets();
         pauseAllEnemies();
+        pauseAllmeteorites();
         clearInterval(bgTimer);
         clearInterval(enemyFireTimer);
         bgTimer=null;
@@ -277,7 +280,7 @@ document.getElementById("backBtn2").addEventListener("click", function() {
         pauseTip.style.display="none";
         resumeAllBullets();
         resumeAllEnemies();
-        //resumeAllEnemyBullets();
+        resumeAllmeteorites()
         bgMove();
         startEnemyFire();
         createEnemyBullet(e);
@@ -321,6 +324,7 @@ document.getElementById("backBtn2").addEventListener("click", function() {
 // ==========//显示体力值初始化红心显示  ==========
 
 const heartsContainer = document.getElementById('hearts-container');
+
 function initializeHearts() {
   heartsContainer.innerHTML = '';
   let hp = plane1Hp > plane2Hp ? plane2Hp : plane1Hp ;

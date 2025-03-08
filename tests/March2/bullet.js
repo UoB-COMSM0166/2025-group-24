@@ -28,19 +28,19 @@ function createBulletForPlane(ele, x, y, w, h) {
  * @param {HTMLElement} b - 子弹元素
  */
 function moveBullet(b) {
-  var bulletBaseSpeed = -15; // 基础速度，负值表示向上
-  b.timer = setInterval(() => {
+  var baseSpeed = -15; // 基础速度，负值表示向上
+  b.timer = mySetInterval(() => {
     if (!gameStatus) return;
     var topVal = getStyle(b, "top");
     // 子弹超出屏幕时，移除
     if (topVal <= -bulletH) {
-      clearInterval(b.timer);
+      myClearInterval(b.timer);
       if (b.parentNode) b.parentNode.removeChild(b);
       let idx = bullets.indexOf(b);
       if (idx !== -1) bullets.splice(idx, 1);
     } else {
       // 结合子弹速度系数 bulletSpeedFactor
-      let speed = bulletBaseSpeed * bulletSpeedFactor;
+      let speed = baseSpeed * bulletSpeedFactor;
       b.style.top = (topVal + speed) + "px";
     }
   }, 30);
@@ -51,7 +51,7 @@ function moveBullet(b) {
  */
 function pauseAllBullets() {
   for (let i = 0; i < bullets.length; i++) {
-    clearInterval(bullets[i].timer);
+    myClearInterval(bullets[i].timer);
     bullets[i].timer = null;
   }
 }
@@ -66,3 +66,8 @@ function resumeAllBullets() {
     }
   }
 }
+// 挂载 bullet.js 中的函数到 window 对象，供测试和其他模块调用
+window.createBulletForPlane = createBulletForPlane;
+window.moveBullet = moveBullet;
+window.pauseAllBullets = pauseAllBullets;
+window.resumeAllBullets = resumeAllBullets;

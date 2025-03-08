@@ -1,12 +1,24 @@
 /***** enemy.js *****/
 
-/*
+/** 
+ * 敌机生成计时器，用于定时创建敌机 
+ * 若不为 null，则说明已在生成中 
+ */
+var enemyTimer = null;
+
+/** 
+ * 敌机速度加成因子
+ * 部分 Buff 会修改此值，让所有敌机移动更快 
+ */
+var enemySpeedFactor = 1.0;
+
+/**
  * 开始定时生成敌机
  * 每 1.8 秒调用 createEnemy() 一次
  */
 function startEnemySpawn() {
   if (enemyTimer) return; // 若已在生成中，则不重复
-  enemyTimer = setInterval(() => {
+  enemyTimer = mySetInterval(() => {
     createEnemy();
   }, 1800);
 }
@@ -30,17 +42,6 @@ function createEnemy() {
   enemy.className = "e";
   enemy.dead = false;
 
-  if (enemyType === 1) { // 小型敌机
-    enemy.style.width = "35px";
-    enemy.style.height = "35px";
-  } else if (enemyType === 2) { // 中型敌机
-    enemy.style.width = "60px";
-    enemy.style.height = "60px";
-  } else { // 大型敌机
-    enemy.style.width = "90px";
-    enemy.style.height = "90px";
-  }
-
   // 随机生成敌机在屏幕顶部出现的初始 x 坐标
   var enemyL = Math.floor(Math.random() * (gameW - data.width + 1));
   var enemyT = -data.height; // 敌机从屏幕上方之外进入
@@ -59,30 +60,30 @@ function createEnemy() {
  * @param {HTMLElement} e - 敌机元素
  */
 function moveEnemy(e) {
-  var enemyBaseSpeed;
-  if (e.t === 1) enemyBaseSpeed = 5;   // 小型机速度快
-  else if (e.t === 2) enemyBaseSpeed = 3; // 中型机中速
-  else enemyBaseSpeed = 1.5;              // 大型机最慢
+  var baseSpeed;
+  if (e.t === 1) baseSpeed = 5;   // 小型机速度快
+  else if (e.t === 2) baseSpeed = 3; // 中型机中速
+  else baseSpeed = 1.5;              // 大型机最慢
 
-  e.timer = setInterval(() => {
+  e.timer = mySetInterval(() => {
     if (!gameStatus) return; // 暂停或结束时，不更新敌机
 
     var topVal = getStyle(e, "top");
     // 若超出屏幕底部，移除
     if (topVal >= gameH) {
-      clearInterval(e.timer);
+      myClearInterval(e.timer);
       if (e.parentNode) e.parentNode.removeChild(e);
       var idx = enemys.indexOf(e);
       if (idx !== -1) enemys.splice(idx, 1);
     } else {
       // 敌机移动速度 = baseSpeed * enemySpeedFactor
-      var finalSpeed = enemyBaseSpeed * enemySpeedFactor;
+      var finalSpeed = baseSpeed * enemySpeedFactor;
       e.style.top = (topVal + finalSpeed) + "px";
 
       // 检测是否被玩家子弹击中
       checkCollisionWithBullets(e);
       // 检测是否与玩家飞机碰撞
-      checkCollisionWithMeteorite(e);
+      checkCollisionWithPlanes(e);
     }
   }, 30);
 }
@@ -91,10 +92,10 @@ function moveEnemy(e) {
  * 暂停所有敌机的移动，并停止新的敌机生成
  */
 function pauseAllEnemies() {
-  clearInterval(enemyTimer);
+  myClearInterval(enemyTimer);
   enemyTimer = null;
   for (let i = 0; i < enemys.length; i++) {
-    clearInterval(enemys[i].timer);
+    myClearInterval(enemys[i].timer);
     enemys[i].timer = null;
   }
 }
@@ -122,7 +123,7 @@ var enemyFireTimer = null;
  */
 function startEnemyFire() {
   if (enemyFireTimer) return;
-  enemyFireTimer = setInterval(() => {
+  enemyFireTimer = mySetInterval(() => {
     if (!gameStatus) return;
     for (var i = 0; i < enemys.length; i++) {
       createEnemyBullet(enemys[i]);
@@ -161,9 +162,9 @@ function createEnemyBullet(enemy) {
  * 并检测是否击中玩家
  */
 function moveEnemyBullet(b) {
-  var baseSpeed = 8; // 敌机子弹速度
-  var speed=baseSpeed *enemyBulletFactor;
-  b.timer = setInterval(() => {
+  var speed = 8; // 敌机子弹速度
+
+  b.timer = mySetInterval(() => {
     if (!gameStatus) return;
     var topVal = getStyle(b, "top");
     if (topVal >= gameH) {
@@ -179,8 +180,18 @@ function moveEnemyBullet(b) {
  /* 移除敌机子弹 DOM 及其定时器*/
 
 function removeEnemyBullet(b) {
-  clearInterval(b.timer);
+  myClearInterval(b.timer);
   if (b.parentNode) b.parentNode.removeChild(b);
   var idx = enemyBullets.indexOf(b);
   if (idx !== -1) enemyBullets.splice(idx, 1);
 }
+// 挂载 enemy.js 中的函数到 window 对象
+window.startEnemySpawn = startEnemySpawn;
+window.createEnemy = createEnemy;
+window.moveEnemy = moveEnemy;
+window.pauseAllEnemies = pauseAllEnemies;
+window.resumeAllEnemies = resumeAllEnemies;
+window.startEnemyFire = startEnemyFire;
+window.moveEnemyBullet = moveEnemyBullet;
+window.removeEnemyBullet = removeEnemyBullet;
+window.createBulletForEnemy = createEnemyBullet;  // 注意这里修改为 createEnemyBullet

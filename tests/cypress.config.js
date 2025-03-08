@@ -4,7 +4,7 @@ const mochawesome = require("cypress-mochawesome-reporter/plugin");
 module.exports = defineConfig({
   e2e: {
     baseUrl: 'http://localhost:8080',
-    specPattern: 'cypress/e2e/Feb28/**/*.cy.{js,jsx,ts,tsx}',
+    specPattern: 'cypress/e2e/**/**/*.cy.{js,jsx,ts,tsx}',
     setupNodeEvents(on, config) {
       mochawesome(on);
       return config;

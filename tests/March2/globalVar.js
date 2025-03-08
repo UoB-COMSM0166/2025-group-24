@@ -3,6 +3,22 @@ window.planeScale       = 0.8;
 window.bulletScale      = 0.5;
 window.enemyScale       = 0.9;
 window.enemyBulletScale = 0.7;
+window.mySetTimeout = function(fn, delay) {
+  // 如果测试时启用了 __TEST_CLOCK__，则使用其 setTimeout，否则使用原生的 setTimeout
+  return window.__TEST_CLOCK__ ? window.__TEST_CLOCK__.setTimeout(fn, delay) : setTimeout(fn, delay);
+};
+
+window.mySetInterval = function(fn, delay) {
+  return window.__TEST_CLOCK__ ? window.__TEST_CLOCK__.setInterval(fn, delay) : setInterval(fn, delay);
+};
+
+window.myClearTimeout = function(timerId) {
+  return window.__TEST_CLOCK__ ? window.__TEST_CLOCK__.clearTimeout(timerId) : clearTimeout(timerId);
+};
+
+window.myClearInterval = function(timerId) {
+  return window.__TEST_CLOCK__ ? window.__TEST_CLOCK__.clearInterval(timerId) : clearInterval(timerId);
+};
 
 
 /** 
@@ -32,11 +48,10 @@ window.p2Left=false;
 window.p2Right=false;
 
 
-// 玩家子弹数组 / 敌机数组 / 敌机子弹数组/陨石数组
+// 玩家子弹数组 / 敌机数组 / 敌机子弹数组
 window.bullets      = [];
 window.enemys       = [];
 window.enemyBullets = [];
-window.meteoriteArray = [];
 
 // 记录当前回合数
 window.currentRound = 1;
@@ -56,22 +71,12 @@ window.bulletSpeedFactor = 1.0;
 
 //// 敌机伤害因子：越高则敌机对玩家造成更多伤害
 window.enemyDamageFactor = 1.0;
-window.enemyBulletFactor = 1.0;
-
-//敌方速度因子
-window.enemySpeedFactor = 1.0;
-
-
-//陨石速度因子
-window.meteoriteSpeedFactor=1.0;
 
 /** 定时器引用 */
 window.movementTimer   = null;
 window.enemyTimer      = null;
 window.enemyFireTimer  = null;
 window.bgTimer         = null;
-window.meteoriteTimer =null;
-
 
 /** 玩家飞机宽高 (在 onload 中赋值) */
 window.myPlaneW=0;
@@ -90,19 +95,15 @@ window.SHIELD_DURATION=5000; // 护盾持续时间
 
 // 敌机数据
 window.enemyObj = {
-  enemy1: { width:32,  height:32,  score:100,  hp:100 },
-  enemy2: { width:60, height:60, score:500,  hp:300 },
-  enemy3: { width:90, height:90, score:1000, hp:500 }
+  enemy1: { width:76,  height:50,  score:100,  hp:100 },
+  enemy2: { width:151, height:100, score:500,  hp:300 },
+  enemy3: { width:151, height:100, score:1000, hp:500 }
 };
-
-//陨石数据
-window.meteoriteObj = {
-  meteorite1: { score: 100, hp: 100, width: 35, height: 35 },
-  meteorite2: { score: 500, hp: 200, width: 67, height: 75 },
-  meteorite3: { score: 1000, hp: 300, width: 90, height: 90 }
-};
-
 
 //判断左右手模式
 window.leftModel = false;
 window.rightModel = false;
+
+window.enemySpeedFactor = 1.0; // 已存在
+window.SHIELD_DURATION = 5000; // 已存在
+

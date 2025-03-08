@@ -51,7 +51,7 @@ function checkCollisionWithBullets(e){
     // 碰撞检测
     if(collide(bL, bT, bW, bH, eL, eT, eW, eH, bulletScale, enemyScale)){
       // 1. 停止子弹
-      clearInterval(b.timer);
+      myClearInterval(b.timer);
       if(b.parentNode) b.parentNode.removeChild(b);
       bullets.splice(i,1);
 
@@ -71,22 +71,16 @@ function checkCollisionWithBullets(e){
  * 击毁敌机（播放爆炸动画 -> 移除）
  */
 function killEnemy(e){
-  if (e.dead) return;  // **防止重复执行**
-  e.dead = true;
-  
-  clearInterval(e.timer);
-  e.src = "image/bz.gif"  // **强制刷新爆炸动画**
-  
-  setTimeout(function(){
-  if (e && e.parentNode === enemysP) {
-    enemysP.removeChild(e);
-  }
-  var idx = enemys.indexOf(e);
-  if (idx !== -1) {
-    enemys.splice(idx, 1);
-  }
-}, 800); // **延长爆炸动画时间**
+  myClearInterval(e.timer);
+  e.src = "image/bz.gif"; // 爆炸动画
 
+  mySetTimeout(function(){
+    if(e.parentNode){
+      enemysP.removeChild(e);
+      var idx = enemys.indexOf(e);
+      if(idx !== -1) enemys.splice(idx,1);
+    }
+  }, 500);
 
   // 加分
   score += e.score;
@@ -165,7 +159,7 @@ function checkBulletHitPlayer(b){
 }
 
 /**
- * 敌机 vs 玩家飞机 
+ * 【可选】敌机 vs 玩家飞机 
  * 在 enemy.js 的 moveEnemy(e) 里会调用 checkCollisionWithPlanes(e)
  * 若你的游戏不需要“敌机撞到玩家”这种判定，可移除这个函数和对应调用。
  */
@@ -225,3 +219,9 @@ function checkCollisionWithPlanes(e){
     }
   }
 }
+// 挂载 collisions.js 中的函数到 window 对象
+window.collide = collide;
+window.checkCollisionWithBullets = checkCollisionWithBullets;
+window.killEnemy = killEnemy;
+window.checkBulletHitPlayer = checkBulletHitPlayer;
+window.checkCollisionWithPlanes = checkCollisionWithPlanes;
