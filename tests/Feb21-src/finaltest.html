@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Test for Buff & Background</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 强制设置关键 DOM 元素样式，避免 getComputedStyle 出现问题 */
+    #game {
+      width: 600px !important;
+      height: 600px !important;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background: url("image/rainy.png") no-repeat center/cover;
+    }
+    #myPlane {
+      width: 50px !important;
+      height: 50px !important;
+      display: block;
+      position: absolute;
+      left: 275px;
+      top: 400px;
+      background: url("image/myPlane_small.png") no-repeat center/cover;
+    }
+    #plane1Shield {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      display: none;
+      border: 2px solid rgba(0, 255, 255, 0.8);
+      border-radius: 50%;
+      box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
+    }
+    #treasureContainer, #fogContainer, #buffContainer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 600px;
+      height: 600px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="game">
+    <div id="treasureContainer"></div>
+    <div id="fogContainer"></div>
+    <div id="buffContainer"></div>
+    <div id="plane1Shield"></div>
+    <div id="myPlane"></div>
+  </div>
+  
+  <!-- 按顺序引入所有必要的 JS 文件 -->
+  <script src="globalVar.js"></script>
+  <script src="domTool.js"></script>
+  <script src="dom.js"></script>
+  <script src="roundFlow.js"></script>
+  <script src="buff.js"></script>
+  <script src="bgMove.js"></script>
+</body>
+</html>
