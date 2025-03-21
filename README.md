@@ -90,14 +90,6 @@ Thirdly, we realize that a multi-stakeholder perspective is crucial for product 
 
 ## 5. Evaluation
 
-- 15% ~750 words
-
-- One qualitative evaluation (your choice) 
-
-- One quantitative evaluation (of your choice) 
-
-- Description of how code was tested.
-
 ### **5.1 Qualitative Analysis**  
 
 To evaluate the usability and player experience of the game, we conducted **Think Aloud** and **Heuristic Evaluation**. These two methods helped us identify key issues in the game, including controls, difficulty balance, and user interaction experience. Below are the detailed evaluation results and optimization plans.  
@@ -154,6 +146,42 @@ Additionally, we plotted the **TLX score distribution box plot** for different l
 ![box-plot](images/box-plot.png)
 
 The median **TLX score continues to rise** as levels increase, indicating a gradual increase in game difficulty. **Level 1** has a lower and narrower distribution of TLX scores, suggesting that players experience lower cognitive and physical workload in the initial level. The gradual increase in scores in **Levels 2-4** indicates a gradual increase in the player's perceived workload. This is consistent with the game design intent of **gradually increasing the challenge of the game**.
+
+### **5.3 Description of how code was tested**
+### 5.3.1. Workflow & Methodology
+We employed a three-layer pyramid across development cycles:
+- Unit Tests (40%): Focused on isolated functions (e.g., createBulletForPlane(), killEnemy()).
+- Integration Tests (35%): Validated interactions between subsystems (e.g., buffs affecting enemy speed).
+- E2E Tests (25%): Simulated user journeys (e.g., single-player mode navigation).
+
+For early-stage modules (e.g., collision detection, enemy spawning), we impelemented white-box unit tests using JUnit to validate internal logic. As the game matured, we transitioned to Cypress-based E2E tests to simulate user interactions and validate UI workflows. After each test session, we produced detailed reports, including failure recordings, screenshots, problematic code patches, and improvement suggestions. All artifacts are version-controlled under the "test" branch for reference.
+
+## 5.3.2. Test Architecture & Modules
+Below is the structural breakdown of major tests and their purposes:
+
+| Test File | Type | Target Module | Key Features Validated |
+|-----------|------|--------------|------------------------|
+| bullet_and_enemy_spec.cy.js | Unit (White-box) | Bullet/Enemy Mechanics | Bullet generation/removal, enemy movement, collision detection logic |
+| buff_and_effects_spec.cy.js | Integration | Buff System & Timed Effects | Treasure drops, shield activation, speed buffs, fog effects, timer-based deactivation |
+| enemy_collision_spec.cy.js | Integration | Enemy-Player Interaction | Health deduction, game over triggers, alert handling |
+| ui_and_flow_spec.cy.js | E2E (Black-box) | UI Navigation & Game Flow | Homepage visibility, mode selection, player name input, round popup behavior |
+| integrate_spec.cy.js | System Testing | Full Game Loop | Background scrolling, meteorite spawning, round upgrades, market UI transitions |
+
+
+## 5.3.3. Key Findings & Improvements
+
+We validated boundary conditions (e.g., plane exceeding screen limits) and achieved ~85% code coverage for critical modules (collision, buffs, UI flow) via Cypress's built-in instrumentation. 
+
+As development iterations continued and project functionality expanded, testing allowed us to quickly identify incompatibilities with the original architecture, make adjustments, maintain connections between different features, correctly preserve states, evaluate edge cases, thereby improving system robustness and user experience. Through testing, we pinpointed and resolved critical bugs, for example:
+
+| Issue | Problem | Solution | Impact |
+|-------|---------|----------|--------|
+| Timer Leak in moveTreasure() | Intervals for treasure movement weren't cleared when treasures were removed | Added clearInterval() to removeTreasure() function | Prevented buff malfunctions and errors from operations on removed DOM elements |
+| Buff Stacking Problems | Speed boosts overwrote previous buffs instead of stacking | Changed assignment operations to cumulative calculations with proper restoration on expiry | Ensured correct stacking of multiple buffs (e.g., 50% + 50% = 100% speed increase) |
+| Missing Buff Expiration UI | Players received no visual feedback when buffs expired | Added expiration notifications that auto-remove after 2 seconds | Improved player awareness of active buff status |
+| Background Scroll Timer Issues | Background animation continued during pause, wasting resources | Added timer clearing logic when gameStatus = false | Prevented stuttering and rendering issues when toggling pause |
+| Internal Logic Inconsistencies | Duplicate HTML IDs in leaderboard, hardcoded meteorite dimensions | Assigned unique IDs, standardized meteorite configuration | Ensured correct state management during code expansion |
+
 
 ## 6. Process 
 
