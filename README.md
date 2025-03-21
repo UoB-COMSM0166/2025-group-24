@@ -138,6 +138,22 @@ In addition to the problems identified in Think Aloud, testers provided further 
 
 Testers pointed out that the static background affects the **immersion** of the game and suggested implementing **background scrolling** to enhance dynamic visuals and realism. Additionally, the fixed aircraft size makes it difficult for players to assess their health status. It was recommended to **adjust aircraft size dynamically** or add a **UI health bar** above the aircraft to provide a clearer indication of remaining health.
 
+### **5.2 Quantitative Analysis**
+
+To verify whether there are significant differences in the difficulty levels of the four game stages, we conducted a **NASA TLX test** and applied the **Friedman test** for statistical analysis. In this study, we used convenience sampling to select 11 participants to complete the NASA TLX questionnaire, using **Raw TLX scores** as the evaluation metric.
+
+The table below shows the **NASA TLX scores** of the 11 players at different levels:
+![NASA_TLX](images/NASA_TLX.png)
+
+We conducted a **Friedman test** using R, and the results are as follows:
+![Friedman](images/Friedman.png)
+
+Since the **p-value is less than 0.05**, there is a significant difference in NASA TLX scores across different levels. This indicates that as the game progresses, players perceive a significant increase in workload, verifying the gradual increase in the difficulty of the game.
+
+Additionally, we plotted the **TLX score distribution box plot** for different levels (Level 1-4) (as shown in the figure):
+![box-plot](images/box-plot.png)
+
+The median **TLX score continues to rise** as levels increase, indicating a gradual increase in game difficulty. **Level 1** has a lower and narrower distribution of TLX scores, suggesting that players experience lower cognitive and physical workload in the initial level. The gradual increase in scores in **Levels 2-4** indicates a gradual increase in the player's perceived workload. This is consistent with the game design intent of **gradually increasing the challenge of the game**.
 
 ## 6. Process 
 
