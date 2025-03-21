@@ -135,10 +135,14 @@ Testers pointed out that the static background affects the **immersion** of the 
 To verify whether there are significant differences in the difficulty levels of the four game stages, we conducted a **NASA TLX test** and applied the **Friedman test** for statistical analysis. In this study, we used convenience sampling to select 11 participants to complete the NASA TLX questionnaire, using **Raw TLX scores** as the evaluation metric.
 
 The table below shows the **NASA TLX scores** of the 11 players at different levels:
-<img src="images/NASA_TLX.png" alt="NASA TLX" width="50%">
+<center>
+    <img src="images/NASA_TLX.png" alt="NASA TLX" width="50%">
+</center>
 
 We conducted a **Friedman test** using R, and the results are as follows:
+<center>
 <img src="images/Friedman.png" alt="Friedman Test" width="40%">
+</center>
 
 Since the **p-value is less than 0.05**, there is a significant difference in NASA TLX scores across different levels. This indicates that as the game progresses, players perceive a significant increase in workload, verifying the gradual increase in the difficulty of the game.
 
