@@ -16,8 +16,8 @@ Add a group photo here!
 
 | Name         | Email                    | Username    | Role                  |
 |-------------|--------------------------|------------|-----------------------|
-| Xinjie Gao  | [id24861@bristol.ac.uk](mailto:id24861@bristol.ac.uk)  | Gracie-Gao | Software Test Engineer |
-| Zibin Liu   | [ys24930@bristol.ac.uk](mailto:ys24930@bristol.ac.uk)  | ZibinLiu   | Project Manager       |
+| Xinjie Gao  | [id24861@bristol.ac.uk](mailto:id24861@bristol.ac.uk)  | Gracie-Gao | Report & User Analyst |
+| Zibin Liu   | [ys24930@bristol.ac.uk](mailto:ys24930@bristol.ac.uk)  | ZibinLiu   | Project Manager & Developer  |
 | Xiaobo Ma   | [oa24686@bristol.ac.uk](mailto:oa24686@bristol.ac.uk)  | XiaoboMa1  | Software Test Engineer |
 | Kailin Fang | [jd24317@bristol.ac.uk](mailto:kfnora398@gmail.com)      | catlin518  | UI Designer           |
 | Yanhao He   | [ei24967@bristol.ac.uk](mailto:ei24967@bristol.ac.uk)  | YanHe225   | Developer             |
