@@ -26,8 +26,15 @@ Add a group photo here!
 
 ## 1. Introduction
 
-- 5% ~250 words 
-- Describe your game, what is based on, what makes it novel? 
+Our game is a pixel-style airplane shooter with roguelike elements, inspired by the classic arcade game _Space Invaders_. We introduced two-player mode and upgrade mechanics enhance the diversity of gameplay.
+
+In terms of design, we implemented a random item drop system, where players can pick up various items during the battle. These items may provide positive effects (e.g., shields or buffs) or negative ones (e.g., fog), adding unpredictability and challenge to the game.
+
+In addition to the single-player mode, the game also supports two-player co-op. In single-player mode, players can choose left-handed or right-handed mode, and choose to use WASD or arrow keys to control the aircraft according to their habits, which makes the operation more flexible.
+
+The game contains three main levels, with increasing difficulty. Similar to roguelike mechanics, players can choose to upgrade their health, movement speed, or bullet damage after completing each level. Once they die midway through, the game will start over.
+
+We anticipate that the game content will go through many revisions and iterations during the development process.  Therefore, we adopted an Agile workflow to stay flexible. This enabled our team to respond quickly to feedback, test new code regularly, and continuously improve the core game mechanics.
 
 ## 2. Requirements 
 
