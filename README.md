@@ -37,8 +37,13 @@ We anticipate that the game content will go through many revisions and iteration
 
 ## 2. Requirements 
 
-- 15% ~750 words
-- Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
+### 2.1  Early stages design & Ideation process
+In the early stage of game design, each of us selected one or two games that we were interested in and added innovative ideas. After team discussion and voting, we chose two popular games: Airplane Wars and Fruit Catcher. We first tried to create a basic game prototype for “Fruit Catcher”, in which the player moves the basket left and right to catch falling fruits to score points, while avoiding bombs. The game has a countdown timer and the player has to score as many points as possible within the time limit. 
+
+However, due to the relatively simple gameplay, lack of continuous challenge, and limited interaction, we eventually decided to abandon this idea and proceed with the plane battle game.
+
+At the beginning, we had a general goal for the plane game: to expand the traditional single-player plane shooter by adding two-player mode, boss levels, and a local leaderboard. The prototype was designed as follows:
+[video](week3/video.mp4)
 
 ### 2.1 List of Stakeholders
 
