@@ -9,9 +9,11 @@ Your game lives in the [/docs](/docs) folder, and is published using Github page
 
 Include a demo video of your game here (you don't have to wait until the end, you can insert a work in progress video)
 
-## Your Group
+## Team
 
-![group_photo](images/group24.jpg)
+<p align="center">
+  <img src="images/group24.jpg" width="400"/>
+</p>
 
 | Name         | Email                    | Username    | Role                  |
 |-------------|--------------------------|------------|-----------------------|
@@ -21,7 +23,6 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 | Kailin Fang | [jd24317@bristol.ac.uk](mailto:kfnora398@gmail.com)      | catlin518  | UI Designer           |
 | Yanhao He   | [ei24967@bristol.ac.uk](mailto:ei24967@bristol.ac.uk)  | YanHe225   | Developer             |
 
-## Project Report
 
 ## 1. Introduction
 
