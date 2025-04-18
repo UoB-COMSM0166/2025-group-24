@@ -39,6 +39,11 @@ We anticipate that the game content will go through many revisions and iteration
 
 ### 2.1  Early stages design & Ideation process
 In the early stage of game design, each of us selected one or two games that we were interested in and added innovative ideas. After team discussion and voting, we chose two popular games: Airplane Wars and Fruit Catcher. We first tried to create a basic game prototype for “Fruit Catcher”, in which the player moves the basket left and right to catch falling fruits to score points, while avoiding bombs. The game has a countdown timer and the player has to score as many points as possible within the time limit. 
+<p align="center">
+  <a href="https://youtube.com/shorts/rnnduCIMYFE?feature=share" target="_blank">
+    <img src="https://img.youtube.com/vi/rnnduCIMYFE/0.jpg" width="400">
+  </a>
+</p>
 
 However, due to the relatively simple gameplay, lack of continuous challenge, and limited interaction, we eventually decided to abandon this idea and proceed with the plane battle game.
 
