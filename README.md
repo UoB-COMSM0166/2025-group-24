@@ -12,7 +12,7 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 ## Team
 
 <p align="center">
-  <img src="images/group24.jpg" width="400"/>
+  <img src="images/group24.jpg" width="90%"/>
 </p>
 
 | Name         | Email                    | Username    | Role                  |
