@@ -43,9 +43,10 @@ In the early stage of game design, each of us selected one or two games that we 
 However, due to the relatively simple gameplay, lack of continuous challenge, and limited interaction, we eventually decided to abandon this idea and proceed with the plane battle game.
 
 At the beginning, we had a general goal for the plane game: to expand the traditional single-player plane shooter by adding two-player mode, boss levels, and a local leaderboard. The prototype was designed as follows:
-<video src="week3/video.mp4" controls width="600">
-  Your browser does not support the video tag.
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3NAG3t2LuSc" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
 
 ### 2.1 List of Stakeholders
 
