@@ -12,16 +12,51 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 ## Team
 
 <p align="center">
-  <img src="images/group24.jpg" width="90%"/>
+  <img src="images/group24.jpg" width="70%"/>
 </p>
 
-| Name         | Email                    | Username    | Role                  |
-|-------------|--------------------------|------------|-----------------------|
-| Xinjie Gao  | [id24861@bristol.ac.uk](mailto:id24861@bristol.ac.uk)  | Gracie-Gao | Report & User Analyst |
-| Zibin Liu   | [ys24930@bristol.ac.uk](mailto:ys24930@bristol.ac.uk)  | ZibinLiu   | Project Manager & Developer  |
-| Xiaobo Ma   | [oa24686@bristol.ac.uk](mailto:oa24686@bristol.ac.uk)  | XiaoboMa1  | Software Test Engineer |
-| Kailin Fang | [jd24317@bristol.ac.uk](mailto:kfnora398@gmail.com)      | catlin518  | UI Designer           |
-| Yanhao He   | [ei24967@bristol.ac.uk](mailto:ei24967@bristol.ac.uk)  | YanHe225   | Developer             |
+<div align="center">
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Username</th>
+    <th>Role</th>
+  </tr>
+  <tr>
+    <td>Xinjie Gao</td>
+    <td><a href="mailto:id24861@bristol.ac.uk">id24861@bristol.ac.uk</a></td>
+    <td>Gracie-Gao</td>
+    <td>Report & User Analyst</td>
+  </tr>
+  <tr>
+    <td>Zibin Liu</td>
+    <td><a href="mailto:ys24930@bristol.ac.uk">ys24930@bristol.ac.uk</a></td>
+    <td>ZibinLiu</td>
+    <td>Project Manager & Developer</td>
+  </tr>
+  <tr>
+    <td>Xiaobo Ma</td>
+    <td><a href="mailto:oa24686@bristol.ac.uk">oa24686@bristol.ac.uk</a></td>
+    <td>XiaoboMa1</td>
+    <td>Software Test Engineer</td>
+  </tr>
+  <tr>
+    <td>Kailin Fang</td>
+    <td><a href="mailto:kfnora398@gmail.com">jd24317@bristol.ac.uk</a></td>
+    <td>catlin518</td>
+    <td>UI Designer</td>
+  </tr>
+  <tr>
+    <td>Yanhao He</td>
+    <td><a href="mailto:ei24967@bristol.ac.uk">ei24967@bristol.ac.uk</a></td>
+    <td>YanHe225</td>
+    <td>Developer</td>
+  </tr>
+</table>
+
+</div>
 
 
 ## 1. Introduction
