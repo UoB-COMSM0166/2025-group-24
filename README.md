@@ -93,7 +93,9 @@ However, due to the relatively simple gameplay, lack of continuous challenge, an
 ### 2.2  Use case diagrams & Use Case Specification
 In order to show the interaction between the player and the system more clearly, we designed a use case diagram to describe the main functional modules of the game and the relationship between them. By analyzing the user's operation flow in different game modes, we can identify the key use cases (e.g., starting the game, selecting modes, checking the leaderboard, etc.), which provides an important reference for the subsequent development.
 
+
 ![use-case diagram](images/use-case.png)
+
 
 After clarifying the key use cases of the game, we provide a detailed Use Case Specification  for two of the core modes - Single Player Mode and Two-player Collaborative Mode. By describing the Basic Flow and Alternative Flow, we systematically sort out the whole process of the player from entering the game, choosing the control method, to succeeding or failing in the battle.
 |               | Single Mode                                                                 | Cooperative Mode                                                                       |
