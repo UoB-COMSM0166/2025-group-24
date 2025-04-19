@@ -90,6 +90,23 @@ However, due to the relatively simple gameplay, lack of continuous challenge, an
   </a>
 </p>
 
+### 2.2  Use case diagrams & Use Case Specification
+In order to show the interaction between the player and the system more clearly, we designed a use case diagram to describe the main functional modules of the game and the relationship between them. By analyzing the user's operation flow in different game modes, we can identify the key use cases (e.g., starting the game, selecting modes, checking the leaderboard, etc.), which provides an important reference for the subsequent development.
+![use-case diagram](images/use-case diagram.png)
+
+After clarifying the key use cases of the game, we provide a detailed Use Case Specification  for two of the core modes - Single Player Mode and Two-player Collaborative Mode. By describing the Basic Flow and Alternative Flow, we systematically sort out the whole process of the player from entering the game, choosing the control method, to succeeding or failing in the battle.
+|               | Single Mode                                                                 | Cooperative Mode                                                                       |
+|---------------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **Description**     | The player controls a single aircraft to complete all levels, facing enemies, collecting items, and overcoming more challenges. | Two players each control an aircraft, collaborating to defeat enemies with strong teamwork. |
+| **Basic Flow**      |                                                                              |                                                                                        |
+| Step One            | The player selects single mode and enters a username.                        | Players select cooperative mode and enter two usernames.                               |
+| Step Two            | Choose left-hand or right-hand control mode to start the game.              | Players cooperate to fight enemies, collect items, dodge attacks, and complete levels. |
+| Step Three          | Fight enemies, collect items, dodge attacks, and complete the level.        | *Merged with Step Two*                                                                 |
+| **Alternative Flow**|                                                                              |                                                                                        |
+| Step One            | If the player dies during the game, it resets and returns to the level start. | If either player dies, the game resets and returns to the level start.                 |
+| Step Two            | The game can be resumed from the previous progress if paused.               | The game can be resumed from the previous progress if paused.                          |
+| Step Three          | Players view their score and rankings after finishing the game.             | Players view their score and rankings after finishing the game.                        |
+
 ### 2.1 List of Stakeholders
 
 - **Players:**  
