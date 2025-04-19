@@ -111,7 +111,9 @@ After clarifying the key use cases of the game, we provide a detailed Use Case S
 | Step Three          | Players view their score and rankings after finishing the game.             | Players view their score and rankings after finishing the game.                        |
 
 ### 2.3 List of Stakeholders
-  ![Onion model diagram](images/OnionModel.jpg)
+<p align="center">
+  <img src="images/OnionModel.jpg" width="60%"/>
+</p>
   
 - **01 – The Product or Service**  
   Our game — Sky Blaze
