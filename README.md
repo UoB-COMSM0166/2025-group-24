@@ -122,7 +122,7 @@ After clarifying the key use cases of the game, we provide a detailed Use Case S
   Single players, co-op players, and the GitHub community — potential players or individuals who may be influenced by the game
 
 <p align="center">
-  <img src="images/OnionModel.jpg" width="60%"/>
+  <img src="images/OnionModel.jpg" width="50%"/>
 </p>
 
 ### 2.4 User Stories & Acceptance Criteria
