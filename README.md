@@ -289,6 +289,14 @@ Through high-frequency synchronized communication, we were able to identify tech
 
 In terms of division of roles, we made a clear division based on members' specialties in order to improve the overall efficiency of collaboration. **Project Manager (Scrum Master)** is responsible for coordinating the project progress, organizing all kinds of meetings and monitoring the overall work status to ensure the smooth progress of the development process. The **Program Developer** is responsible for building the game framework, completing the implementation of core functions such as player control, enemy generation, level design and upgrade mechanism. The **System Testing** staff took on the responsibility of continuous testing and bug tracking to ensure the stability and reliability of each feature before it goes live. Meanwhile, the **Art Designer** was responsible for drawing pixel-style art resources such as airplanes, enemy planes, props, and interface buttons.
 
+| Name        | Contribution |
+|-------------|--------------|
+| Xinjie Gao  | 1            |
+| Zibin Liu   | 1            |
+| Xiaobo Ma   | 1            |
+| Kailin Fang | 1            |
+| Yanhao He   | 1            |
+
 Throughout the development process, we adopted an Agile workflow combined with the Kanban method, GitHub for version control, and efficient communication platforms such as Microsoft Teams and WeChat. This approach allowed us to maintain clear progress management and smooth team collaboration. Through continuous small-step iterations, regular feedback, and ongoing process improvements, we successfully advanced the project while significantly enhancing the team’s overall communication and collaboration capabilities.
 
 ## 7. Conclusion
