@@ -267,9 +267,27 @@ As development iterations continued and project functionality expanded, testing 
 
 ## 6. Process 
 
-- 15% ~750 words
+In this project, our group collaborated to develop a pixel style airplane war mini-game, incorporating roguelike elements and referencing the classic arcade game Space Invaders. In order to enhance the game experience, we introduced a two-player collaboration mode, a props random drop system, and a level upgrading mechanism to make the overall gameplay richer and more challenging. 
 
-- Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together. 
+In terms of teamwork, we adopted the **Agile Workflow** methodology for organization and management. The entire development cycle was divided into several short Sprints, each with a cycle of about two weeks. At the beginning of each sprint, we hold a Sprint Planning meeting** to define the main development goals and assign tasks for this phase.
+In order to better manage the development progress, we built a Kanban Kanban board in our GitHub project, which divides the task management into four main sections. First, **Backlog (Pending Options)** is used to include all planned tasks that are pending development or refinement. Second, **Todo** lists the tasks that have been identified and will be started soon, making it easy for the team to prioritize. Next, **In Progress** records the tasks that are currently under development, ensuring that all members have a clear understanding of the current focus and resource allocation. Finally, **Done** shows the results that have been completed and passed the initial acceptance, covering functional development (e.g., implementation of the game over mechanism, bullet and enemy collision detection), documentation (e.g., user stories, class diagrams, and timing diagrams), and project deliverables (e.g., uploading the final report and the video of the game's paper prototype demo), and so on.
+![kanban](images/kanban.jpg)
+
+Each task card is labeled with a specific development goal, and as development progresses, the task card moves from the “Pending” to the “In Progress” and finally to the “Completed” column. This visualization process helps team members clearly understand the overall project status and quickly identify potential problems during development.
+
+During the development process, we also used **GitHub** as a platform for version control and collaborative development. Each member develops features independently on their own branch, submits code via Pull Request, and conducts Code Review within the group to ensure code quality and feature stability.
+
+For daily communication, we use a combination of **Microsoft Teams** and **WeChat**. Teams is mainly used for scheduling meetings, sharing files and progress, while WeChat is used as an instant communication tool for quickly identifying issues, synchronizing progress, and scheduling ad-hoc discussions. This dual-channel communication allows us to maintain an efficient flow of information in different scenarios.
+![Teams](images/Teams.jpg)
+![Wechat](images/Wechat.jpg)
+
+During the Sprint, we held Scrum meetings every 2 to 3 days. Each Daily Stand-up is usually limited to 15 minutes or less, and team members share their work progress in turn, focusing on three main issues: what tasks were accomplished yesterday, what tasks are planned for today, and whether they have encountered any obstacles or need assistance in solving problems. Through this high-frequency, short-term and efficient communication, we were able to synchronize our progress in a timely manner, identify potential problems, and quickly adjust our development plan to ensure that the project moved forward steadily.
+
+Through high-frequency synchronized communication, we were able to identify technical difficulties or resource conflicts encountered during the development process in a timely manner and quickly adjust the development plan. For example, in a Daily Stand-up, we discovered a logical loophole in the scoring mechanism in time and quickly organized personnel to fix it, avoiding the impact on subsequent development.
+
+In terms of division of roles, we made a clear division based on members' specialties in order to improve the overall efficiency of collaboration. **Project Manager (Scrum Master)** is responsible for coordinating the project progress, organizing all kinds of meetings and monitoring the overall work status to ensure the smooth progress of the development process. The **Program Developer** is responsible for building the game framework, completing the implementation of core functions such as player control, enemy generation, level design and upgrade mechanism. The **System Testing** staff took on the responsibility of continuous testing and bug tracking to ensure the stability and reliability of each feature before it goes live. Meanwhile, the **Art Designer** was responsible for drawing pixel-style art resources such as airplanes, enemy planes, props, and interface buttons.
+
+Throughout the development process, we adopted an Agile workflow combined with the Kanban method, GitHub for version control, and efficient communication platforms such as Microsoft Teams and WeChat. This approach allowed us to maintain clear progress management and smooth team collaboration. Through continuous small-step iterations, regular feedback, and ongoing process improvements, we successfully advanced the project while significantly enhancing the team’s overall communication and collaboration capabilities.
 
 ## 7. Conclusion
 
