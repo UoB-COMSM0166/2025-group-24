@@ -278,7 +278,9 @@ Each task card is labeled with a specific development goal, and as development p
 During the development process, we also used **GitHub** as a platform for version control and collaborative development. Each member develops features independently on their own branch, submits code via Pull Request, and conducts Code Review within the group to ensure code quality and feature stability.
 
 For daily communication, we use a combination of **Microsoft Teams** and **WeChat**. Teams is mainly used for scheduling meetings, sharing files and progress, while WeChat is used as an instant communication tool for quickly identifying issues, synchronizing progress, and scheduling ad-hoc discussions. This dual-channel communication allows us to maintain an efficient flow of information in different scenarios.
+
 ![Teams](images/Teams.jpg)
+
 ![Wechat](images/Wechat.jpg)
 
 During the Sprint, we held Scrum meetings every 2 to 3 days. Each Daily Stand-up is usually limited to 15 minutes or less, and team members share their work progress in turn, focusing on three main issues: what tasks were accomplished yesterday, what tasks are planned for today, and whether they have encountered any obstacles or need assistance in solving problems. Through this high-frequency, short-term and efficient communication, we were able to synchronize our progress in a timely manner, identify potential problems, and quickly adjust our development plan to ensure that the project moved forward steadily.
