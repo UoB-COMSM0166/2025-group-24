@@ -214,18 +214,20 @@ To verify whether there are significant differences in the difficulty levels of 
 
 The table below shows the **NASA TLX scores** of the 11 players at different levels:
 <center>
-    <img src="images/NASA_TLX.png" alt="NASA TLX" width="50%">
+    <img src="images/NASA_TLX.png" alt="NASA TLX" width="45%">
 </center>
 
 We conducted a **Friedman test** using R, and the results are as follows:
 <center>
-<img src="images/Friedman.png" alt="Friedman Test" width="40%">
+<img src="images/Friedman.png" alt="Friedman Test" width="45%">
 </center>
 
 Since the **p-value is less than 0.05**, there is a significant difference in NASA TLX scores across different levels. This indicates that as the game progresses, players perceive a significant increase in workload, verifying the gradual increase in the difficulty of the game.
 
 Additionally, we plotted the **TLX score distribution box plot** for different levels (Level 1-4) (as shown in the figure):
-![box-plot](images/box-plot.png)
+<center>
+<img src="images/box-plot.png" alt="box-plot" width="80%">
+</center>
 
 The median **TLX score continues to rise** as levels increase, indicating a gradual increase in game difficulty. **Level 1** has a lower and narrower distribution of TLX scores, suggesting that players experience lower cognitive and physical workload in the initial level. The gradual increase in scores in **Levels 2-4** indicates a gradual increase in the player's perceived workload. This is consistent with the game design intent of **gradually increasing the challenge of the game**.
 
