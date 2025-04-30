@@ -12,7 +12,7 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 ## Team
 
 <p align="center">
-  <img src="images/group24.jpg" width="70%"/>
+  <img src="images/group24.JPG" width="70%"/>
 </p>
 
 <div align="center">
