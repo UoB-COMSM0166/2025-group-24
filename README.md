@@ -210,26 +210,26 @@ Testers pointed out that the static background affects the **immersion** of the 
 
 ### **5.2 Quantitative Analysis**
 
-To verify whether there are significant differences in the difficulty levels of the four game stages, we conducted a **NASA TLX test** and applied the **Friedman test** for statistical analysis. In this study, we used convenience sampling to select 11 participants to complete the NASA TLX questionnaire, using **Raw TLX scores** as the evaluation metric.
+To verify whether there are significant differences in the difficulty levels of the three game stages, we conducted a **NASA TLX test** and applied the **Friedman test** for statistical analysis. In this study, we used convenience sampling to select 11 participants to complete the NASA TLX questionnaire, using **Raw TLX scores** as the evaluation metric.
 
 The table below shows the **NASA TLX scores** of the 11 players at different levels:
-<center>
-    <img src="images/NASA_TLX.png" alt="NASA TLX" width="45%">
-</center>
+<p align="center">
+  <img src="images/NASA_TLX.png" width="45%"/>
+</p>
 
 We conducted a **Friedman test** using R, and the results are as follows:
-<center>
-<img src="images/Friedman.png" alt="Friedman Test" width="45%">
-</center>
+<p align="center">
+  <img src="images/Friedman.png" width="43%"/>
+</p>
 
 Since the **p-value is less than 0.05**, there is a significant difference in NASA TLX scores across different levels. This indicates that as the game progresses, players perceive a significant increase in workload, verifying the gradual increase in the difficulty of the game.
 
-Additionally, we plotted the **TLX score distribution box plot** for different levels (Level 1-4) (as shown in the figure):
+Additionally, we plotted the **TLX score distribution box plot** for different levels (Level 1-3) (as shown in the figure):
 <p align="center">
   <img src="images/box-plot.png" width="75%"/>
 </p>
 
-The median **TLX score continues to rise** as levels increase, indicating a gradual increase in game difficulty. **Level 1** has a lower and narrower distribution of TLX scores, suggesting that players experience lower cognitive and physical workload in the initial level. The gradual increase in scores in **Levels 2-4** indicates a gradual increase in the player's perceived workload. This is consistent with the game design intent of **gradually increasing the challenge of the game**.
+The median **TLX score continues to rise** as levels increase, indicating a gradual increase in game difficulty. **Level 1** has a lower and narrower distribution of TLX scores, suggesting that players experience lower cognitive and physical workload in the initial level. The gradual increase in scores in **Levels 2-3** indicates a gradual increase in the player's perceived workload. This is consistent with the game design intent of **gradually increasing the challenge of the game**.
 
 ### **5.3 Description of how code was tested**
 ### 5.3.1. Workflow & Methodology
