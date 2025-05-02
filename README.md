@@ -234,27 +234,27 @@ The median **TLX score continues to rise** as levels increase, indicating a grad
 ### **5.3 Description of how code was tested**
 ### 5.3.1. Workflow & Methodology
 We employed a three-layer pyramid across development cycles:
-- Unit Tests (40%): Focused on isolated functions (e.g., createBulletForPlane(), killEnemy()).
-- Integration Tests (35%): Validated interactions between subsystems (e.g., buffs affecting enemy speed).
+- Unit Tests (30%): Focused on isolated functions using Jest.
+- Integration Tests (45%): Validated interactions between subsystems (e.g., buffs affecting enemy speed).
 - E2E Tests (25%): Simulated user journeys (e.g., single-player mode navigation).
 
-For early-stage modules (e.g., collision detection, enemy spawning), we impelemented white-box unit tests using JUnit to validate internal logic. As the game matured, we transitioned to Cypress-based E2E tests to simulate user interactions and validate UI workflows. After each test session, we produced detailed reports, including failure recordings, screenshots, problematic code patches, and improvement suggestions. All artifacts are version-controlled under the "test" branch for reference.
+For early-stage modules (e.g., collision detection, enemy spawning), we implemented white-box unit tests using Jest to validate internal logic. As the game matured, we moved to Cypress-based E2E tests to simulate user interactions and validate UI workflows. After each test session, we produced detailed reports, including failure recordings, screenshots, problematic code patches, and improvement suggestions. All artifacts are version-controlled under the "test" branch for reference.
 
-## 5.3.2. Test Architecture & Modules
+### 5.3.2. Test Architecture & Modules
 Below is the structural breakdown of major tests and their purposes:
 
 | Test File | Type | Target Module | Key Features Validated |
 |-----------|------|--------------|------------------------|
-| bullet_and_enemy_spec.cy.js | Unit (White-box) | Bullet/Enemy Mechanics | Bullet generation/removal, enemy movement, collision detection logic |
+| bullet_and_enemy_spec.cy.js | Integration | Bullet/Enemy Mechanics | Bullet generation/removal, enemy movement, collision detection logic |
 | buff_and_effects_spec.cy.js | Integration | Buff System & Timed Effects | Treasure drops, shield activation, speed buffs, fog effects, timer-based deactivation |
 | enemy_collision_spec.cy.js | Integration | Enemy-Player Interaction | Health deduction, game over triggers, alert handling |
 | ui_and_flow_spec.cy.js | E2E (Black-box) | UI Navigation & Game Flow | Homepage visibility, mode selection, player name input, round popup behavior |
-| integrate_spec.cy.js | System Testing | Full Game Loop | Background scrolling, meteorite spawning, round upgrades, market UI transitions |
+| integrate_spec.cy.js | Integration | Basic Game Structure | Homepage elements, control interactions, game initialization |
 
 
-## 5.3.3. Key Findings & Improvements
+### 5.3.3. Key Findings & Improvements
 
-We validated boundary conditions (e.g., plane exceeding screen limits) and achieved ~85% code coverage for critical modules (collision, buffs, UI flow) via Cypress's built-in instrumentation. 
+We validated boundary conditions (e.g., plane exceeding screen limits) and achieved ~85% code coverage for critical modules (collision, buffs, UI flow) via Cypress's built-in instrumentation and Jest coverage reports. 
 
 As development iterations continued and project functionality expanded, testing allowed us to quickly identify incompatibilities with the original architecture, make adjustments, maintain connections between different features, correctly preserve states, evaluate edge cases, thereby improving system robustness and user experience. Through testing, we pinpointed and resolved critical bugs, for example:
 
