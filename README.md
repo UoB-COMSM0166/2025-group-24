@@ -301,7 +301,40 @@ In terms of division of roles, we made a clear division based on members' specia
 
 Throughout the development process, we adopted an Agile workflow combined with the Kanban method, GitHub for version control, and efficient communication platforms such as Microsoft Teams and WeChat. This approach allowed us to maintain clear progress management and smooth team collaboration. Through continuous small-step iterations, regular feedback, and ongoing process improvements, we successfully advanced the project while significantly enhancing the team’s overall communication and collaboration capabilities.
 
-## 7. Conclusion
+## 7. Sustainability, ethics and accessibility 
+
+As software engineers, we are not only responsible for the functionality of our systems, but also for their long-term impact on individuals, society, and the environment. As emphasized in the Karlskrona Manifesto and SusAF, designing with sustainability in mind means understanding the broader consequences of our systems and intentionally shaping them to create positive change. In this section, we reflect on the environmental, individual, and technical impacts of our game project. 
+
+### 7.1 Environmental Impact
+In terms of environmental sustainability, we have implemented strategies to **reduce energy consumption, lower carbon emissions, and ease server load**, aiming to minimize the environmental impact of our game.
+
+We recognize that modern browsers consume a lot of energy when processing media resources, especially when a game continues to run in the background after the player has left. Since our game is designed for long-term sessions and may experience extended pauses, we ensure that music playback, and other resource-consuming activities are suspended during periods of inactivity. This prevents unnecessary use of CPU, memory, and GPU resources, **reducing the power consumption of the user's device**.
+
+Our ranking system uses local caching to minimize server requests and reduce resource consumption, particularly when dealing with outdated data from inactive users. This helps prevent the server (especially from handling legacy user data) from becoming overloaded.
+
+### 7.2 Individual Impact
+Our game has a positive impact on **mental health, physical comfort, privacy, and learning ability**.
+
+On the **psychological level**, the game adopts a PVE (player vs environment) model that emphasizes combat, progression, and a sense of growth. It is structured into three levels with increasing difficulty, which reduces the sense of failure and frustration. The game is easy to start and play at any time, with a relaxed pace that helps relieve anxiety and stress, providing players with a casual and comforting experience. Moreover, the ranking system is stored locally without online connectivity or global competition, avoiding comparison-induced pressure and supporting mental well-being.
+
+On the **physical level**, the game supports both left-handed and right-handed operation modes, reducing strain on one hand. The UI elements are appropriately sized and do not overburden the eyesight. Even if you play for a long time, you can maintain a certain level of physical comfort.
+
+In terms of **privacy and safety**, the ranking data is stored locally, and users can clear it at any time. This ensures that no personal information is exposed externally.
+
+In terms of **lifelong learning**, the game features simple rules that can be learned within a few minutes. This stimulates brain activity while avoiding the frustration often caused by high learning barriers.
+
+### 7.3 Technical Impact
+From a technical perspective, we paid special attention to **maintainability, usability, adaptability, and scalability**.
+
+First, in terms of **usability**, we have reduced the amount of text and enhanced the use of visual elements to make the game content easier to understand for users of all ages and cultural backgrounds. The color scheme is comfortable, and the interface buttons are clear and intuitive, which improves the overall user experience.
+
+Second, in terms of **adaptability**, the game supports multiple operating systems and browser versions (e.g., Chrome, Safari), allowing users to run the game smoothly without the need to update their devices.
+
+In terms of **maintainability and scalability**, the project structure is well-organized and modular, which facilitates future feature expansion and issue resolution.
+
+We also note the **security** dimension: by storing data locally, we avoid risks associated with online data transmission. Additionally, reducing unnecessary network requests not only improves loading speed but also enhances the overall system stability.
+
+## 8. Conclusion
 
 - 10% ~500 words
 
