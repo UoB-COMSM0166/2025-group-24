@@ -336,12 +336,27 @@ We also note the **security** dimension: by storing data locally, we avoid risks
 
 ## 8. Conclusion
 
-- 10% ~500 words
+This project is a pixel-style airplane battle game that integrates Roguelike elements and supports both single-player and two-player modes. From the early stage of requirement analysis, user stories, and use case design to the later stages of code implementation, functional testing, and user evaluation, we went through a complete agile development process. The project not only improved our practical skills in team collaboration, software development, and usability testing, but also deepened our understanding and application of software sustainability through the SusAF framework.
 
-- Reflect on project as a whole. Lessons learned. Reflect on challenges. Future work. 
+During development, we faced several technical and collaborative challenges. On the technical side, implementing real-time game state switching and pause functionality required coordination between the main game loop and timers. The complex collision detection logic was efficiently handled by introducing the Bounding Box algorithm. To improve performance and maintainability, we used JavaScript for game logic, DOM and CSS to render visuals. On the team side, one originally planned member had to withdraw from the project due to personal reasons, which increased the workload for the rest of the team. However, through frequent communication, task decomposition, and flexible role adjustments, we were still able to achieve our project goals.
 
-## Contribution Statement
+Throughout the process, we realized the importance of clear requirements and testable design. By breaking down user stories into specific acceptance criteria, we were able to rapidly develop, validate, and iterate on features. Frequent stand-up meetings and kanban board helped us stay aligned, resolve conflicts, and coordinate resources effectively, significantly improving our development efficiency.
 
-- Provide a table of everyone's contribution, which may be used to weight individual grades. We expect that the contribution will be split evenly across team-members in most cases. Let us know as soon as possible if there are any issues with teamwork as soon as they are apparent. 
+For future work, we plan to expand the game's functionality in several ways to enhance playability and immersion:
+
+- Enhance the visual and audio feedback for hits, explosions, and shield activation;
+- Add boss battles to increase challenge;
+- Introduce more types of enemies with different behaviors to diversify gameplay;
+- Add plot transitions between levels to enhance immersion;
+- Add the friend battle mode to enhance the interaction and competitive fun;
+- Battle replay and performance sharing function, record players' battles and allow them to save their moments;
+- Optimization of auxiliary functions, support for color blind mode, low visual intensity mode, to enhance the inclusiveness;
+- Add AI Enemies and a Tutorial Mode to Support New Players;
+- Allow players to freely choose and switch between various aircraft and bullet styles, with support for personalized skin customization;
+- In-Game Shop and Item Exchange Using Points;
+- Support touch controls on mobile devices to expand user groups.
+    
+In conclusion, this project was not only the development of a complete game but also a comprehensive practice of the “software sustainability” concept. Despite facing member changes and technical difficulties, we successfully delivered a product that is fun, expandable, and offers a good user experience through teamwork, iteration, and continuous improvement.
+
 
 
