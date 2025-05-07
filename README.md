@@ -152,13 +152,53 @@ Thirdly, we realize that a multi-stakeholder perspective is crucial for product 
 
 ## 3. Design
 
-- 15% ~750 words 
-- System architecture. Class diagrams, behavioural diagrams.
-- Class Diagram
+### 3.1 System architecture
+
+Our game adopts a modular architecture using multiple JavaScript files, each of which is responsible for a specific aspect of gameplay or system management. This modular design promotes separation of concerns, code clarity, and easier debugging.
+![module structure diagram](images/module structure diagram.png)
+
+-   `event.js`: Acts as the central UI and input controller, managing button clicks, keyboard events, and user interface transitions.
+    
+-   `gameEnter.js`, `gameOver.js`, `roundFlow.js`: Handle game state transitions, including game start, end, round progression, and shop interactions.
+    
+-   `planeMove.js`, `bullet.js`: Control player interactions, including real-time movement and bullet generation.
+    
+-   `enemy.js`, `meteorite.js`, `buff.js`: Manage enemy creation, obstacle spawning, and power-up behavior.
+    
+-   `collisions.js`: Centralized module for collision detection and response logic.
+    
+-   `rank.js`: Handles high score storage, sorting, and display, triggered primarily by `gameOver.js` and powered by `localStorage`.
+    
+All game elements (players, enemies, bullets, buff) are represented as DOM elements with extended dynamic properties (e.g., `hp`, `type`, `dead`, `timer`), enabling object-like manipulation without using classical JavaScript classes. This design allows flexible, dynamic control of behaviors while maintaining performance and compatibility with DOM-based animations and updates.
+
+### 3.2 Class diagrams
+The initial class diagram  presented a simplified overview of our core game components, including the Game, Bullet, Enemy, Collision, buff, and controller files like planeMove and gameOver. At this stage, the diagram focused primarily on individual class responsibilities and basic aggregation relationships, especially those directly maintained by the central Game object.
 ![Class Diagram](images/class.png)
 
-- Sequence Diagram
+As our development progressed, we expanded the system’s functionality and modularity. In the updated class diagram , we introduced additional controller classes such as:
+- UIEventController for handling user input and interactions
+- GameFlowManager for managing round flow and game state transitions
+- Meteorite, a threat module with custom movement and collision handling
+- Rank  for high score tracking
+![Class1 Diagram](images/class1.png)
+
+In earlier versions, the system included a bgMove module for visual background movement. This class was excluded from the final architecture as it did not align with our priority on performance efficiency.
+
+
+### 3.3 Behavioural diagrams
+To illustrate the runtime interaction among game components, we created a UML Sequence Diagram representing a full gameplay loop in both single and two-player modes.
 ![Sequence Diagram](images/sequence.png)
+
+At the start of the game, the GameFlowManager initiates plane generation via the Mode component. In single-player mode, a single plane is created; in two-player mode, two planes are initialized.
+
+Once gameplay begins, players can fire bullets, triggering the Bullet system to move them and invoke the Collision module to detect impacts with enemies or buffs. Enemies may drop power-ups (Buff) when destroyed, which in turn modify various game states:
+- Bullet speed-up and player shield are activated when players collect power-ups.
+- Enemy speed-up and damage increase occur based on buffs or game difficulty scaling.
+- The Blood system tracks health, and damage is applied upon collision.
+- Game-over conditions are handled differently:
+In single-player mode, the game ends when the player's health drops below zero.
+In two-player mode, both players must have zero health for the game to end.
+
 
 ## 4. Implementation
 
