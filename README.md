@@ -248,7 +248,6 @@ Game Loop:
 JavaScript updates the object's state (e.g., position, HP)
 The updated state is synchronized to the DOM element (style.left, style.top, etc.)
 The browser re-renders the updated visuals
-![image](https://github.com/user-attachments/assets/3c9206c4-bbff-476f-906e-d53ba6dd2ddd)
 
 ## 5. Evaluation
 
