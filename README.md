@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6ddd5d46-584a-4655-9fac-ad8bb597667c)# 2025-group-24
+# 2025-group-24
 2025 COMSM0166 group 24
 
 ## Your Game
