@@ -1,4 +1,4 @@
-# 2025-group-24
+![image](https://github.com/user-attachments/assets/6ddd5d46-584a-4655-9fac-ad8bb597667c)# 2025-group-24
 2025 COMSM0166 group 24
 
 ## Your Game
@@ -155,7 +155,7 @@ Thirdly, we realize that a multi-stakeholder perspective is crucial for product 
 ### 3.1 System architecture
 
 Our game adopts a modular architecture using multiple JavaScript files, each of which is responsible for a specific aspect of gameplay or system management. This modular design promotes separation of concerns, code clarity, and easier debugging.
-![module structure diagram](images/module structure diagram.png)
+![module structure diagram](images/module_structure_diagram.png)
 
 -   `event.js`: Acts as the central UI and input controller, managing button clicks, keyboard events, and user interface transitions.
     
@@ -202,9 +202,53 @@ In two-player mode, both players must have zero health for the game to end.
 
 ## 4. Implementation
 
-- 15% ~750 words
+### 4.1 Game Implementation: 
+We divided the game into several distinct phases, including the introduction interface, the main gameplay, and the post-game summary. We first implemented the core part of the game—the aerial combat—then added an introduction screen and leaderboard before it, and a shop interface afterward to start the next round. This structure establishes a linear gameplay progression. During the development process, we encountered challenges both in programming itself and in managing various game elements, which we summarize into the following three categories:
 
-- Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game. 
+### 4.2 Challenges
+### Real-Time Game State Changes — Main Loop and Timers
+To ensure the proper functioning of our game, various entities need to update in real time. By adding timers to different game entities and creating a loop framework, we’ve achieved smooth game operation and level progression.
+Each subsystem in the game (movement, spawning, collision detection) is relatively independent and managed by multiple setInterval timers. These timers are configured with different intervals to control each subsystem individually. The gameStatus variable is used to uniformly control pause and resume functionality.
+Within the main loop framework, these subsystems are executed in sequence. The main loop system is the core that enables the game to run smoothly. Every iteration of the loop is responsible for: Reading player input (keystrokes); Updating the positions of all entities (player, enemies, bullets, etc.); Checking for collisions; Redrawing the screen. In startMovement, movementTimer = setInterva l(function() is set with a 30ms refresh interval. In startEnemySpawn, enemyTimer = setInterval is configured with an 1800ms interval. Setting timers for different times ensures that the game starts as a player and then generates enemy planes and enemy bullets
+![1.1](images/1_1.gif)
+![1](images/1.png)
+![2](images/2.png)
+
+### Collision Logic — Bounding Box Algorithm
+Interactions between various entities in the game (player, enemies, treasures, bullets) are handled through collision detection.
+The core logic of detecting a collision is to check whether the coordinates of two objects overlap.
+The game uses the Bounding Box algorithm for collision detection. All entities (player aircraft, enemies, bullets, treasures) are treated as rectangles. Scaling factors are applied to adjust the actual size of each model.
+A collision is considered to have occurred when the bounding boxes of two objects overlap. Specifically, the following four conditions must all be satisfied for a collision to be detected:
+A’s right side ≥ B’s left side
+A’s left side ≤ B’s right side
+A’s bottom ≥ B’s top
+A’s top ≤ B’s bottom
+![3](images/3.png)
+Each entity in the game contains four core properties: left coordinate, top coordinate, width, and height. Using two additional parameters, scalew and scaleh, the bounding values (top, bottom, left, right) of each entity can be accurately calculated. This allows entities of different sizes to share the same collision detection algorithm, simplifying the programming logic. Additional small helper methods are also integrated into the corresponding collision handling function. These methods handle post-collision effects such as:
+Bullets disappearing
+Enemies exploding
+The player gaining score or losing HP
+A screen shake effect to alert the player
+![4](images/4.png)
+![1.2](images/1_2.gif)
+![1.3](images/1_3.gif)
+
+### Complex Game Objects — Modular Design, Object-Oriented Thinking, DOM Combined with JavaScript to Represent Game Entities
+Since modern browsers optimize CSS animations with hardware acceleration, they are often more efficient than animations implemented purely with JavaScript. Therefore, many of the visual effects in the game are handled by CSS, taking advantage of its separate rendering thread. This ensures that the game visuals remain smooth even when the JavaScript main thread is busy.
+In this structure:
+DOM elements serve as the visual presentation layer of the game.
+JavaScript logic represents the internal data and behavior of game entities.
+Together, they form a cohesive system for dynamic game presentation.
+Creation Phase:
+A JavaScript object is created to represent a game entity
+A corresponding DOM element is generated
+Custom attributes are assigned to the element
+The element is added to the DOM tree
+Game Loop:
+JavaScript updates the object's state (e.g., position, HP)
+The updated state is synchronized to the DOM element (style.left, style.top, etc.)
+The browser re-renders the updated visuals
+![image](https://github.com/user-attachments/assets/3c9206c4-bbff-476f-906e-d53ba6dd2ddd)
 
 ## 5. Evaluation
 
