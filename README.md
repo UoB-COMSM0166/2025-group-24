@@ -7,7 +7,7 @@
 
 [**✈️ PLAY HERE**](https://uob-comsm0166.github.io/2025-group-24/)
 
-[**💻 source code**](/docs)
+[**💻 SOURCE CODE**](/docs)
 
 
 ## Team
