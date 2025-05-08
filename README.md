@@ -3,11 +3,11 @@
   <img src="images/banner.png" width="95%"/>
 </p>
 
-## ▶️ Try the Game Now
+## Try the Game Now
 
 [**PLAY HERE**](https://uob-comsm0166.github.io/2025-group-24/)
 
-> The game is deployed using GitHub Pages and the source code is located in the [/docs](/docs) folder.
+[source code](/docs)
 
 
 ## Team
