@@ -1,8 +1,9 @@
 # 2025-group-24
 2025 COMSM0166 group 24
-
-## Your Game
-
+<p align="center">
+  <img src="images/banner.png" width="95%"/>
+</p>
+▶️ Try the Game Now
 Link to your game [PLAY HERE](https://uob-comsm0166.github.io/2025-group-24/)
 
 Your game lives in the [/docs](/docs) folder, and is published using Github pages to the link above.
