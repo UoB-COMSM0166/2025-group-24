@@ -9,6 +9,7 @@
 
 [**💻 SOURCE CODE**](/docs)
 
+## Demo Video
 
 ## Team
 
@@ -105,7 +106,7 @@ After clarifying the key use cases of the game, we provide a detailed Use Case S
 | **Basic Flow**      |                                                                              |                                                                                        |
 | Step One            | The player selects single mode and enters a username.                        | Players select cooperative mode and enter two usernames.                               |
 | Step Two            | Choose left-hand or right-hand control mode to start the game.              | Players cooperate to fight enemies, collect items, dodge attacks, and complete levels. |
-| Step Three          | Fight enemies, collect items, dodge attacks, and complete the level.        | *Merged with Step Two*                                                                 |
+| Step Three          | Fight enemies, collect items, dodge attacks, and complete the level.        |                                                                |
 | **Alternative Flow**|                                                                              |                                                                                        |
 | Step One            | If the player dies during the game, it resets and returns to the level start. | If either player dies, the game resets and returns to the level start.                 |
 | Step Two            | The game can be resumed from the previous progress if paused.               | The game can be resumed from the previous progress if paused.                          |
