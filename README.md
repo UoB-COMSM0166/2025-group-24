@@ -67,6 +67,19 @@
 </div>
 
 
+## Table of Contents
+
+- [1. Introduction](#1-introduction)
+- [2. Requirements](#2-requirements)
+- [3. Design](#3-design)
+- [4. Implementation](#4-implementation)
+- [5. Evaluation](#5-evaluation)
+- [6. Process](#6-process)
+- [7. Sustainability, ethics and accessibility](#7-sustainability-ethics-and-accessibility)
+- [8. Conclusion](#8-conclusion)
+- [9. References](#9-references)
+
+
 ## 1. Introduction
 
 Our game is a pixel-style airplane shooter with roguelike elements, inspired by the classic arcade game _Space Invaders_. We introduced two-player mode and upgrade mechanics enhance the diversity of gameplay.
@@ -383,7 +396,9 @@ As development iterations continued and project functionality expanded, testing 
 In this project, our group collaborated to develop a pixel style airplane war mini-game, incorporating roguelike elements and referencing the classic arcade game Space Invaders. In order to enhance the game experience, we introduced a two-player collaboration mode, a props random drop system, and a level upgrading mechanism to make the overall gameplay richer and more challenging. 
 
 In terms of teamwork, we adopted the **Agile Workflow** methodology for organization and management. The entire development cycle was divided into several short Sprints, each with a cycle of about two weeks. At the beginning of each sprint, we hold a Sprint Planning meeting** to define the main development goals and assign tasks for this phase.
-In order to better manage the development progress, we built a Kanban Kanban board in our GitHub project, which divides the task management into four main sections. First, **Backlog (Pending Options)** is used to include all planned tasks that are pending development or refinement. Second, **Todo** lists the tasks that have been identified and will be started soon, making it easy for the team to prioritize. Next, **In Progress** records the tasks that are currently under development, ensuring that all members have a clear understanding of the current focus and resource allocation. Finally, **Done** shows the results that have been completed and passed the initial acceptance, covering functional development (e.g., implementation of the game over mechanism, bullet and enemy collision detection), documentation (e.g., user stories, class diagrams, and timing diagrams), and project deliverables (e.g., uploading the final report and the video of the game's paper prototype demo), and so on.
+In order to better manage the development progress, we built a Kanban Kanban board in our GitHub project, which divides the task management into four main sections. First, **Backlog (Pending Options)** is used to include all planned tasks that are pending development or refinement. Second, **Todo** lists the tasks that have been identified and will be started soon, making it easy for the team to prioritize. Next, **In Progress** records the tasks that are currently under development, ensuring that all members have a clear understanding of the current focus and resource allocation. Finally, **Done** shows the results that have been completed and passed the initial acceptance, covering functional development (e.g., implementation of the game over mechanism, bullet and enemy collision detection), documentation (e.g., user stories, class diagrams, and timing diagrams), and project deliverables (e.g., uploading the final report and the video of the game's paper prototype demo), and so on. （[View GitHub Kanban Board](https://github.com/UoB-COMSM0166/2025-group-24/projects)
+）
+
 ![kanban](images/kanban.jpg)
 
 Each task card is labeled with a specific development goal, and as development progresses, the task card moves from the “Pending” to the “In Progress” and finally to the “Completed” column. This visualization process helps team members clearly understand the overall project status and quickly identify potential problems during development.
@@ -472,5 +487,13 @@ For future work, we plan to expand the game's functionality in several ways to e
     
 In conclusion, this project was not only the development of a complete game but also a comprehensive practice of the “software sustainability” concept. Despite facing member changes and technical difficulties, we successfully delivered a product that is fun, expandable, and offers a good user experience through teamwork, iteration, and continuous improvement.
 
+## 9. References
+
+1. Beck, K. et al. (2001). *Manifesto for Agile Software Development*. [https://agilemanifesto.org](https://agilemanifesto.org)  
+
+2. NASA (2021). *NASA Systems Engineering Handbook* (Rev. 2). NASA/SP-20210001361.  
+   Available at: [https://ntrs.nasa.gov/citations/20210015257](https://ntrs.nasa.gov/citations/20210015257)  
+
+3. Sommerville, I. (2016). *Software Engineering* (10th Edition). Pearson.  
 
 
