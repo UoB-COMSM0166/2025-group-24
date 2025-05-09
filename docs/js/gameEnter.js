@@ -1,14 +1,13 @@
-
-
 /**
- * 玩家输入完名字后，正式进入游戏
- * 设置玩家初始位置、回合提示，启动主要逻辑
+ * After the player enters their name, officially enter the game
+ * Set initial player positions, display round prompts, and start main logic
  */
 function showGameEnter() {
   gameEnter.style.display = "block";
   myPlane.style.display = "block";
 
-  // 判断是否双人
+
+   // Check if it's two-player mode
   if (isDouble) {
     myPlane2.style.display = "block";
     playerInfo.innerText = "Two-player mode: P1(" + playerName1 + ") & P2(" + playerName2 + ")";
@@ -17,37 +16,34 @@ function showGameEnter() {
     playerInfo.innerText = "Single-player mode: Player(" + playerName1 + ")";
   }
 
-  // 设置玩家1初始位置
-  plane1X = 200;
+  // Set initial position for player 1
+  plane1X = 440;
   plane1Y = 400;
   myPlane.style.left = plane1X + "px";
   myPlane.style.top  = plane1Y + "px";
   myPlane.style.display = "block";
 
-  // 设置玩家2初始位置（如双人模式）
-  plane2X = 400;
+   // Set initial position for player 2 (if two-player mode)
+  plane2X = 880;
   plane2Y = 400;
   myPlane2.style.left = plane2X + "px";
   myPlane2.style.top  = plane2Y + "px";
 
-  // 显示回合提示
+  // Display round prompt
   if (currentRound === 1) {
     roundPopup.innerText = "ROUND ONE";
   } else if (currentRound === 2) {
     roundPopup.innerText = "ROUND TWO";
   } else if (currentRound === 3) {
-    roundPopup.innerText = "ROUND THREE";
-  } else if (currentRound === 4) {
-    roundPopup.innerText = "ROUND FOUR";
-  } else if (currentRound === 5) {
     roundPopup.innerText = "FINAL ROUND";
-  }
+  } 
   roundPopup.style.display = "block";
   setTimeout(() => {
     roundPopup.style.display = "none";
   }, 2000);
 
-  // 根据回合提升敌机血量
+
+  // Increase enemy HP based on round
   if (currentRound === 2) {
     enemyObj.enemy1.hp = 150;
     enemyObj.enemy2.hp = 350;
@@ -56,35 +52,26 @@ function showGameEnter() {
     enemyObj.enemy1.hp = 200;
     enemyObj.enemy2.hp = 400;
     enemyObj.enemy3.hp = 600;
-  } else if (currentRound === 4) {
-    enemyObj.enemy1.hp = 250;
-    enemyObj.enemy2.hp = 450;
-    enemyObj.enemy3.hp = 650;
-  } else if (currentRound === 5) {
-    enemyObj.enemy1.hp = 300;
-    enemyObj.enemy2.hp = 500;
-    enemyObj.enemy3.hp = 700;
-  }
+  } 
 
-  // 开始游戏
+  // Start the game
   gameStatus = true;
   pauseTip.style.display = "none";
   score += 0;
   scoreVal.innerHTML = score;
 
-  // 启动主要逻辑
+  // Start main logic
   startMovement();
   startEnemySpawn();
   startEnemyFire();
-  bgMove();
   initializeHearts();
-  //resetHearts(); 
+
   
 }
 
 /**
- * 让页面在短时间内随机抖动（撞击、受伤等效果）
- * duration：抖动持续毫秒，intensity：抖动强度
+ * Make the screen shake for a short time (for impact, damage effects, etc.)
+ * duration: duration of shake in milliseconds, intensity: strength of the shake
  */
 function shakeWindow(duration = 500, intensity = 10) {
   const body = document.body;

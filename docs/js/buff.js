@@ -1,12 +1,8 @@
-
-
-/** 击毁敌机后，有概率掉落宝藏 */
+/** Drops treasure after destroying enemy with probability */
 function dropTreasure(enemy) {
-  var dropProb = 0.20; 
-  if (currentRound === 2) dropProb = 0.30;
-  if (currentRound === 3) dropProb = 0.40;
-  if (currentRound === 4) dropProb = 0.50;
-  if (currentRound === 5) dropProb = 0.60;
+  var dropProb = 0.25; 
+  if (currentRound === 2) dropProb = 0.35;
+  if (currentRound === 3) dropProb = 0.45;
   if (Math.random() > dropProb) return;
 
   var eL = getStyle(enemy, "left"),
@@ -19,7 +15,7 @@ function dropTreasure(enemy) {
   moveTreasure(treasure);
 }
 
-/** 让宝藏向下移动，并检测是否被玩家拾取 */
+/** Moves treasure downward and checks player collision */
 function moveTreasure(treasure) {
   var speed = 3;
   treasure.timer = setInterval(() => {
@@ -35,48 +31,48 @@ function moveTreasure(treasure) {
   }, 30);
 }
 
-/** 移除宝藏（清理定时器 + DOM） */
+/** Removes treasure (clears timer + DOM) */
 function removeTreasure(treasure) {
   clearInterval(treasure.timer);
   if (treasure.parentNode) treasure.parentNode.removeChild(treasure);
 }
 
-/** 判断宝藏与玩家碰撞 */
+/** Checks collision between treasure and player */
 function checkTreasureHitPlayer(treasure) {
   let tL = getStyle(treasure, "left"),
       tT = getStyle(treasure, "top"),
       tW = getStyle(treasure, "width"),
       tH = getStyle(treasure, "height");
 
-  // 玩家1
+  // Player 1
   if (collide(tL, tT, tW, tH, plane1X, plane1Y, myPlaneW, myPlaneH, 1, planeScale)) {
     applyTreasureEffect(1);
     removeTreasure(treasure);
     return;
   }
-  // 玩家2
+  // Player 2
   if (isDouble && collide(tL, tT, tW, tH, plane2X, plane2Y, myPlane2W, myPlane2H, 1, planeScale)) {
     applyTreasureEffect(2);
     removeTreasure(treasure);
   }
 }
 
-/** 随机触发宝藏效果：护盾 / 加速 / 迷雾等 */
+/** Randomly applies treasure effect: shield/speed/fog etc */
 function applyTreasureEffect(playerId) {
   let r = Math.random();
-  if (r < 0.25) {
+  if (r < 0.20) {
     activateShield(playerId);
     showBuff("Shield +5s", 5000);
-  } else if (r < 0.50) {
+  } else if (r < 0.35) {
     boostPlayerSpeed(playerId);
     showBuff("Speed Boost +5s", 5000);
-  } else if (r < 0.70) {
+  } else if (r < 0.55) {
     boostBulletSpeed();
     showBuff("Bullet Speed Up +5s", 5000);
-  } else if (r < 0.80) {
+  } else if (r < 0.70) {
     boostEnemySpeed();
     showBuff("Enemy Speed Up +5s", 5000);
-  } else if (r < 0.90) {
+  } else if (r < 0.95) {
     showFog();
     showBuff("Fog Effect +5s", 5000);
   } else {
@@ -85,9 +81,9 @@ function applyTreasureEffect(playerId) {
   }
 }
 
-// ------------------- Buff 效果函数 -------------------
+// ------------------- Buff Effect Functions -------------------
 
-/** 给玩家添加护盾（持续 SHIELD_DURATION 毫秒） */
+/** Activates player shield (lasts SHIELD_DURATION ms) */
 function activateShield(playerId) {
   if (playerId === 1) {
     if (plane1ShieldActive) return;
@@ -108,39 +104,40 @@ function activateShield(playerId) {
   }
 }
 
-/** 提升玩家移动速度，5秒后恢复 */
+/** Increases player movement speed for 5 seconds */
 function boostPlayerSpeed(playerId) {
   if (playerId === 1) {
-    player1SpeedFactor = 1.5;
+    player1SpeedFactor = 2;
     setTimeout(() => { player1SpeedFactor = 1.0; }, 5000);
   } else {
-    player2SpeedFactor = 1.5;
+    player2SpeedFactor = 2;
     setTimeout(() => { player2SpeedFactor = 1.0; }, 5000);
   }
 }
 
-/** 提升玩家子弹速度，5秒后恢复 */
+/** Increases bullet speed for 5 seconds */
 function boostBulletSpeed() {
-  bulletSpeedFactor = 1.5;
+  bulletSpeedFactor = 2.5;
   setTimeout(() => { bulletSpeedFactor = 1.0; }, 5000);
 }
 
-/** 敌机伤害加成 */
+/** Increases enemy damage for 5 seconds */
 function increaseEnemyDamage() {
-  enemyDamageFactor = 1.5;
+  enemyDamageFactor = 2;
   setTimeout(() => { enemyDamageFactor = 1.0; }, 5000);
 }
 
-/** 敌机整体加速 */
+/** Increases enemy speed for 5 seconds */
 function boostEnemySpeed() {
-  enemySpeedFactor = 1.5;
+  enemySpeedFactor = 3;
   setTimeout(() => { enemySpeedFactor = 1.0; }, 5000);
 }
 
-/** 在游戏中生成数块黑色方块，模拟迷雾效果 */
+/** Creates fog effect */
 function showFog() {
   fogContainer.innerHTML = "";
   let fogCount = Math.floor(Math.random() * 3) + 3;
+
   for (let i = 0; i < fogCount; i++) {
     let fog = document.createElement("div");
     fog.className = "fog";
@@ -153,19 +150,23 @@ function showFog() {
     let top  = Math.random() * (gameH - height);
     fog.style.left = left + "px";
     fog.style.top  = top  + "px";
+
+    // Use background image
+    fog.style.backgroundImage = "url('image/cloud2.png')";
+    fog.style.backgroundSize = "contain"; // Show full cloud image
+    fog.style.backgroundRepeat = "no-repeat";
+
     fogContainer.appendChild(fog);
   }
   setTimeout(() => { fogContainer.innerHTML = ""; }, 5000);
 }
 
-
-
-/** 显示 Buff 提示文本 */
+/** Displays buff notification text */
 function showBuff(buffName, duration) {
   if (!buffContainer) return;
   let buffItem = document.createElement("div");
   buffItem.className = "buff-item";
-  buffItem.innerText = buffName + " (持续 " + (duration / 1000) + " 秒)";
+  buffItem.innerText = buffName + '\n(effect will last for 5 seconds)\n\n';
   buffContainer.appendChild(buffItem);
   buffContainer.style.display = "block";
 
@@ -177,16 +178,15 @@ function showBuff(buffName, duration) {
   }, duration);
 }
 
-
-//每关之后的buff属性增加
+// Post-level upgrade functions
 function buySpeed(){
-  player1SpeedFactor *= 1.1;
+  player1SpeedFactor *= 1.5;
+  player2SpeedFactor *= 1.5;
 }
 function buyDamage(){
-  bulletSpeedFactor *= 1.2;
+  bulletSpeedFactor *=2;
 }
-
 function buyHp(){
   plane1Hp +=2;
-  plane2Hp +=2;
+  totalHp +=2
 }

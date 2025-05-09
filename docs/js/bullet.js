@@ -1,18 +1,17 @@
 /***** bullet.js *****/
 
 /** 
- * 子弹速度系数，可能被 Buff 效果修改 
- * 默认值：1.0 (正常速度)
+ * Bullet speed factor, can be modified by buff effects
+ * Default value: 1.0 (normal speed)
  */
 
-
 function createBulletForPlane(ele, x, y, w, h) {
-  if (!gameStatus) return; // 暂停或结束时不发射子弹
+  if (!gameStatus) return; // Don't fire bullets when paused or game over
 
   var b = document.createElement("div");
-  b.className = "b"; // 在 CSS 中定义了子弹的外观
+  b.className = "b"; // Bullet appearance defined in CSS
 
-  // 让子弹从飞机顶部中央发射
+  // Position bullet at center top of plane
   var bulletL = x + w / 2 - bulletW / 2;
   var bulletT = y - bulletH;
   b.style.left = bulletL + "px";
@@ -24,22 +23,22 @@ function createBulletForPlane(ele, x, y, w, h) {
 }
 
 /**
- * 让子弹不断向上运动，超出屏幕后移除
- * @param {HTMLElement} b - 子弹元素
+ * Moves bullet upward continuously, removes when off-screen
+ * @param {HTMLElement} b - Bullet element
  */
 function moveBullet(b) {
-  var bulletBaseSpeed = -15; // 基础速度，负值表示向上
+  var bulletBaseSpeed = -15; // Base speed (negative for upward movement)
   b.timer = setInterval(() => {
     if (!gameStatus) return;
     var topVal = getStyle(b, "top");
-    // 子弹超出屏幕时，移除
+    // Remove bullet when off-screen
     if (topVal <= -bulletH) {
       clearInterval(b.timer);
       if (b.parentNode) b.parentNode.removeChild(b);
       let idx = bullets.indexOf(b);
       if (idx !== -1) bullets.splice(idx, 1);
     } else {
-      // 结合子弹速度系数 bulletSpeedFactor
+      // Apply bullet speed factor
       let speed = bulletBaseSpeed * bulletSpeedFactor;
       b.style.top = (topVal + speed) + "px";
     }
@@ -47,7 +46,7 @@ function moveBullet(b) {
 }
 
 /**
- * 暂停所有玩家子弹（清除它们的移动定时器）
+ * Pauses all player bullets (clears their movement timers)
  */
 function pauseAllBullets() {
   for (let i = 0; i < bullets.length; i++) {
@@ -57,7 +56,7 @@ function pauseAllBullets() {
 }
 
 /**
- * 恢复所有玩家子弹的运动（重新启动它们的定时器）
+ * Resumes all player bullets movement (restarts their timers)
  */
 function resumeAllBullets() {
   for (let i = 0; i < bullets.length; i++) {

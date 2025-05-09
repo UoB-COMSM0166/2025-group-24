@@ -1,0 +1,129 @@
+/* button.css - Clean and optimized button stylesheet */
+
+/* General button styles */
+#startBtn, 
+#rankBtn, 
+#singleBtn, 
+#doubleBtn,
+#backBtn1, 
+#backBtn2, 
+#doubleEnter,
+#doubleEnter1,
+#leftEnter, 
+#rightEnter {
+  font-family: "MyCustomFont", sans-serif;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  text-shadow:
+    3px 3px 0px black,
+    -3px -3px 0px black,
+    3px -3px 0px black,
+    -3px 3px 0px black,
+    4px 4px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Homepage button styles */
+#startBtn, #rankBtn {
+  width: 250px;
+  height: 68px;
+  color: yellow;
+  background: url("../image/button1.png") no-repeat center/contain;
+  line-height: 40px;
+  font-size: 30px;
+  position: absolute;
+  left: 600px;
+}
+#startBtn { bottom: 350px; }
+#rankBtn  { bottom: 250px; }
+#startBtn:hover, #rankBtn:hover { color: #fff; }
+
+/* Mode selection buttons */
+#singleBtn, #doubleBtn {
+  width: 280px;
+  height: 105px;
+  background: none;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 10px;
+  color: yellow;
+  position: absolute;
+  z-index: 2;
+}
+#singleBtn { left: 375px; bottom: 250px; }
+#doubleBtn { left: 800px; bottom: 250px; }
+#singleBtn:hover, #doubleBtn:hover { color: #fff; }
+
+/* Back button styles */
+#backBtn1, #backBtn2 {
+  width: 160px;
+  height: 40px;
+  background: rgba(196, 201, 202);
+  line-height: 40px;
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  bottom: 80px;
+  transform: translateX(-50%);
+}
+#backBtn1 { left: 50%; }
+#backBtn2 { left: 50%; }
+#backBtn1:hover, #backBtn2:hover {
+  color: #fff;
+  background-color: rgba(150, 150, 150, 0.8);
+}
+
+/* Two-player mode Start button */
+#doubleEnter {
+  position: absolute;
+  font-size: 25px;
+  left: 660px;
+  bottom:100px;
+  text-shadow: 3px 3px 0 greenyellow;
+}
+#doubleEnter:hover { color: #fff; }
+
+
+#doubleEnter1 {
+  position: absolute;
+  font-size: 25px;
+  left: 660px;
+  bottom:100px;
+  text-shadow: 3px 3px 0 greenyellow;
+}
+#doubleEnter1:hover { color: #fff; }
+
+
+/* Left/right selection buttons on mode selection page */
+#leftEnter, #rightEnter {
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  text-shadow: 3px 3px 0 greenyellow;
+  border: 2px solid rgb(255, 255, 255); 
+
+}
+#leftEnter  { left: 348px; top: 800px; z-index: 3; cursor: pointer; border: 4px solid #000; width: 120px;}
+#rightEnter { left: 948px; top: 800px; z-index: 3; cursor: pointer; border: 4px solid #000; width: 120px}
+#leftEnter:hover, #rightEnter:hover { 
+  color: #fff;
+  border-color: #00ff66;
+  box-shadow: 0 0 10px #00ff66;
+  transform: scale(1.05); }
+
+#ModeBtn1{
+  width:200px;
+  height: 100px;
+  position: absolute;
+  bottom: 250px;
+  left:405px;
+  z-index: 1;
+}
+#ModeBtn2{
+  width:200px;
+  height: 100px;
+  position: absolute;
+  bottom: 250px;
+  left:835px;
+  z-index: 1;
+}

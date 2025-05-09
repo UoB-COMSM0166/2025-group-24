@@ -1,94 +1,90 @@
 /***** enemy.js *****/
 
+// Change: Added check in createEnemyBullet(enemy) - if (!enemy || !enemy.parentNode) return;
+
 /*
- * 开始定时生成敌机
- * 每 1.8 秒调用 createEnemy() 一次
+ * Start periodic enemy spawning
+ * Calls createEnemy() every 1.8 seconds
  */
 function startEnemySpawn() {
-  if (enemyTimer) return; // 若已在生成中，则不重复
+  if (enemyTimer) return; // If already spawning, don't duplicate
   enemyTimer = setInterval(() => {
     createEnemy();
   }, 1800);
 }
 
 /**
- * 创建一架敌机（小、中、大随机）
- * 计算其起始坐标后，添加到 enemysP 容器，并调用 moveEnemy() 让其移动
+ * Create an enemy aircraft (random small, medium, or large)
+ * Calculates starting position, adds to enemysP container, and initiates movement
  */
 function createEnemy() {
-  // 敌机类型概率分布（1:小, 2:中, 3:大）
+  // Enemy type probability distribution (1:small, 2:medium, 3:large)
   var percentData = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,3];
   var enemyType = percentData[Math.floor(Math.random() * percentData.length)];
   var data = enemyObj["enemy" + enemyType];
 
-  // 创建敌机元素（img），设置相关属性
+  // Create enemy element (img) and set properties
   var enemy = document.createElement("img");
   enemy.src = "image/enemy" + enemyType + ".png";
-  enemy.t = enemyType;           // 敌机类型
-  enemy.score = data.score;      // 击毁后可得分
-  enemy.hp = data.hp;            // 敌机血量
+  enemy.t = enemyType;           // Enemy type
+  enemy.score = data.score;      // Points when destroyed
+  enemy.hp = data.hp;            // Enemy health
   enemy.className = "e";
   enemy.dead = false;
+  
+  // Use dimensions defined in enemyObj
+  enemy.style.width = data.width + "px";
+  enemy.style.height = data.height + "px";
+ 
 
-  if (enemyType === 1) { // 小型敌机
-    enemy.style.width = "35px";
-    enemy.style.height = "35px";
-  } else if (enemyType === 2) { // 中型敌机
-    enemy.style.width = "60px";
-    enemy.style.height = "60px";
-  } else { // 大型敌机
-    enemy.style.width = "90px";
-    enemy.style.height = "90px";
-  }
-
-  // 随机生成敌机在屏幕顶部出现的初始 x 坐标
+  // Random x-coordinate at top of screen
   var enemyL = Math.floor(Math.random() * (gameW - data.width + 1));
-  var enemyT = -data.height; // 敌机从屏幕上方之外进入
+  var enemyT = -data.height; // Start above visible screen
   enemy.style.left = enemyL + "px";
   enemy.style.top  = enemyT + "px";
 
-  // 放入 enemysP 容器，并加入 enemys 数组，最后调用 moveEnemy()
+  // Add to container and array, then start movement
   enemysP.appendChild(enemy);
   enemys.push(enemy);
   moveEnemy(enemy);
 }
 
 /**
- * 让敌机不断向下移动，若超出屏幕则移除
- * 并检测与玩家子弹/玩家飞机的碰撞
- * @param {HTMLElement} e - 敌机元素
+ * Move enemy downward continuously, remove if off-screen
+ * Also checks collisions with player bullets/aircraft
+ * @param {HTMLElement} e - Enemy element
  */
 function moveEnemy(e) {
   var enemyBaseSpeed;
-  if (e.t === 1) enemyBaseSpeed = 5;   // 小型机速度快
-  else if (e.t === 2) enemyBaseSpeed = 3; // 中型机中速
-  else enemyBaseSpeed = 1.5;              // 大型机最慢
+  if (e.t === 1) enemyBaseSpeed = 5;   // Small - fastest
+  else if (e.t === 2) enemyBaseSpeed = 3; // Medium - medium speed
+  else enemyBaseSpeed = 1.5;              // Large - slowest
 
   e.timer = setInterval(() => {
-    if (!gameStatus) return; // 暂停或结束时，不更新敌机
+    if (!gameStatus) return; // Don't update when paused or game over
 
     var topVal = getStyle(e, "top");
-    // 若超出屏幕底部，移除
+    // Remove if past bottom of screen
     if (topVal >= gameH) {
       clearInterval(e.timer);
       if (e.parentNode) e.parentNode.removeChild(e);
       var idx = enemys.indexOf(e);
       if (idx !== -1) enemys.splice(idx, 1);
     } else {
-      // 敌机移动速度 = baseSpeed * enemySpeedFactor
+      // Final speed = baseSpeed * enemySpeedFactor
       var finalSpeed = enemyBaseSpeed * enemySpeedFactor;
       e.style.top = (topVal + finalSpeed) + "px";
 
-      // 检测是否被玩家子弹击中
+      // Check collision with player bullets
       checkCollisionWithBullets(e);
-      // 检测是否与玩家飞机碰撞
+      // Check collision with player aircraft
       checkCollisionWithMeteorite(e);
     }
   }, 30);
 }
 
 /**
- * 暂停所有敌机的移动，并停止新的敌机生成
+ * Pause all enemy movement and stop new enemy spawning
  */
 function pauseAllEnemies() {
   clearInterval(enemyTimer);
@@ -100,7 +96,7 @@ function pauseAllEnemies() {
 }
 
 /**
- * 恢复所有敌机的移动，并重新开始生成
+ * Resume all enemy movement and restart spawning
  */
 function resumeAllEnemies() {
   startEnemySpawn();
@@ -111,14 +107,14 @@ function resumeAllEnemies() {
   }
 }
 
-// ========== 敌机子弹部分 ==========
+// ========== Enemy Bullet Section ==========
 
-/** 敌机子弹生成计时器 */
+/** Enemy bullet generation timer */
 var enemyFireTimer = null;
 
 /**
- * 开始让所有敌机周期性地发射子弹
- * 每 1.5 秒，遍历 enemys 数组，令每个敌机都发射一颗子弹
+ * Start periodic bullet firing from all enemies
+ * Every 1.5 seconds, iterate through enemys array and make each fire a bullet
  */
 function startEnemyFire() {
   if (enemyFireTimer) return;
@@ -131,10 +127,10 @@ function startEnemyFire() {
 }
 
 /**
- * 为某个敌机创建一发子弹，初始位置在敌机下方中心
+ * Create a bullet for a specific enemy, starting at center bottom of enemy
  */
 function createEnemyBullet(enemy) {
-  // 若敌机已被销毁或移除，不生成子弹
+  // Don't create bullet if enemy is destroyed or removed
   if (!enemy || !enemy.parentNode) return;
 
   var eL = getStyle(enemy, "left"),
@@ -145,7 +141,7 @@ function createEnemyBullet(enemy) {
   var bullet = document.createElement("div");
   bullet.className = "enemy-bullet";
   var bulletW = 16, bulletH = 16;
-  // 子弹从敌机正中心下方发射
+  // Bullet starts centered below enemy
   var bulletL = eL + eW / 2 - bulletW / 2;
   var bulletT = eT + eH;
 
@@ -157,11 +153,11 @@ function createEnemyBullet(enemy) {
 }
 
 /**
- * 让敌机子弹不断向下运动，若超出屏幕则移除
- * 并检测是否击中玩家
+ * Move enemy bullet downward continuously, remove if off-screen
+ * Also checks if it hits player
  */
 function moveEnemyBullet(b) {
-  var baseSpeed = 8; // 敌机子弹速度
+  var baseSpeed = 8; // Enemy bullet speed
   var speed=baseSpeed *enemyBulletFactor;
   b.timer = setInterval(() => {
     if (!gameStatus) return;
@@ -175,9 +171,9 @@ function moveEnemyBullet(b) {
   }, 30);
 }
 
-
- /* 移除敌机子弹 DOM 及其定时器*/
-
+/**
+ * Remove enemy bullet DOM element and clear its timer
+ */
 function removeEnemyBullet(b) {
   clearInterval(b.timer);
   if (b.parentNode) b.parentNode.removeChild(b);

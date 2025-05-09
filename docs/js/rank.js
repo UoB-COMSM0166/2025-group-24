@@ -1,40 +1,40 @@
-// 存储单人模式和双人模式的排行榜数据
-let singlePlayerLeaderboard = []; // 单人模式排行榜
-let dualPlayerLeaderboard = [];   // 双人模式排行榜
+// Store leaderboard data for single-player and two-player modes
+let singlePlayerLeaderboard = []; // Single-player leaderboard
+let dualPlayerLeaderboard = [];   // Two-player leaderboard
 
-// 添加玩家得分
+// Add player score
 function addScore(name, score, isDouble) {
   const leaderboard = isDouble ? dualPlayerLeaderboard : singlePlayerLeaderboard;
 
-  // 检查是否已存在该玩家
+  // Check if the player already exists
   const existingPlayer = leaderboard.find((player) => player.name === name);
 
   if (existingPlayer) {
-    // 如果已存在，更新最高分
+    // If exists, update with higher score
     if (score > existingPlayer.score) {
       existingPlayer.score = score;
     }
   } else {
-    // 如果不存在，添加新玩家
+    // If not exists, add new player
     leaderboard.push({ name, score });
   }
 
-  sortLeaderboard(leaderboard); // 排序
-  saveLeaderboard(); // 保存到 localStorage
+  sortLeaderboard(leaderboard); // Sort the leaderboard
+  saveLeaderboard(); // Save to localStorage
 }
 
-// 排序排行榜
+// Sort the leaderboard
 function sortLeaderboard(leaderboard) {
-  leaderboard.sort((a, b) => b.score - a.score); // 按分数从高到低排序
+  leaderboard.sort((a, b) => b.score - a.score); // Sort by score descending
 }
 
-// 保存排行榜到 localStorage
+// Save leaderboard to localStorage
 function saveLeaderboard() {
   localStorage.setItem("singlePlayerLeaderboard", JSON.stringify(singlePlayerLeaderboard));
   localStorage.setItem("dualPlayerLeaderboard", JSON.stringify(dualPlayerLeaderboard));
 }
 
-// 从 localStorage 加载排行榜
+// Load leaderboard from localStorage
 function loadLeaderboard() {
   const singleData = localStorage.getItem("singlePlayerLeaderboard");
   const dualData = localStorage.getItem("dualPlayerLeaderboard");
@@ -47,22 +47,22 @@ function loadLeaderboard() {
   }
 }
 
-// 获取单人模式排行榜数据
+// Get single-player leaderboard data
 function getSinglePlayerLeaderboard() {
   return singlePlayerLeaderboard;
 }
 
-// 获取双人模式排行榜数据
+// Get two-player leaderboard data
 function getDualPlayerLeaderboard() {
   return dualPlayerLeaderboard;
 }
 
-// 初始化排行榜
+// Initialize leaderboard
 function initLeaderboard() {
   loadLeaderboard();
 }
 
-// 清空排行榜
+// Clear leaderboard
 function clearLeaderboard(isDouble) {
   if (isDouble) {
     dualPlayerLeaderboard = [];
@@ -70,49 +70,49 @@ function clearLeaderboard(isDouble) {
     singlePlayerLeaderboard = [];
   }
   saveLeaderboard();
-  displayLeaderboard(isDouble); // 刷新排行榜显示
+  displayLeaderboard(isDouble); // Refresh the leaderboard display
 }
 
-// 展示排行榜
+// Display leaderboard
 function displayLeaderboard(isDouble) {
-  // 获取排行榜面板
+   // Get leaderboard panel
   const rankPanel = isDouble ? document.getElementById("rankPanel2") : document.getElementById("rankPanel1");
   const scoreList = rankPanel.querySelector("#scoreList");
 
-  // 清空旧数据
+   // Clear old data
   scoreList.innerHTML = "";
 
-  // 获取对应模式的排行榜数据
+  // Get leaderboard data based on mode
   const leaderboard = isDouble ? getDualPlayerLeaderboard() : getSinglePlayerLeaderboard();
-  const maxEntries = 5; // 只显示前 5 名
+  const maxEntries = 5; // Show only top 5
 
-  // 填充排行榜数据
+  // Fill in leaderboard data
   leaderboard.slice(0, maxEntries).forEach((player, index) => {
     const listItem = document.createElement("li");
     listItem.textContent = `${index + 1}. ${player.name}: ${player.score} points`;
     scoreList.appendChild(listItem);
   });
 
-  // 显示排行榜面板
+  // Show leaderboard panel
   rankPanel.style.display = "block";
 
-  // 添加清空按钮
+  // Add clear button
 function addClearButton(panelId, isDouble) {
     const clearButton = document.createElement("button");
     clearButton.textContent = "Clear";
-    clearButton.classList.add("clear-button"); // 使用 CSS 类名
+    clearButton.classList.add("clear-button"); // Use CSS class
   
     clearButton.onclick = function () {
-      clearLeaderboard(isDouble); // 清空对应模式的排行榜
+      clearLeaderboard(isDouble); // Clear leaderboard for corresponding mode
     };
   
-    // 将清空按钮添加到排行榜面板
+    // Add clear button to leaderboard panel
     const rankPanel = document.getElementById(panelId);
     rankPanel.appendChild(clearButton);
   }
 }
 
-// 初始化排行榜
+// Initialize leaderboard
 initLeaderboard();
 
 

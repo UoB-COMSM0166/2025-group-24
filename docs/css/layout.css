@@ -1,0 +1,86 @@
+/* Main game container */
+#game {
+  width: 1440px;
+  height: 960px;
+  margin: 50px auto;
+  border: 1px solid #ccc;
+  position: relative;
+  overflow: hidden;
+  background: url("../image/bg1.jpg") no-repeat center/cover;
+  z-index: 1;
+}
+
+/* Various interfaces: homepage, ranking, mode selection, etc. */
+#homePage,
+#rankPanel,
+#selectMode,
+#enterName,
+#enterName2,
+#enterName3,
+#Intro2,
+#Intro3,
+#doubleIntro,
+#rankPanel2 {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0; 
+  background: url("../image/bg1.jpg") no-repeat center/cover;
+  text-align: center;
+  padding-top: 100px;
+  box-sizing: border-box;
+  font-family: "MyCustomFont", sans-serif;
+}
+
+#gameEnter{
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0; 
+  background: url("../image/bg2.png") no-repeat center/cover;
+  text-align: center;
+  padding-top: 100px;
+  box-sizing: border-box;
+  font-family: "MyCustomFont", sans-serif;
+}
+
+/* Homepage displayed by default */
+#homePage,
+#selectMode{
+  position: relative;
+  display: block;
+  padding-top: 100px;
+  color: #1e1e1a;
+  text-shadow: 
+    -2px -2px 0px #FFD700,  
+    2px -2px 0px #FFD700,  
+    -2px 2px 0px #FFD700,  
+    2px 2px 0px #FFD700, 
+    3px 3px 0px black,
+    -3px -3px 0px black, 
+    3px -3px 0px black, 
+    -3px 3px 0px black,
+    4px 4px 5px rgba(0, 0, 0, 0.7); /* Simulate embossed effect */
+  font-size: 35px;
+  z-index: 3;
+}
+
+/*#homePage h2 {
+  position: relative;
+  z-index: 4;
+  top: 35px;
+}*/
+#title{
+  position: relative;
+  left: 20px;
+}
+
+
+/* Should this be centered or slightly to the left */
+#selectMode h2 {
+  position: relative;
+  z-index: 4;
+  top: 35px;
+}

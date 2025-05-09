@@ -1,0 +1,170 @@
+/* Market page container styling */
+#marketPage {
+    position:absolute; /* fixed would be more suitable than absolute for full-screen coverage */
+    top: 50%;
+    left: 50%;
+    width: 1440px;
+    height: 960px; 
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background: url("../image/bg2.png") no-repeat center/cover;
+    display: none;
+}
+
+/* Base body styling */
+body{
+    font-size: 16px;
+}
+
+/* Main content container */
+.container{
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: auto;
+    position: absolute;
+    top: 200px;
+    left: 150px;
+}
+
+/* Upgrade title styling */
+#upGrade{
+    position: absolute;
+    font-size: 60px;
+    top:80px;
+    left: 500px;
+    color: yellow;
+    text-shadow:
+    3px 3px 0px black,
+    -3px -3px 0px black,
+    3px -3px 0px black,
+    -3px 3px 0px black,
+    4px 4px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Section layout */
+.section{
+    padding: 80px 0;
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Card grid layout */
+.section-cards{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+}
+
+/* Individual card styling */
+.section-card{
+    background-color: rgb(225, 225, 225 /24%); /* Change color */
+    box-shadow: 
+    0 8px 32px 0
+    rgb(0 0 0 /37%);
+    backdrop-filter: blur(15px);
+    border: 
+    1px solid
+    rgba(255, 255, 255, 0.18);
+    padding: 280px 50px 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card color variants */
+.section-card:nth-child(1){ --color:hsl(181,99%,50%); }
+.section-card:nth-child(2){ --color:hsl(63,96%,80%); }
+.section-card:nth-child(3){ --color:hsl(0,100%,83%); }
+
+/* Card hover effect */
+.section-card::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: let(--color);
+    z-index: -1;
+    clip-path: circle(40px at 70px 70px);
+    transition: clip-path 1s ease;
+}
+
+/* Card content styling */
+.section-card span{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 60px;
+    width: 80px;
+    font-size: 50px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(0, 0%, 0%);
+    transition: transform 1s ease;
+    top: 40px;
+    left: 35px;
+}
+
+/* Card text styling */
+.section-card h2{
+    font-size: 45px;
+    color: black;
+    font-weight: 800;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.section-card p{
+    color:black;
+    line-height: 2;
+    font-size: 25px;
+}
+
+/* Card link styling */
+.section-card a{
+    display: inline-block;
+    text-transform: capitalize;
+    color: hsl(0, 0%, 100%);
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+/* Transition effects */
+.section-card a,
+.section-card h2,
+.section-card p{
+    transition: color 1s ease;
+}
+
+/* Icon positioning */
+.iconImg {
+    position: absolute;
+    left: 142px;
+    top:50px;
+}
+
+/* Upgrade buttons styling */
+#hpPlus,
+#speedPlus,
+#damagePlus{
+    position: absolute;
+    top: 500px;
+    left: 135px;
+    width: 100px;
+    height: 35px;
+    font-size: 30px;
+    cursor: pointer;
+    border: 4px solid #000;
+}
+
+/* Button hover effects */
+#hpPlus:hover,
+#speedPlus:hover,
+#damagePlus:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+    background-color: #000;
+    color: #fff;
+}

@@ -1,0 +1,27 @@
+/*  
+  This CSS serves two core purposes:
+
+  1. Import and define a custom font (skin-tags.ttf) named "MyCustomFont" for site-wide use;
+  2. Set up basic layout and font styles for <body> and #body elements,
+     removing default margins, setting background color, applying unified font,
+     and establishing a foundation for subsequent page layouts and styles.
+*/
+
+/* ========= Font Settings Section ========= */
+@font-face {
+  font-family: "MyCustomFont"; /* Custom font name, can be used via font-family later */
+  src: url("../Font/Vaticanus.ttf") format("truetype"),  /* Font file path and format, using TrueType */
+       url("../Font/Vaticanus.ttf") format("truetype");  /* Redundant backup path to ensure loading */
+  font-weight: normal; /* Set font weight to default */
+  font-style: normal;  /* Set font style to normal (non-italic) */
+}
+
+/* ========= Global Font and Basic Styles ========= */
+body, #body {
+  margin: 0;              /* Remove browser default margins to prevent page gaps */
+  padding: 0;             /* Remove default padding to avoid layout interference */
+  width: 100%;            /* Set width to 100% of browser window */
+  height: 100%;           /* Set height to 100% of browser window */
+  background: #f0f0f0;    /* Set background color to light gray for better contrast */
+  font-family: "MyCustomFont", sans-serif; /* Global font uses custom font, falls back to system default sans-serif if loading fails */
+}
