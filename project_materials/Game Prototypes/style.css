@@ -1,14 +1,14 @@
-/* 游戏主容器 */
+
 #game {
     width: 600px;
     height: 600px;
     margin: 50px auto;
     background-color: #eee;
     position: relative;
-    overflow: hidden; /* 防止子弹滚动条 */
+    overflow: hidden; 
   }
   
-  /* 叠层界面 */
+  
   #gameStart, #selectMode, #enterName, #enterName2, #gameEnter {
     width:100%;
     height:100%;
@@ -21,28 +21,28 @@
   #selectMode { background:#aaa; }
   #enterName, #enterName2 { background:#bbb; }
   
-  /* 我方飞机1（红色） */
+
   #myPlane {
     width: 50px;
     height: 60px;
-    background: red;  /* 代替图片 */
+    background: red; 
     position: absolute;
     left:275px;
     top:520px;
   }
   
-  /* 我方飞机2（蓝色），双人模式下可见 */
+
   #myPlane2 {
     width: 50px;
     height: 60px;
-    background: blue; /* 代替图片 */
+    background: blue; 
     position: absolute;
     left:275px;
     top:400px;
-    display:none; /* 双人模式才显示 */
+    display:none; 
   }
   
-  /* 子弹容器 */
+
   #bullets {
     position:absolute;
     top:0;
@@ -52,16 +52,16 @@
     height:100%;
   }
   
- /* 黑色实心小圆子弹 */
+
 .bullet {
-  width: 10px; /* 子弹大小 */
+  width: 10px;
   height: 10px;
-  background-color: black; /* 设为黑色 */
-  border-radius: 50%; /* 让子弹变成圆形 */
+  background-color: black; 
+  border-radius: 50%; 
   position: absolute;
 }
   
-  /* 暂停提示 */
+
   #pauseTip {
     position:absolute;
     left:50%;
@@ -75,7 +75,7 @@
     display:none;
   }
   
-  /* 玩家信息 */
+
   #playerInfo {
     position:absolute;
     top:5px;

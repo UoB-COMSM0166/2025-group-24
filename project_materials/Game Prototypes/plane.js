@@ -1,24 +1,24 @@
-// 简写函数：获取ID对应的DOM
+
 function $(idName) {
   return document.getElementById(idName);
 }
 
-// 获取元素计算后样式（兼容）
+
 function getStyle(ele, attr) {
   var res = null;
   if (ele.currentStyle) {
-    // IE老式浏览器
+
     res = ele.currentStyle[attr];
   } else {
-    // 标准浏览器
+
     res = window.getComputedStyle(ele, null)[attr];
   }
   return parseFloat(res);
 }
 
-// 在页面加载后执行
+
 window.onload = function() {
-  // 1. 获取主要DOM元素
+
   var game        = $("game");
   var gameStart   = $("gameStart");
   var selectMode  = $("selectMode");
@@ -27,13 +27,13 @@ window.onload = function() {
   var enterName2  = $("enterName2");
   var gameEnter   = $("gameEnter");
 
-  var myPlane     = $("myPlane");   // 第一架飞机(红色)
-  var myPlane2    = $("myPlane2");  // 第二架飞机(蓝色)
-  var bulletsP    = $("bullets");   // 子弹容器
+  var myPlane     = $("myPlane");  
+  var myPlane2    = $("myPlane2"); 
+  var bulletsP    = $("bullets");   
   var playerInfo  = $("playerInfo");
   var pauseTip    = $("pauseTip");
 
-  // 2. 基础尺寸
+
   var gameW    = getStyle(game, "width");
   var gameH    = getStyle(game, "height");
   var gameML   = getStyle(game, "marginLeft");
@@ -45,26 +45,26 @@ window.onload = function() {
   var myPlane2W = getStyle(myPlane2, "width");
   var myPlane2H = getStyle(myPlane2, "height");
 
-  // 3. 状态变量
-  var gameStatus = false; // true进行中 / false暂停
-  var isDouble   = false; // 是否双人模式
+
+  var gameStatus = false; 
+  var isDouble   = false; 
   var playerName1 = "";
   var playerName2 = "";
 
-  // 第二架飞机(蓝色)的当前位置（WASD控制）
+ 
   var plane2X = 275;
   var plane2Y = 400;
 
-  // 子弹发射定时器
+
   var bulletTimer = null;
 
-  // 4. 点击“开始游戏”按钮 → 进入选择模式界面
+
   gameStart.firstElementChild.onclick = function() {
     gameStart.style.display = "none";
     selectMode.style.display = "block";
   };
 
-  // 5. 单人 / 双人 按钮
+
   var singleBtn = $("singleBtn");
   var doubleBtn = $("doubleBtn");
 
@@ -82,7 +82,7 @@ window.onload = function() {
     $("nameHint").innerText = "Please enter the first player's name";
   };
 
-  // 6. 输入第一位玩家名
+
   var nameInput = $("nameInput");
   var errMsg1   = $("errMsg1");
 
@@ -101,7 +101,7 @@ window.onload = function() {
           enterName2.style.display = "block";
         } else {
           enterName.style.display = "none";
-          // 直接进入游戏
+
           showGameEnter();
         }
       }
