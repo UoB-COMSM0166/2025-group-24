@@ -11,6 +11,9 @@
 
 ## Demo Video
 
+[![Watch the video](https://img.youtube.com/vi/edFYzpzQmzQ/0.jpg)](https://youtu.be/edFYzpzQmzQ)
+
+
 ## Team
 
 <p align="center">
@@ -96,7 +99,7 @@ However, due to the relatively simple gameplay, lack of continuous challenge, an
 In order to show the interaction between the player and the system more clearly, we designed a use case diagram to describe the main functional modules of the game and the relationship between them. By analyzing the user's operation flow in different game modes, we can identify the key use cases (e.g., starting the game, selecting modes, checking the leaderboard, etc.), which provides an important reference for the subsequent development.
 
 
-![use-case diagram](images/use-case.png)
+![use-case diagram](images/use-case%20diagram.png)
 
 
 After clarifying the key use cases of the game, we provide a detailed Use Case Specification  for two of the core modes - Single Player Mode and Two-player Collaborative Mode. By describing the Basic Flow and Alternative Flow, we systematically sort out the whole process of the player from entering the game, choosing the control method, to succeeding or failing in the battle.
@@ -212,9 +215,18 @@ We divided the game into several distinct phases, including the introduction int
 To ensure the proper functioning of our game, various entities need to update in real time. By adding timers to different game entities and creating a loop framework, we’ve achieved smooth game operation and level progression.
 Each subsystem in the game (movement, spawning, collision detection) is relatively independent and managed by multiple setInterval timers. These timers are configured with different intervals to control each subsystem individually. The gameStatus variable is used to uniformly control pause and resume functionality.
 Within the main loop framework, these subsystems are executed in sequence. The main loop system is the core that enables the game to run smoothly. Every iteration of the loop is responsible for: Reading player input (keystrokes); Updating the positions of all entities (player, enemies, bullets, etc.); Checking for collisions; Redrawing the screen. In startMovement, movementTimer = setInterva l(function() is set with a 30ms refresh interval. In startEnemySpawn, enemyTimer = setInterval is configured with an 1800ms interval. Setting timers for different times ensures that the game starts as a player and then generates enemy planes and enemy bullets
-![1.1](images/1_1.gif)
-![1](images/1.jpg)
-![2](images/2.jpg)
+<p align="center">
+  <img src="images/1_1.gif" width="70%"/>
+</p>
+
+<p align="center">
+  <img src="images/1.jpg" width="70%"/>
+</p>
+
+<p align="center">
+  <img src="images/2.jpg" width="70%"/>
+</p>
+
 
 ### Collision Logic — Bounding Box Algorithm
 Interactions between various entities in the game (player, enemies, treasures, bullets) are handled through collision detection.
@@ -231,25 +243,33 @@ Bullets disappearing
 Enemies exploding
 The player gaining score or losing HP
 A screen shake effect to alert the player
-![4](images/4.jpg)
-![1.2](images/1_2.gif)
-![1.3](images/1_3.gif)
+<p align="center">
+  <img src="images/4.jpg" width="90%"/>
+</p>
+
+<p align="center">
+  <img src="images/1_2.gif" width="50%"/>
+</p>
+
+<p align="center">
+  <img src="images/1_3.gif" width="95%"/>
+</p>
 
 ### Complex Game Objects — Modular Design, Object-Oriented Thinking, DOM Combined with JavaScript to Represent Game Entities
 Since modern browsers optimize CSS animations with hardware acceleration, they are often more efficient than animations implemented purely with JavaScript. Therefore, many of the visual effects in the game are handled by CSS, taking advantage of its separate rendering thread. This ensures that the game visuals remain smooth even when the JavaScript main thread is busy.
 In this structure:
 DOM elements serve as the visual presentation layer of the game.
 JavaScript logic represents the internal data and behavior of game entities.
-Together, they form a cohesive system for dynamic game presentation.
-Creation Phase:
-A JavaScript object is created to represent a game entity
-A corresponding DOM element is generated
-Custom attributes are assigned to the element
-The element is added to the DOM tree
+Together, they form a cohesive system for dynamic game presentation.  
+Creation Phase:  
+- A JavaScript object is created to represent a game entity
+- A corresponding DOM element is generated
+- Custom attributes are assigned to the element
+- The element is added to the DOM tree  
 Game Loop:
-JavaScript updates the object's state (e.g., position, HP)
-The updated state is synchronized to the DOM element (style.left, style.top, etc.)
-The browser re-renders the updated visuals
+- JavaScript updates the object's state (e.g., position, HP)
+- The updated state is synchronized to the DOM element (style.left, style.top, etc.)
+- The browser re-renders the updated visuals
 
 ## 5. Evaluation
 
