@@ -214,7 +214,7 @@ In two-player mode, both players must have zero health for the game to end.
 We divided the game into several distinct phases, including the introduction interface, the main gameplay, and the post-game summary. We first implemented the core part of the game—the aerial combat—then added an introduction screen and leaderboard before it, and a shop interface afterward to start the next round. This structure establishes a linear gameplay progression. During the development process, we encountered challenges both in programming itself and in managing various game elements, which we summarize into the following three categories:
 
 ### 4.2 Challenges
-### Real-Time Game State Changes — Main Loop and Timers
+### 4.2.1 Real-Time Game State Changes — Main Loop and Timers
 To ensure the proper functioning of our game, various entities need to update in real time. By adding timers to different game entities and creating a loop framework, we’ve achieved smooth game operation and level progression.
 Each subsystem in the game (movement, spawning, collision detection) is relatively independent and managed by multiple setInterval timers. These timers are configured with different intervals to control each subsystem individually. The gameStatus variable is used to uniformly control pause and resume functionality.
 Within the main loop framework, these subsystems are executed in sequence. The main loop system is the core that enables the game to run smoothly. Every iteration of the loop is responsible for: Reading player input (keystrokes); Updating the positions of all entities (player, enemies, bullets, etc.); Checking for collisions; Redrawing the screen. In startMovement, movementTimer = setInterva l(function() is set with a 30ms refresh interval. In startEnemySpawn, enemyTimer = setInterval is configured with an 1800ms interval. Setting timers for different times ensures that the game starts as a player and then generates enemy planes and enemy bullets
@@ -231,7 +231,7 @@ Within the main loop framework, these subsystems are executed in sequence. The m
 </p>
 
 
-### Collision Logic — Bounding Box Algorithm
+### 4.2.2 Collision Logic — Bounding Box Algorithm
 Interactions between various entities in the game (player, enemies, treasures, bullets) are handled through collision detection.
 The core logic of detecting a collision is to check whether the coordinates of two objects overlap.
 The game uses the Bounding Box algorithm for collision detection. All entities (player aircraft, enemies, bullets, treasures) are treated as rectangles. Scaling factors are applied to adjust the actual size of each model.
@@ -247,7 +247,7 @@ Enemies exploding
 The player gaining score or losing HP
 A screen shake effect to alert the player
 <p align="center">
-  <img src="images/4.jpg" width="90%"/>
+  <img src="images/4.jpg" width="80%"/>
 </p>
 
 <p align="center">
@@ -255,24 +255,26 @@ A screen shake effect to alert the player
 </p>
 
 <p align="center">
-  <img src="images/1_3.gif" width="95%"/>
+  <img src="images/1_3.gif" width="50%"/>
 </p>
 
-### Complex Game Objects — Modular Design, Object-Oriented Thinking, DOM Combined with JavaScript to Represent Game Entities
+### 4.2.3 Complex Game Objects — Modular Design, Object-Oriented Thinking, DOM Combined with JavaScript to Represent Game Entities
 Since modern browsers optimize CSS animations with hardware acceleration, they are often more efficient than animations implemented purely with JavaScript. Therefore, many of the visual effects in the game are handled by CSS, taking advantage of its separate rendering thread. This ensures that the game visuals remain smooth even when the JavaScript main thread is busy.
-In this structure:
-DOM elements serve as the visual presentation layer of the game.
-JavaScript logic represents the internal data and behavior of game entities.
-Together, they form a cohesive system for dynamic game presentation.  
-Creation Phase:  
-- A JavaScript object is created to represent a game entity
-- A corresponding DOM element is generated
-- Custom attributes are assigned to the element
+
+In this structure:  
+DOM elements serve as the visual presentation layer of the game. JavaScript logic represents the internal data and behavior of game entities. Together, they form a cohesive system for dynamic game presentation.
+
+### Creation Phase:
+- A JavaScript object is created to represent a game entity  
+- A corresponding DOM element is generated  
+- Custom attributes are assigned to the element  
 - The element is added to the DOM tree  
-Game Loop:
-- JavaScript updates the object's state (e.g., position, HP)
-- The updated state is synchronized to the DOM element (style.left, style.top, etc.)
+
+### Game Loop:
+- JavaScript updates the object's state (e.g., position, HP)  
+- The updated state is synchronized to the DOM element (style.left, style.top, etc.)  
 - The browser re-renders the updated visuals
+
 
 ## 5. Evaluation
 
