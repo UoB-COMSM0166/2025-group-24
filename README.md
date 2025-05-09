@@ -264,13 +264,13 @@ Since modern browsers optimize CSS animations with hardware acceleration, they a
 In this structure:  
 DOM elements serve as the visual presentation layer of the game. JavaScript logic represents the internal data and behavior of game entities. Together, they form a cohesive system for dynamic game presentation.
 
-### Creation Phase:
+#### Creation Phase:
 - A JavaScript object is created to represent a game entity  
 - A corresponding DOM element is generated  
 - Custom attributes are assigned to the element  
 - The element is added to the DOM tree  
 
-### Game Loop:
+#### Game Loop:
 - JavaScript updates the object's state (e.g., position, HP)  
 - The updated state is synchronized to the DOM element (style.left, style.top, etc.)  
 - The browser re-renders the updated visuals
@@ -379,6 +379,7 @@ As development iterations continued and project functionality expanded, testing 
 
 ## 6. Process 
 
+### 6.1 Development Workflow & Tools
 In this project, our group collaborated to develop a pixel style airplane war mini-game, incorporating roguelike elements and referencing the classic arcade game Space Invaders. In order to enhance the game experience, we introduced a two-player collaboration mode, a props random drop system, and a level upgrading mechanism to make the overall gameplay richer and more challenging. 
 
 In terms of teamwork, we adopted the **Agile Workflow** methodology for organization and management. The entire development cycle was divided into several short Sprints, each with a cycle of about two weeks. At the beginning of each sprint, we hold a Sprint Planning meeting** to define the main development goals and assign tasks for this phase.
@@ -399,15 +400,18 @@ During the Sprint, we held Scrum meetings every 2 to 3 days. Each Daily Stand-up
 
 Through high-frequency synchronized communication, we were able to identify technical difficulties or resource conflicts encountered during the development process in a timely manner and quickly adjust the development plan. For example, in a Daily Stand-up, we discovered a logical loophole in the scoring mechanism in time and quickly organized personnel to fix it, avoiding the impact on subsequent development.
 
+### 6.2 Team Roles & Contributions
+
 In terms of division of roles, we made a clear division based on members' specialties in order to improve the overall efficiency of collaboration. **Project Manager (Scrum Master)** is responsible for coordinating the project progress, organizing all kinds of meetings and monitoring the overall work status to ensure the smooth progress of the development process. The **Program Developer** is responsible for building the game framework, completing the implementation of core functions such as player control, enemy generation, level design and upgrade mechanism. The **System Testing** staff took on the responsibility of continuous testing and bug tracking to ensure the stability and reliability of each feature before it goes live. Meanwhile, the **Art Designer** was responsible for drawing pixel-style art resources such as airplanes, enemy planes, props, and interface buttons.
 
-| Name        | Contribution |
-|-------------|--------------|
-| Xinjie Gao  | 1            |
-| Zibin Liu   | 1            |
-| Xiaobo Ma   | 1            |
-| Kailin Fang | 1            |
-| Yanhao He   | 1            |
+| Name         | Role                          | Main Tasks                                                                                     | Contribution |
+|--------------|-------------------------------|-----------------------------------------------------------------------------------------------|--------------|
+| **Xinjie Gao**  | Report & User Analyst         | Wrote the final report, conducted qualitative and quantitative user analysis, sourced visuals | 1            |
+| **Zibin Liu**   | Scrum Master & Developer      | Facilitated project progress, planned sprints, participated in core development               | 1            |
+| **Xiaobo Ma**   | Project Tester                | Conducted unit/integration testing, black-box testing, code review, and improvement feedback  | 1            |
+| **Kailin Fang** | UI Designer                   | Designed and optimized UI, handled layout interactions, sourced and managed visual assets     | 1            |
+| **Yanhao He**   | Developer                     | Built ranking list and HP system, contributed to bug fixing                                   | 1            |
+
 
 Throughout the development process, we adopted an Agile workflow combined with the Kanban method, GitHub for version control, and efficient communication platforms such as Microsoft Teams and WeChat. This approach allowed us to maintain clear progress management and smooth team collaboration. Through continuous small-step iterations, regular feedback, and ongoing process improvements, we successfully advanced the project while significantly enhancing the team’s overall communication and collaboration capabilities.
 
