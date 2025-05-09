@@ -11,8 +11,11 @@
 
 ## Demo Video
 
-[![Watch the video](https://img.youtube.com/vi/edFYzpzQmzQ/0.jpg)](https://youtu.be/edFYzpzQmzQ)
-
+<p align="center">
+  <a href="https://youtu.be/edFYzpzQmzQ" target="_blank">
+    <img src="https://img.youtube.com/vi/edFYzpzQmzQ/0.jpg" alt="Watch the video" width="400">
+  </a>
+</p>
 
 ## Team
 
