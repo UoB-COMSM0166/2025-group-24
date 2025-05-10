@@ -7,9 +7,8 @@ function doGameOver() {
   clearInterval(meteoriteTimer); meteoriteTimer = null;
 
   gameStatus = false;
-  isDouble   = false;
   HaveEnteredGame = false;
-  
+
   // Reset left/right hand mode selection status
   leftModel = false;
   rightModel = false;
@@ -18,7 +17,7 @@ function doGameOver() {
 
   // Reset player health
   plane1Hp = 5;
-  totalHp =5;
+  totalHp = 5;
 
   // Clear game element containers
   heartsContainer.innerHTML = '';
@@ -33,7 +32,7 @@ function doGameOver() {
   myPlane.style.display = "none";
   myPlane2.style.display = "none";
 
-  // Reset keyboard control states (critical fix)
+  // Reset keyboard control states
   p1Up = p1Down = p1Left = p1Right = false;
   p2Up = p2Down = p2Left = p2Right = false;
 
@@ -41,10 +40,20 @@ function doGameOver() {
 
   // Add player score to leaderboard
   if (isDouble) {
-      addScore(`${playerName1} & ${playerName2}`, score, true); // Two-player mode
+    if (playerName1 && playerName2) {
+      // Use sorted names as unique key, and display input order
+      const displayName = `${playerName1} & ${playerName2}`;
+      const keyName = [playerName1, playerName2].sort().join(' & ');
+      addScore(displayName, score, true, keyName);
+    }
   } else {
-      addScore(playerName1, score, false); // Single-player mode
+    if (playerName1) {
+      addScore(playerName1, score, false);
+    }
   }
+
+  // Now it's safe to reset isDouble
+  isDouble = false;
 
   // Return to homepage
   homePage.style.display = "block";
@@ -53,39 +62,29 @@ function doGameOver() {
   // Reset game status variables
   score = 0;
   currentRound = 1;
-  maxRound     = 3;
+  maxRound = 3;
 
-  
-  /** 
- * Plane movement speed (may be modified by Buffs)
- */
-  player1SpeedFactor=1.0;
-  player2SpeedFactor=1.0
-
-
-// Enemy damage factors: higher means enemies deal more damage
-enemyDamageFactor = 1.0;
-enemyBulletFactor = 1.0;
-
-// Enemy speed factors
+  // Reset multipliers
+  player1SpeedFactor = 1.0;
+  player2SpeedFactor = 1.0;
+  enemyDamageFactor = 1.0;
+  enemyBulletFactor = 1.0;
   enemySpeedFactor = 1.0;
   bulletSpeedFactor = 1.0;
+  meteoriteSpeedFactor = 1.0;
 
-meteoriteSpeedFactor=1.0;
+  // Clear game data arrays
+  window.bullets = [];
+  window.enemys = [];
+  window.enemyBullets = [];
+  window.meteoriteArray = [];
+  window.treasures = [];
 
-
-
-// Player bullets / enemy array / enemy bullets / meteorite array
-window.bullets      = [];
-window.enemys       = [];
-window.enemyBullets = [];
-window.meteoriteArray = [];
-window.treasures = [];
-
- /** DOM variables (assigned in onload), and shield states */
-window.plane1ShieldActive=false;
-window.plane2ShieldActive=false;
+  // Reset shield states
+  window.plane1ShieldActive = false;
+  window.plane2ShieldActive = false;
 }
+
 
 
 

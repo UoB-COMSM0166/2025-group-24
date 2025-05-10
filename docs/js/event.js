@@ -106,16 +106,18 @@ document.getElementById("backBtn2").addEventListener("click", function() {
 
   
   doubleBtn.onclick=function(){
-    isDouble=true;
-    nameInput.value="";
-    nameInput1.value="";
-    nameInput2.value="";
-    errMsg1.innerText="";
-    errMsg2.innerText="";
-    errMsg3.innerText="";
-    selectMode.style.display="none";
-    enterName2.style.display="block";
-  };
+  isDouble=true;
+  playerName1 = ""; 
+  playerName2 = ""; 
+  nameInput.value="";
+  nameInput1.value="";
+  nameInput2.value="";
+  errMsg1.innerText="";
+  errMsg2.innerText="";
+  errMsg3.innerText="";
+  selectMode.style.display="none";
+  enterName2.style.display="block";
+};
 
   // Double-player mode start button
 doubleEnter.onclick=function(){

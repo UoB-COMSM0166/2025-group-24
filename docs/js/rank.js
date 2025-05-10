@@ -3,25 +3,27 @@ let singlePlayerLeaderboard = []; // Single-player leaderboard
 let dualPlayerLeaderboard = [];   // Two-player leaderboard
 
 // Add player score
-function addScore(name, score, isDouble) {
+function addScore(displayName, score, isDouble, keyName = null) {
   const leaderboard = isDouble ? dualPlayerLeaderboard : singlePlayerLeaderboard;
 
-  // Check if the player already exists
-  const existingPlayer = leaderboard.find((player) => player.name === name);
+  let nameKey = isDouble ? keyName : displayName;
+
+  // Search for existing records
+  const existingPlayer = leaderboard.find((player) => player.key === nameKey);
 
   if (existingPlayer) {
-    // If exists, update with higher score
     if (score > existingPlayer.score) {
       existingPlayer.score = score;
+      existingPlayer.name = displayName; // Update the display name as the current input order
     }
   } else {
-    // If not exists, add new player
-    leaderboard.push({ name, score });
+    leaderboard.push({ name: displayName, score, key: nameKey });
   }
 
-  sortLeaderboard(leaderboard); // Sort the leaderboard
-  saveLeaderboard(); // Save to localStorage
+  sortLeaderboard(leaderboard);
+  saveLeaderboard();
 }
+
 
 // Sort the leaderboard
 function sortLeaderboard(leaderboard) {
