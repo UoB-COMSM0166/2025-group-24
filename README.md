@@ -208,7 +208,7 @@ In earlier versions, the system included a bgMove module for visual background m
 
 ### 3.3 Behavioural diagrams
 To illustrate the runtime interaction among game components, we created a UML Sequence Diagram representing a full gameplay loop in both single and two-player modes.
-![Sequence Diagram](images/sequence.png)
+![Game Sequence Diagram](images/sequence.svg)
 
 At the start of the game, the GameFlowManager initiates plane generation via the Mode component. In single-player mode, a single plane is created; in two-player mode, two planes are initialized.
 
