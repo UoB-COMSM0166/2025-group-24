@@ -207,18 +207,24 @@ In earlier versions, the system included a bgMove module for visual background m
 
 
 ### 3.3 Behavioural diagrams
-To illustrate the runtime interaction among game components, we created a UML Sequence Diagram representing a full gameplay loop in both single and two-player modes.
+
+In order to show more clearly the dynamic interaction process between various modules in this game system, we drew a complete UML Sequence Diagram, covering the behavioural flow between the player's actions, the game's internal logic processing, and the leaderboards and other modules.
+
 ![Game Sequence Diagram](images/sequence.svg)
 
-At the start of the game, the GameFlowManager initiates plane generation via the Mode component. In single-player mode, a single plane is created; in two-player mode, two planes are initialized.
+The key behaviours shown in the diagram include:
+- Attack and Buff Pickup Flow
+The player fires a bullet by pressing the fire button (F for Player1, L for Player2), which moves upwards. If it hits an enemy aircraft, the enemy will lose blood and may be destroyed. When destroyed, the enemy may drop a treasure (buff), which the player picks up and receives a random effect such as ‘Shield’, ‘Speed Boost’, ‘Mist’, etc. It lasts for 5 seconds.
 
-Once gameplay begins, players can fire bullets, triggering the Bullet system to move them and invoke the Collision module to detect impacts with enemies or buffs. Enemies may drop power-ups (Buff) when destroyed, which in turn modify various game states:
-- Bullet speed-up and player shield are activated when players collect power-ups.
-- Enemy speed-up and damage increase occur based on buffs or game difficulty scaling.
-- The Blood system tracks health, and damage is applied upon collision.
-- Game-over conditions are handled differently:
-In single-player mode, the game ends when the player's health drops below zero.
-In two-player mode, both players must have zero health for the game to end.
+- Injury and Game Over Determination
+The enemy will periodically fire bullets at the player. If the player is not protected by a shield and is hit by a bullet, the player's Life Points will be deducted. If the player's life value reaches zero (in two-player mode, it is shared), the player will be triggered to Game Over and jump to the end screen.
+
+- Two-player Operation and Synchronisation Mechanism
+Player1 uses WASD to control, Player2 uses arrow keys to control, the system updates the position of the two planes and the corresponding shield position respectively. In two-player mode, both players share the total blood pool.
+
+- Pause / Resume and Leaderboard Upload
+Players can pause the game by pressing the space bar. During the pause period, all bullets, enemies and buffs will stop moving and the pause screen will be displayed. Press space again to resume the game. When the game is finished, the system will upload the score to the corresponding leaderboard (Single / Double) and display the ranking interface.
+
 
 
 ## 4. Implementation
