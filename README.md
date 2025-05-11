@@ -213,16 +213,16 @@ In order to show more clearly the dynamic interaction process between various mo
 ![Game Sequence Diagram](images/sequence.svg)
 
 The key behaviours shown in the diagram include:
-- Attack and Buff Pickup Flow
+- Attack and Buff Pickup Flow  
 The player fires a bullet by pressing the fire button (F for Player1, L for Player2), which moves upwards. If it hits an enemy aircraft, the enemy will lose blood and may be destroyed. When destroyed, the enemy may drop a treasure (buff), which the player picks up and receives a random effect such as ‘Shield’, ‘Speed Boost’, ‘Mist’, etc. It lasts for 5 seconds.
 
-- Injury and Game Over Determination
+- Injury and Game Over Determination  
 The enemy will periodically fire bullets at the player. If the player is not protected by a shield and is hit by a bullet, the player's Life Points will be deducted. If the player's life value reaches zero (in two-player mode, it is shared), the player will be triggered to Game Over and jump to the end screen.
 
-- Two-player Operation and Synchronisation Mechanism
+- Two-player Operation and Synchronisation Mechanism  
 Player1 uses WASD to control, Player2 uses arrow keys to control, the system updates the position of the two planes and the corresponding shield position respectively. In two-player mode, both players share the total blood pool.
 
-- Pause / Resume and Leaderboard Upload
+- Pause / Resume and Leaderboard Upload  
 Players can pause the game by pressing the space bar. During the pause period, all bullets, enemies and buffs will stop moving and the pause screen will be displayed. Press space again to resume the game. When the game is finished, the system will upload the score to the corresponding leaderboard (Single / Double) and display the ranking interface.
 
 
